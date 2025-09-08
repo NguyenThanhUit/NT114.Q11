@@ -20,6 +20,5 @@ for svc in "${services[@]}"; do
 
   echo "🚀 Pushing: nguyenthanh91ndu/nhom6-$svc:latest"
   docker push nguyenthanh91ndu/nhom6-$svc:latest
-  echo "✅ Done pushing $svc"
-  echo "---------------------------------------------"
+
 done
