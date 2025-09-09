@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MongoDB.Driver;
 using MongoDB.Entities;
+using Polly;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,11 +24,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 var app = builder.Build();
 
 
-await DB.InitAsync("UserDb", MongoClientSettings.FromConnectionString(
-    builder.Configuration.GetConnectionString("UserDbConnection")
-));
 
+//Dung voi Docker
+// await DB.InitAsync("UserDb", MongoClientSettings.FromConnectionString(
+//     builder.Configuration.GetConnectionString("UserDbConnection")
+// ));
 
+//Dung voi k8s
+await Policy.Handle<TimeoutException>()
+    .WaitAndRetryAsync(5, retryAttempt => TimeSpan.FromSeconds(10))
+    .ExecuteAndCaptureAsync(async () =>
+    {
+        await DB.InitAsync("UserDb", MongoClientSettings.FromConnectionString(
+            builder.Configuration.GetConnectionString("UserDbConnection")
+        ));
+    });
 
 app.UseAuthentication();
 app.UseAuthorization();

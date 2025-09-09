@@ -22,39 +22,31 @@ public interface IEmailSender
 // EmailSender có hàm SendEmailAsync gửi email chứa OTP
 public class EmailSender : IEmailSender
 {
-    public EmailConfig _emailconfig = new EmailConfig
-    {
-        Name = "E-Shop",
-        Email = "nghoangphuc1201@gmail.com",               // Nhập trực tiếp email người gửi
-        Host = "smtp.gmail.com",
-        Port = 587,
-        Username = "nghoangphuc1201@gmail.com",            // Nhập trực tiếp username
-        Password = "oxkmuqmvkpmknzsx",                     // Nhập trực tiếp App Password
-        EnableSsl = true
-    };
+    private readonly EmailConfig _emailConfig;
 
-    // Hàm SendEmailAsync để gửi email chứa mã OTP.
+    public EmailSender(IOptions<EmailConfig> emailConfig)
+    {
+        _emailConfig = emailConfig.Value;
+    }
+
     public async Task SendEmail(string email, string subject, string message)
     {
-        // Tạo email
         MailMessage mail = new MailMessage
         {
-            From = new MailAddress(_emailconfig.Email, _emailconfig.Name),
+            From = new MailAddress(_emailConfig.Email, _emailConfig.Name),
             Subject = subject,
             Body = message,
             IsBodyHtml = true
         };
         mail.To.Add(email);
 
-        // Dùng giao thức SMTP để gửi email
-        using SmtpClient _sender = new SmtpClient(_emailconfig.Host, _emailconfig.Port)
+        using SmtpClient _sender = new SmtpClient(_emailConfig.Host, _emailConfig.Port)
         {
-            Credentials = new System.Net.NetworkCredential(_emailconfig.Username, _emailconfig.Password),
-            EnableSsl = _emailconfig.EnableSsl,
+            Credentials = new System.Net.NetworkCredential(_emailConfig.Username, _emailConfig.Password),
+            EnableSsl = _emailConfig.EnableSsl,
             Timeout = 3000
         };
 
-        // Gửi email
         await _sender.SendMailAsync(mail);
     }
 }

@@ -3,6 +3,7 @@ using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MongoDB.Driver;
 using MongoDB.Entities;
+using Polly;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -65,6 +66,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-await DB.InitAsync("BuyingDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("BuyingDbConnection")));
+
+await Policy.Handle<TimeoutException>()
+    .WaitAndRetryAsync(5, retryAttempt => TimeSpan.FromSeconds(10))
+    .ExecuteAndCaptureAsync(async () =>
+    {
+        // Khởi tạo MongoDB.Entities
+        await DB.InitAsync("BuyingDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("BuyingDbConnection")));
+
+    });
+
+// await DB.InitAsync("BuyingDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("BuyingDbConnection")));
 
 app.Run();

@@ -1,9 +1,12 @@
 using AuctionService;
 using AuctionService.Data;
-using Contracts;
+
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
+using Polly;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,13 +77,21 @@ builder.WebHost.UseUrls("http://*:80");
 
 app.MapControllers();
 
-try
-{
-    DBInitializer.InitDb(app);
-}
-catch (Exception e)
-{
-    Console.WriteLine(e.Message);
-}
+//Retry dung trong k8s
+var retryPolicy = Policy
+    .Handle<NpgsqlException>()
+    .WaitAndRetry(5, retryAttempt => TimeSpan.FromSeconds(5));
+retryPolicy.ExecuteAndCapture(() => DBInitializer.InitDb(app));
+
+
+// Ket noi den DB
+// try
+// {
+//     DBInitializer.InitDb(app);
+// }
+// catch (Exception e)
+// {
+//     Console.WriteLine(e.Message);
+// }
 
 app.Run();

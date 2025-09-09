@@ -2,6 +2,7 @@ using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MongoDB.Driver;
 using MongoDB.Entities;
+using Polly;
 using VNPAY.NET;
 using WalletService;
 using WalletService.Consumers;
@@ -48,8 +49,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // Sau khi cấu hình xong services, mới được gọi Build()
 var app = builder.Build();
 
-// Khởi tạo MongoDB.Entities
-await DB.InitAsync("DepositDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("DepositDbConnection")));
+await Policy.Handle<TimeoutException>()
+    .WaitAndRetryAsync(5, retryAttempt => TimeSpan.FromSeconds(10))
+    .ExecuteAndCaptureAsync(async () =>
+    {
+        // Khởi tạo MongoDB.Entities
+        await DB.InitAsync("DepositDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("DepositDbConnection")));
+
+    });
+
+
+
+// // Khởi tạo MongoDB.Entities
+// await DB.InitAsync("DepositDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("DepositDbConnection")));
 
 app.UseAuthentication();
 app.UseAuthorization();

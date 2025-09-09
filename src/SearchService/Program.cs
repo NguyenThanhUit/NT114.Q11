@@ -49,14 +49,21 @@ app.MapControllers();
 
 app.Lifetime.ApplicationStarted.Register(async () =>
 {
-    try
-    {
-        await DbInitializers.InitDb(app);
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(e.Message);
-    }
+    //Dung cho k8s
+    await Policy.Handle<TimeoutException>()
+        .WaitAndRetryAsync(5, retryAttempt => TimeSpan.FromSeconds(10))
+        .ExecuteAndCaptureAsync(async () => await DbInitializers.InitDb(app));
+
+
+    //Dung cho Docker
+    // try
+    // {
+    //     await DbInitializers.InitDb(app);
+    // }
+    // catch (Exception e)
+    // {
+    //     Console.WriteLine(e.Message);
+    // }
 });
 app.Run();
 

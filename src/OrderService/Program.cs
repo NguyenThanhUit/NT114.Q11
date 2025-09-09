@@ -4,6 +4,8 @@ using AutoMapper;
 using MassTransit;
 using OrderService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Polly;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -65,15 +67,24 @@ app.UseAuthentication();  // Đặt trước Authorization
 app.UseAuthorization();
 app.MapControllers();
 
+
+
+var retryPolicy = Policy
+    .Handle<NpgsqlException>()
+    .WaitAndRetry(5, retryAttempt => TimeSpan.FromSeconds(5));
+retryPolicy.ExecuteAndCapture(() => DbInitializer.InitDb(app));
+
+
+
 // Khởi tạo database
-try
-{
-    DbInitializer.InitDb(app);
-}
-catch (Exception e)
-{
-    Console.WriteLine($"Database Initialization Error: {e}");
-}
+// try
+// {
+//     DbInitializer.InitDb(app);
+// }
+// catch (Exception e)
+// {
+//     Console.WriteLine($"Database Initialization Error: {e}");
+// }
 
 // Chạy ứng dụng
 app.Run();

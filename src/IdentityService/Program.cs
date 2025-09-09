@@ -1,6 +1,8 @@
 ﻿using DotNetEnv;
 using Duende.IdentityServer;
 using IdentityService;
+using Npgsql;
+using Polly;
 using Serilog;
 // Env.Load(".env");
 
@@ -9,6 +11,7 @@ Log.Logger = new LoggerConfiguration()
     .CreateBootstrapLogger();
 
 Log.Information("Starting up");
+
 
 try
 {
@@ -28,6 +31,12 @@ try
             options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
             options.Cookie.HttpOnly = true;
         });
+
+
+    //env cho Email
+    builder.Services.Configure<EmailConfig>(
+    builder.Configuration.GetSection("EmailConfig"));
+    builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 
     builder.Services.AddScoped<ISMSSender, SMSSender>();
@@ -54,7 +63,17 @@ try
         .ConfigurePipeline();
 
     app.MapControllers();
-    SeedData.EnsureSeedData(app);
+
+
+    var retryPolicy = Policy
+    .Handle<NpgsqlException>()
+    .WaitAndRetry(5, retryAttempt => TimeSpan.FromSeconds(5));
+    retryPolicy.ExecuteAndCapture(() => SeedData.EnsureSeedData(app));
+
+    //Dung cho Docker
+    // SeedData.EnsureSeedData(app);
+
+
     app.Run();
 }
 catch (Exception ex) when (ex is not HostAbortedException)
