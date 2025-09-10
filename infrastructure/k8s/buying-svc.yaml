@@ -2,14 +2,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auction-svc
+  name: buyings-svc
   namespace: default
   labels:
-    app: auction-svc
+    app: buyings-svc
 spec:
   selector:
     matchLabels:
-      app: auction-svc
+      app: buyings-svc
   replicas: 1
   strategy:
     rollingUpdate:
@@ -19,37 +19,33 @@ spec:
   template:
     metadata:
       labels:
-        app: auction-svc
+        app: buyings-svc
     spec:
       containers:
-        - name: auction-svc
-          image: nguyenthanh/auctions-svc
+        - name: buyings-svc
+          image: nguyenthanh/buyings-svc
           imagePullPolicy: Never
           envFrom:
             - configMapRef:
-                name: auction-svc-config
+                name: buyings-svc-config
           ports:
             - containerPort: 80
               name: web
-            - containerPort: 7777
-              name: grpc
+
 ---
 # https://kubernetes.io/docs/concepts/services-networking/service/
 apiVersion: v1
 kind: Service
 metadata:
-  name: auction-clusterip
+  name: buyings-clusterip
   namespace: default
 spec:
   selector:
-    app: auction-svc #tro dung container
+    app: buyings-svc #tro dung container
   type: ClusterIP
   ports:
     - port: 80
       targetPort: 80
       name: web
-    - port: 7777
-      targetPort: 7777
-      name: grpc
 ---
 

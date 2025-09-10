@@ -1,0 +1,44 @@
+# https://kubernetes.io/docs/concepts/services-networking/ingress/
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-svc
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - app.nguyenth4nh.xyz
+        - api.nguyenth4nh.xyz
+        - id.nguyenth4nh.xyz
+      secretName: nguyenth4nh-app-tls
+  rules:
+    - host: app.nguyenth4nh.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: webapp-clusterip
+                port:
+                  number: 3000
+    - host: api.nguyenth4nh.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gateway-clusterip
+                port:
+                  number: 80
+    - host: id.nguyenth4nh.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: identity-clusterip
+                port:
+                  number: 80
