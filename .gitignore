@@ -1,4 +1,4 @@
 node_modules/
 obj/
 *.env
-infras/secret/prodSecret.yaml
+infras/secret/*
