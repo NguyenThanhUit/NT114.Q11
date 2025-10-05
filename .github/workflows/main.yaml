@@ -3,7 +3,7 @@ name: specializedProjects
 on: 
   workflow_dispatch:
     inputs:
-      force_rebuid:
+      force_rebuild:
         description: "Force rebuild all service"
         required: false
         default: false
