@@ -2,6 +2,11 @@ name: specializedProjects
 
 on: 
   workflow_dispatch:
+    inputs:
+      force_rebuid:
+        description: "Force rebuild all service"
+        required: false
+        default: false
   push:
     branches: ["main"]
   pull_request:
@@ -88,13 +93,17 @@ jobs:
       
       - name: Check for change
         run: |
-          if git diff --quiet HEAD^ HEAD -- ${{ matrix.service.path }}; then
+          if [[ "${{ github.event.inputs.force_rebuild }}" == "true" ]]; then
+            echo "Force rebuild enabled. Proceeding with build."
+            echo "continue=true" >> $GITHUB_ENV
+          elif git diff --quiet HEAD^ HEAD -- ${{ matrix.service.path }}; then
             echo "No change in ${{ matrix.service.path }}. Skipping build"
             echo "continue=false" >> $GITHUB_ENV
           else
             echo "Changes detected in ${{ matrix.service.path }}. Proceeding with build"
             echo "continue=true" >> $GITHUB_ENV
           fi
+
 
       - name: Set up Docker buildx
         if: env.continue == 'true'
