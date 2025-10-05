@@ -34,9 +34,16 @@ try
 
 
     //env cho Email
-    builder.Services.Configure<EmailConfig>(
-    builder.Configuration.GetSection("EmailConfig"));
+    builder.Services.Configure<EmailConfig>(options =>
+    {
+        //override de dung trong k8s
+        builder.Configuration.GetSection("EmailConfig").Bind(options);
+        options.Email = Environment.GetEnvironmentVariable("EmailConfig__Email") ?? options.Email;
+        options.Username = Environment.GetEnvironmentVariable("EmailConfig__Username") ?? options.Username;
+        options.Password = Environment.GetEnvironmentVariable("EmailConfig__Password") ?? options.Password;
+    });
     builder.Services.AddTransient<IEmailSender, EmailSender>();
+
 
 
     builder.Services.AddScoped<ISMSSender, SMSSender>();
