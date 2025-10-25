@@ -19,7 +19,6 @@ spec:
       containers:
         - name: gateway-svc
           image: nguyenthanh91ndu1819/gateway-svc
-          imagePullPolicy: Never
           envFrom:
             - configMapRef:
                 name: gateway-svc-config
