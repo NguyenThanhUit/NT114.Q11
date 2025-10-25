@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: user-svc
-  namespace: default
+  namespace: backend
   labels:
     app: user-svc
 spec:

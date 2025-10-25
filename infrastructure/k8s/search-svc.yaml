@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: search-svc
-  namespace: default
+  namespace: backend
   labels:
     app: search-svc
 spec:

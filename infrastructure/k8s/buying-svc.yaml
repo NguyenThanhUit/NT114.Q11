@@ -23,8 +23,23 @@ spec:
     spec:
       containers:
         - name: buyings-svc
-          image: nguyenthanh/buyings-svc
-          imagePullPolicy: Never
+          image: nguyenthanh91ndu1819/buyings-svc
+          env: 
+            - name: ConnectionStrings__BuyingDbConnection
+              valueFrom:
+                secretKeyRef:
+                  name: buying-secret
+                  key: connString 
+            - name: RabbitMQ__Username
+              valueFrom:
+                secretKeyRef: 
+                  name: rabbit-secret
+                  key: username 
+            - name: RabbitMQ__Password
+              valueFrom:
+                secretKeyRef:
+                  name: rabbit-secret
+                  key: password
           envFrom:
             - configMapRef:
                 name: buyings-svc-config
@@ -48,4 +63,3 @@ spec:
       targetPort: 80
       name: web
 ---
-

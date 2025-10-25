@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: gateway-svc
-          image: nguyenthanh/gateway-svc
+          image: nguyenthanh91ndu1819/gateway-svc
           imagePullPolicy: Never
           envFrom:
             - configMapRef:
@@ -41,4 +41,3 @@ spec:
     - port: 80
       targetPort: 80
 ---
-

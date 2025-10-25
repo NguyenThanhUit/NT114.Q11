@@ -23,8 +23,23 @@ spec:
     spec:
       containers:
         - name: bid-svc
-          image: nguyenthanh/bid-svc
-          imagePullPolicy: Never
+          image: nguyenthanh91ndu1819/bid-svc
+          env:
+            - name: ConnectionStrings__BidDbConnection
+              valueFrom:
+                secretKeyRef:
+                  name: bid-secret
+                  key: connString 
+            - name: RabbitMQ__Username
+              valueFrom:
+                secretKeyRef: 
+                  name: rabbit-secret
+                  key: username 
+            - name: RabbitMQ__Password
+              valueFrom:
+                secretKeyRef:
+                  name: rabbit-secret
+                  key: password
           envFrom:
             - configMapRef:
                 name: bid-svc-config
@@ -48,4 +63,3 @@ spec:
       targetPort: 80
       name: web
 ---
-

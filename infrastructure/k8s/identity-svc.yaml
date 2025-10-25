@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: identity-svc
-  namespace: default
+  namespace: backend
   labels:
     app: identity-svc
 spec:
