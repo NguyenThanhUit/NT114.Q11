@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: order-svc-config
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
   RabbitMq__Host: rabbit-clusterip #trung voi cluster ip cua rabbit nham ket noi
@@ -11,6 +12,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: buyings-svc-config
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
   RabbitMq__Host: rabbit-clusterip #trung voi cluster ip cua rabbit nham ket noi
@@ -20,6 +22,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: deposits-svc-config
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
   RabbitMq__Host: rabbit-clusterip #trung voi cluster ip cua rabbit nham ket noi
@@ -29,6 +32,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: user-svc-config
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
   RabbitMq__Host: rabbit-clusterip #trung voi cluster ip cua rabbit nham ket noi
@@ -39,6 +43,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: auction-svc-config
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80; http://+:7777
   RabbitMq__Host: rabbit-clusterip #trung voi cluster ip cua rabbit nham ket noi
@@ -55,6 +60,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: search-svc-config
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
   RabbitMq__Host: rabbit-clusterip #trung voi cluster ip cua rabbit nham ket noi
@@ -66,7 +72,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: bid-svc-config
-  namespace: default
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
   RabbitMq__Host: rabbit-clusterip #trung voi cluster ip cua rabbit nham ket noi
@@ -78,7 +84,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: notify-svc-config
-  namespace: default
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
   RabbitMq__Host: rabbit-clusterip #trung voi cluster ip cua rabbit nham ket noi
@@ -88,10 +94,10 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: gateway-svc-config
-  namespace: default
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
-  ASPNETCORE_ENVIRONMENT: "K8s"
+  ASPNETCORE_ENVIRONMENT: "K8S"
   ClientApp: https://app.nguyenth4nh.xyz
   IdentityServiceUrl: http://identity-clusterip #Tai vi thieu moi truong cho k8s chi co moi truong cho Docker
   #Nho build lai gateway-svc trong docker truoc khi build k8s
@@ -101,23 +107,26 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: identity-svc-config
-  namespace: default
+  namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
   IssuerUri: https://id.nguyenth4nh.xyz
   ClientApp: https://app.nguyenth4nh.xyz
 ---
 # https://kubernetes.io/docs/concepts/configuration/configmap/
-kind: ConfigMap
 apiVersion: v1
+kind: ConfigMap
 metadata:
   name: webapp-svc-config
-  namespace: default
+  namespace: frontend
 data:
   ID_URL: https://id.nguyenth4nh.xyz
   AUTH_URL: https://app.nguyenth4nh.xyz
   NOTIFY_URL: http://api.nguyenth4nh.xyz/notifications
-  AUTH_URL_INTERNAL: http://webapp-clusterip:3000
-  API_URL: http://gateway-clusterip/
-  ID_URL_INTERNAL: http://identity-clusterip
----
+  AUTH_URL_INTERNAL: http://webapp-clusterip.frontend.svc.cluster.local:3000
+  API_URL: http://gateway-clusterip.backend.svc.cluster.local/
+  ID_URL_INTERNAL: http://identity-clusterip.backend.svc.cluster.local
+
+
+
+

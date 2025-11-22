@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gateway-svc
-  namespace: default
+  namespace: backend
   labels:
     app: gateway-svc
 spec:
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: gateway-svc
-          image: nguyenthanh91ndu1819/gateway-svc
+          image: nguyenthanh/gateway-svc
           imagePullPolicy: Never
           envFrom:
             - configMapRef:
@@ -32,7 +32,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: gateway-clusterip
-  namespace: default
+  namespace: backend
 spec:
   selector:
     app: gateway-svc #tro dung container

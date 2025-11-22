@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: identity-vs
+  namespace: backend
+spec:
+  hosts:
+    - id.nguyenth4nh.xyz
+  gateways:
+    - istio-system/main-gateway
+  http:
+    - route:
+        - destination:
+            host: identity-clusterip
+            port:
+              number: 80

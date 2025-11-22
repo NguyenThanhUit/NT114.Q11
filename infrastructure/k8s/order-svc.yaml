@@ -21,10 +21,39 @@ spec:
       labels:
         app: order-svc
     spec:
+      initContainers:
+      - name: wait-for-postgres
+        image: busybox:1.36
+        command:
+          - sh
+          - -c
+          - |
+            echo "Waiting for Postgres..."
+            until nc -z postgres-clusterip.backend.svc.cluster.local 5432; do
+              echo "Postgres not ready, sleeping 5s..."
+              sleep 5
+            done
+            echo "Postgres is ready!"
       containers:
         - name: order-svc
           image: nguyenthanh/order-svc
           imagePullPolicy: Never
+          env: 
+            - name: ConnectionStrings__DefaultConnection
+              valueFrom:
+                secretKeyRef:
+                  name: order-secret
+                  key: connString
+            - name: RabbitMQ__Username
+              valueFrom:
+                secretKeyRef: 
+                  name: rabbit-secret
+                  key: username 
+            - name: RabbitMQ__Password
+              valueFrom:
+                secretKeyRef:
+                  name: rabbit-secret
+                  key: password
           envFrom:
             - configMapRef:
                 name: order-svc-config
@@ -38,7 +67,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: order-clusterip
-  namespace: default
+  namespace: backend
 spec:
   selector:
     app: order-svc #tro dung container
@@ -48,4 +77,3 @@ spec:
       targetPort: 80
       name: web
 ---
-

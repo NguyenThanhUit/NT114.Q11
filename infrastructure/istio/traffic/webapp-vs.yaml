@@ -1,0 +1,60 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: webapp-vs
+  namespace: frontend
+spec:
+  hosts:
+    - app.nguyenth4nh.xyz
+  gateways:
+    - istio-system/main-gateway
+  http:
+    - match:
+        - uri:
+            prefix: "/products"
+      route:
+        - destination:
+            host: webapp-clusterip
+            port:
+              number: 3000
+
+    - match:
+        - uri:
+            prefix: "/users"
+      route:
+        - destination:
+            host: webapp-clusterip
+            port:
+              number: 3000
+
+    - match:
+        - uri:
+            prefix: "/auctions"
+      route:
+        - destination:
+            host: webapp-clusterip
+            port:
+              number: 3000
+
+    - match:
+        - uri:
+            prefix: "/trending"
+      route:
+        - destination:
+            host: webapp-clusterip
+            port:
+              number: 3000
+
+    - match:
+        - uri:
+            prefix: "/blog"
+      route:
+        - destination:
+            host: webapp-clusterip
+            port:
+              number: 3000
+    - route:
+        - destination:
+            host: webapp-clusterip
+            port:
+              number: 3000

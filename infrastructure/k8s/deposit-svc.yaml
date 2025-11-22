@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deposits-svc
-  namespace: default
+  namespace: backend
   labels:
     app: deposits-svc
 spec:
@@ -23,7 +23,8 @@ spec:
     spec:
       containers:
         - name: deposits-svc
-          image: nguyenthanh91ndu1819/deposits-svc
+          image: nguyenthanh/deposits-svc
+          imagePullPolicy: Never
           env: 
             - name: ConnectionStrings__DepositDbConnection
               valueFrom:
@@ -53,7 +54,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: deposits-clusterip
-  namespace: default
+  namespace: backend
 spec:
   selector:
     app: deposits-svc #tro dung container

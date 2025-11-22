@@ -78,10 +78,27 @@ builder.WebHost.UseUrls("http://*:80");
 app.MapControllers();
 
 //Retry dung trong k8s
-var retryPolicy = Policy
-    .Handle<NpgsqlException>()
-    .WaitAndRetry(5, retryAttempt => TimeSpan.FromSeconds(5));
-retryPolicy.ExecuteAndCapture(() => DBInitializer.InitDb(app));
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AuctionDbContext>();
+
+    var retryPolicy = Policy
+        .Handle<Exception>()
+        .WaitAndRetry(
+            retryCount: 10,
+            sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(5),
+            onRetry: (exception, timeSpan, retry, ctx) =>
+            {
+                Console.WriteLine($"DB not ready yet, retry {retry}: {exception.Message}");
+            }
+        );
+
+    retryPolicy.Execute(() =>
+    {
+        context.Database.Migrate();
+        DBInitializer.SeedData(context);
+    });
+}
 
 
 // Ket noi den DB

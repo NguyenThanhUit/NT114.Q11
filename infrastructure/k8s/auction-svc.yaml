@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: auction-svc
-  namespace: default
+  namespace: backend
   labels:
     app: auction-svc
 spec:
@@ -21,9 +21,23 @@ spec:
       labels:
         app: auction-svc
     spec:
+      initContainers:
+      - name: wait-for-postgres
+        image: busybox:1.36
+        command:
+          - sh
+          - -c
+          - |
+            echo "Waiting for Postgres..."
+            until nc -z postgres-clusterip.backend.svc.cluster.local 5432; do
+              echo "Postgres not ready, sleeping 5s..."
+              sleep 5
+            done
+            echo "Postgres is ready!"
       containers:
         - name: auction-svc
-          image: nguyenthanh91ndu1819/auctions-svc
+          image: nguyenthanh/auctions-svc
+          imagePullPolicy: Never
           env:
             - name: ConnectionStrings__DefaultConnection
               valueFrom:
@@ -54,7 +68,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: auction-clusterip
-  namespace: default
+  namespace: backend
 spec:
   selector:
     app: auction-svc #tro dung container

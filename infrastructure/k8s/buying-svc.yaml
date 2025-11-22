@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: buyings-svc
-  namespace: default
+  namespace: backend
   labels:
     app: buyings-svc
 spec:
@@ -23,7 +23,8 @@ spec:
     spec:
       containers:
         - name: buyings-svc
-          image: nguyenthanh91ndu1819/buyings-svc
+          image: nguyenthanh/buyings-svc
+          imagePullPolicy: Never
           env: 
             - name: ConnectionStrings__BuyingDbConnection
               valueFrom:
@@ -53,7 +54,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: buyings-clusterip
-  namespace: default
+  namespace: backend
 spec:
   selector:
     app: buyings-svc #tro dung container

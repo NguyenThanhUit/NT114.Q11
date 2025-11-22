@@ -58,6 +58,7 @@ export default function Listings() {
     useEffect(() => {
         setLoading(true);
         setError(null);
+          
 
         getData(url)
             .then(data => {

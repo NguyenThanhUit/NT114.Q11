@@ -20,6 +20,17 @@ spec:
         - name: notify-svc
           image: nguyenthanh/notify-svc
           imagePullPolicy: Never
+          env: 
+            - name: RabbitMQ__Username
+              valueFrom:
+                secretKeyRef: 
+                  name: rabbit-secret
+                  key: username 
+            - name: RabbitMQ__Password
+              valueFrom:
+                secretKeyRef:
+                  name: rabbit-secret
+                  key: password
           envFrom:
             - configMapRef:
                 name: notify-svc-config
@@ -32,7 +43,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: notify-clusterip
-  namespace: default
+  namespace: backend
 spec:
   selector:
     app: notify-svc #tro dung container
@@ -41,4 +52,3 @@ spec:
     - port: 80
       targetPort: 80
 ---
-

@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bid-svc
-  namespace: default
+  namespace: backend
   labels:
     app: bid-svc
 spec:
@@ -23,7 +23,8 @@ spec:
     spec:
       containers:
         - name: bid-svc
-          image: nguyenthanh91ndu1819/bid-svc
+          image: nguyenthanh/bid-svc
+          imagePullPolicy: Never
           env:
             - name: ConnectionStrings__BidDbConnection
               valueFrom:
@@ -53,7 +54,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: bid-clusterip
-  namespace: default
+  namespace: backend
 spec:
   selector:
     app: bid-svc #tro dung container
