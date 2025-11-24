@@ -13,8 +13,8 @@ public class SeedData
     public static void EnsureSeedData(WebApplication app)
     {
         using var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
-        // var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-        // context.Database.Migrate();
+        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        context.Database.Migrate();
 
         UserManager<ApplicationUser> userMgr = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
