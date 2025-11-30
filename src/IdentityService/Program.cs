@@ -3,6 +3,7 @@ using Duende.IdentityServer;
 using IdentityService;
 using Npgsql;
 using Polly;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 // Env.Load(".env");
 
@@ -79,6 +80,7 @@ try
 
     //Dung cho Docker
     // SeedData.EnsureSeedData(app);
+
 
 
     app.Run();

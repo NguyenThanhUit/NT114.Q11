@@ -25,7 +25,7 @@ public class OrderSvcHttpClient
 
         //Http request duoc gui tu OrderService
         var baseUrl = _config["OrderServiceURL"]; //Lấy từ appsettings
-        var requestUrl = $"{baseUrl}/api/Orders?date={lastUpdated}";
+        var requestUrl = $"{baseUrl}/api/orders?date={lastUpdated}";
         return await _httpClient.GetFromJsonAsync<List<Product>>(requestUrl);
     }
 }

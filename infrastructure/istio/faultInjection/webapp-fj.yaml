@@ -1,0 +1,60 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: webapp-vs
+  namespace: default
+spec:
+  hosts:
+    - app.nguyenth4nh.xyz
+  gateways:
+    - istio-system/main-gateway
+  http:
+
+    - match:
+        - uri:
+            prefix: "/products"
+      fault:
+        abort:
+          httpStatus: 500
+          percentage:
+            value: 10 #fault injection 10%
+      route:
+        - destination:
+            host: webapp-clusterip
+            subset: v1
+      timeout: 5s
+      retries:
+        attempts: 2
+        perTryTimeout: 2s
+        retryOn: gateway-error,connect-failure
+
+    - match:
+        - uri:
+            prefix: "/users"
+      route:
+        - destination:
+            host: webapp-clusterip
+            subset: v1
+      timeout: 5s
+      retries:
+        attempts: 2
+        perTryTimeout: 2s
+        retryOn: gateway-error,connect-failure
+
+    # - match:
+    #     - uri:
+    #         prefix: "/auctions"
+    #   fault:
+    #     abort:
+    #       httpStatus: 500
+    #       percentage:
+    #         value: 20  #fault injection 20%
+    #   route:
+    #     - destination:
+    #         host: webapp-clusterip
+    #         subset: v1
+    #   timeout: 5s
+    #   retries:
+    #     attempts: 2
+    #     perTryTimeout: 2s
+    #     retryOn: gateway-error,connect-failure

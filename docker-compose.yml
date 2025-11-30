@@ -6,8 +6,13 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - /var/lib/postgresql/data
-    
+      - /var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   mongodb:
     image: mongo
     environment:
@@ -181,7 +186,6 @@ services:
       - ASPNETCORE_URLS=http://+:80
       - IssuerUri=https://id.nguyenth4nh.xyz
       - ClientApp=https://app.nguyenth4nh.xyz
-      - ConnectionStrings__DefaultConnection=Server=postgres;User Id=postgres;Password=postgrespw;Database=identity
       - CLIENTID=${CLIENTID}
       - CLIENTSECRET=${CLIENTSECRET}
       - GMAIL=${GMAIL}
@@ -189,10 +193,11 @@ services:
       - SENDER=${SENDER}
       - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
       - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - ConnectionStrings__DefaultConnection=Server=postgres;User Id=postgres;Password=postgrespw;Database=identity
       - VIRTUAL_HOST=id.nguyenth4nh.xyz
     depends_on:
       postgres:
-        condition: service_started
+          condition: service_healthy
   gateway-svc:
     image: nguyenthanh/gateway-svc:latest
     build: 

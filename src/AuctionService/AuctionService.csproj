@@ -11,7 +11,6 @@
     <PackageReference Include="Grpc.AspNetCore" Version="2.70.0" />
     <PackageReference Include="MassTransit.EntityFrameworkCore" Version="8.3.7-develop.2225" />
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.7-develop.2222" />
-    <PackageReference Include="Grpc.AspNetCore" Version="2.70.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -28,4 +27,8 @@
     <Protobuf Include="protos/auctions.proto" GrpcService="Server" />
 
   </ItemGroup>
+  <PropertyGroup>
+  <NoWarn>CS8618;CS8604</NoWarn>
+  </PropertyGroup>
+
 </Project>

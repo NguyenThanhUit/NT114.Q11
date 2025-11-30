@@ -1,0 +1,51 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: api-vs
+  namespace: backend
+spec:
+  hosts:
+    - api.nguyenth4nh.xyz
+  gateways:
+    - istio-system/main-gateway
+  http:
+    - match:
+        - uri:
+            prefix: "/auctions"
+      route:
+        - destination:
+            host: gateway-clusterip.backend.svc.cluster.local
+            port:
+              number: 80
+    - match:
+        - uri:
+            prefix: "/search/auctions"
+      route:
+        - destination:
+            host: gateway-clusterip.backend.svc.cluster.local
+            port:
+              number: 80
+    - match:
+        - uri:
+            prefix: "/search/products"
+      route:
+        - destination:
+            host: gateway-clusterip.backend.svc.cluster.local
+            port:
+              number: 80
+    - match:
+        - uri:
+            prefix: "/users"
+      route:
+        - destination:
+            host: gateway-clusterip.backend.svc.cluster.local
+            port:
+              number: 80
+    - match:
+        - uri:
+            prefix: "/orders"
+      route:
+        - destination:
+            host: gateway-clusterip.backend.svc.cluster.local
+            port:
+              number: 80
