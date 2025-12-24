@@ -14,7 +14,7 @@ spec:
             prefix: "/products"
       route:
         - destination:
-            host: webapp-clusterip
+            host: webapp-clusterip.frontend.svc.cluster.local
             port:
               number: 3000
 
@@ -23,7 +23,7 @@ spec:
             prefix: "/users"
       route:
         - destination:
-            host: webapp-clusterip
+            host: webapp-clusterip.frontend.svc.cluster.local
             port:
               number: 3000
 
@@ -32,7 +32,7 @@ spec:
             prefix: "/auctions"
       route:
         - destination:
-            host: webapp-clusterip
+            host: webapp-clusterip.frontend.svc.cluster.local
             port:
               number: 3000
 
@@ -41,7 +41,7 @@ spec:
             prefix: "/trending"
       route:
         - destination:
-            host: webapp-clusterip
+            host: webapp-clusterip.frontend.svc.cluster.local
             port:
               number: 3000
 
@@ -50,7 +50,7 @@ spec:
             prefix: "/blog"
       route:
         - destination:
-            host: webapp-clusterip
+            host: webapp-clusterip.frontend.svc.cluster.local
             port:
               number: 3000
     
@@ -59,6 +59,6 @@ spec:
             prefix: "/"
       route:
         - destination:
-            host: webapp-clusterip
+            host: webapp-clusterip.frontend.svc.cluster.local
             port:
               number: 3000

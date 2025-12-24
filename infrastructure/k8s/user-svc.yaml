@@ -36,7 +36,7 @@ spec:
                 name: user-svc-config
           ports:
             - containerPort: 80
-              name: web
+              name: http
 
 ---
 # https://kubernetes.io/docs/concepts/services-networking/service/
@@ -52,5 +52,5 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-      name: web
+      name: http
 ---
