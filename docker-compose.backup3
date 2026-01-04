@@ -190,8 +190,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:80
-      - IssuerUri=https://id.nguyenth4nh.xyz
-      - ClientApp=https://app.nguyenth4nh.xyz
+      - IssuerUri=https://id.nguyenth4nh.id.vn
+      - ClientApp=https://app.nguyenth4nh.id.vn
       - ConnectionStrings__DefaultConnection=Server=postgres;User Id=postgres;Password=postgrespw;Database=identity
       - CLIENTID=${CLIENTID}
       - CLIENTSECRET=${CLIENTSECRET}
@@ -200,8 +200,8 @@ services:
       - SENDER=${SENDER}
       - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
       - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
-      - VIRTUAL_HOST=id.nguyenth4nh.xyz
-      - LETSENCRYPT_HOST=id.nguyenth4nh.xyz
+      - VIRTUAL_HOST=id.nguyenth4nh.id.vn
+      - LETSENCRYPT_HOST=id.nguyenth4nh.id.vn
       - LETSENCRYPT_EMAIL=nguyenthanh91ndu1819@gmail.com
     depends_on:
       postgres:
@@ -215,9 +215,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:80
-      - ClientApp=https://app.nguyenth4nh.xyz
-      - VIRTUAL_HOST=api.nguyenth4nh.xyz
-      - LETSENCRYPT_HOST=api.nguyenth4nh.xyz
+      - ClientApp=https://app.nguyenth4nh.id.vn
+      - VIRTUAL_HOST=api.nguyenth4nh.id.vn
+      - LETSENCRYPT_HOST=api.nguyenth4nh.id.vn
       - LETSENCRYPT_EMAIL=nguyenthanh91ndu1819@gmail.com
 
   web-app:
@@ -230,13 +230,13 @@ services:
     environment:
       - AUTH_SECRET=9cf2fe50c9c7ab05a2e4a2b19c7bdbca59b2e031c2f3bb0c350a7889a4c7b8a1
       - API_URL=http://gateway-svc/
-      - AUTH_URL=https://app.nguyenth4nh.xyz
-      - ID_URL=https://id.nguyenth4nh.xyz
+      - AUTH_URL=https://app.nguyenth4nh.id.vn
+      - ID_URL=https://id.nguyenth4nh.id.vn
       - ID_URL_INTERNAL=http://identity-svc
       - AUTH_URL_INTERNAL=http://web-app:3000
-      - VIRTUAL_HOST=app.nguyenth4nh.xyz
+      - VIRTUAL_HOST=app.nguyenth4nh.id.vn
       - VIRTUAL_PORT=3000
-      - LETSENCRYPT_HOST=app.nguyenth4nh.xyz
+      - LETSENCRYPT_HOST=app.nguyenth4nh.id.vn
       - LETSENCRYPT_EMAIL=nguyenthanh91ndu1819@gmail.com
 
   nginx-proxy:

@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   hosts:
-    - app.nguyenth4nh.xyz
+    - app.nguyenth4nh.id.vn
   gateways:
     - istio-system/main-gateway
   http:

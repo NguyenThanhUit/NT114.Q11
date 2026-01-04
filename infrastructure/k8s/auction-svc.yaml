@@ -1,4 +1,4 @@
-# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+# Deployment Auction Service
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -7,10 +7,10 @@ metadata:
   labels:
     app: auction-svc
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: auction-svc
-  replicas: 1
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -28,42 +28,63 @@ spec:
           - sh
           - -c
           - |
-            echo "Waiting for Postgres..."
-            until nc -z postgres-clusterip.backend.svc.cluster.local 5432; do
-              echo "Postgres not ready, sleeping 5s..."
+            echo "Waiting for PostgreSQL to be ready..."
+            for i in $(seq 1 30); do
+              nc -z postgres-clusterip.backend.svc.cluster.local 5432
+              if [ $? -eq 0 ]; then
+                echo "PostgreSQL is ready!"
+                exit 0
+              fi
+              echo "PostgreSQL not ready, retry $i/30, sleeping 5s..."
               sleep 5
             done
-            echo "Postgres is ready!"
+            echo "PostgreSQL still not ready after 30 retries, exiting."
+            exit 1
+      - name: wait-for-rabbitmq
+        image: busybox:1.36
+        command:
+          - sh
+          - -c
+          - |
+            echo "Waiting for RabbitMQ..."
+            for i in $(seq 1 30); do
+              nc -z rabbit-clusterip.backend.svc.cluster.local 5672 && exit 0
+              echo "RabbitMQ not ready ($i/30), sleep 5s"
+              sleep 5
+            done
+            echo "RabbitMQ not ready after 30 retries"
+            exit 1
       containers:
-        - name: auction-svc
-          image: nguyenthanh/auctions-svc
-          imagePullPolicy: Never
-          env:
-            - name: ConnectionStrings__DefaultConnection
-              valueFrom:
-                secretKeyRef: 
-                  name: auction-secret
-                  key: connString
-            - name: RabbitMQ__Username
-              valueFrom:
-                secretKeyRef: 
-                  name: rabbit-secret
-                  key: username 
-            - name: RabbitMQ__Password
-              valueFrom:
-                secretKeyRef:
-                  name: rabbit-secret
-                  key: password
-          envFrom:
-            - configMapRef:
-                name: auction-svc-config
-          ports:
-            - containerPort: 80
-              name: web
-            - containerPort: 7777
-              name: grpc
+      - name: auction-svc
+        image: nguyenthanh/auctions-svc
+        imagePullPolicy: Never
+        env:
+          - name: ConnectionStrings__DefaultConnection
+            valueFrom:
+              secretKeyRef:
+                name: auction-secret
+                key: connString
+          - name: RabbitMQ__Username
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: username
+          - name: RabbitMQ__Password
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: password
+        envFrom:
+          - configMapRef:
+              name: auction-svc-config
+        ports:
+          - containerPort: 80
+            name: web
+          - containerPort: 7777
+            name: grpc
+
 ---
-# https://kubernetes.io/docs/concepts/services-networking/service/
+# Service Auction ClusterIP
 apiVersion: v1
 kind: Service
 metadata:
@@ -71,7 +92,7 @@ metadata:
   namespace: backend
 spec:
   selector:
-    app: auction-svc #tro dung container
+    app: auction-svc
   type: ClusterIP
   ports:
     - port: 80
@@ -80,4 +101,3 @@ spec:
     - port: 7777
       targetPort: 7777
       name: grpc
----

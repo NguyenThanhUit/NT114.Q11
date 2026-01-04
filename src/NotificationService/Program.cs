@@ -8,7 +8,7 @@ builder.Services.AddCors(options =>
         options.AddPolicy("AllowFrontend", policy =>
         {
             policy
-                .WithOrigins("https://app.nguyenth4nh.xyz")
+                .WithOrigins("https://app.nguyenth4nh.id.vn")
                 .AllowAnyHeader()
                 .AllowAnyMethod()
                 .AllowCredentials();

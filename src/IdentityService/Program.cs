@@ -5,6 +5,7 @@ using Npgsql;
 using Polly;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using Microsoft.AspNetCore.HttpOverrides;
 // Env.Load(".env");
 
 Log.Logger = new LoggerConfiguration()
@@ -69,9 +70,16 @@ try
     var app = builder
         .ConfigureServices()
         .ConfigurePipeline();
-
+    app.UseForwardedHeaders(new ForwardedHeadersOptions
+    {
+        ForwardedHeaders =
+            ForwardedHeaders.XForwardedFor |
+            ForwardedHeaders.XForwardedProto |
+            ForwardedHeaders.XForwardedHost
+    });
     app.MapControllers();
 
+    
 
     var retryPolicy = Policy
     .Handle<NpgsqlException>()

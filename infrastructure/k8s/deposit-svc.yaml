@@ -42,6 +42,8 @@ spec:
                   name: rabbit-secret
                   key: password
           envFrom:
+            - secretRef:
+                name: vnpay-secret
             - configMapRef:
                 name: deposits-svc-config
           ports:

@@ -98,7 +98,7 @@ metadata:
 data:
   ASPNETCORE_URLS: http://+:80
   ASPNETCORE_ENVIRONMENT: "K8S"
-  ClientApp: https://app.nguyenth4nh.xyz
+  ClientApp: https://app.nguyenth4nh.id.vn
   IdentityServiceUrl: http://identity-clusterip #Tai vi thieu moi truong cho k8s chi co moi truong cho Docker
   #Nho build lai gateway-svc trong docker truoc khi build k8s
 ---
@@ -110,8 +110,8 @@ metadata:
   namespace: backend
 data:
   ASPNETCORE_URLS: http://+:80
-  IssuerUri: https://id.nguyenth4nh.xyz
-  ClientApp: https://app.nguyenth4nh.xyz
+  IssuerUri: https://id.nguyenth4nh.id.vn
+  ClientApp: https://app.nguyenth4nh.id.vn
 ---
 # https://kubernetes.io/docs/concepts/configuration/configmap/
 apiVersion: v1
@@ -120,12 +120,14 @@ metadata:
   name: webapp-svc-config
   namespace: frontend
 data:
-  ID_URL: https://id.nguyenth4nh.xyz
-  AUTH_URL: https://app.nguyenth4nh.xyz
-  NOTIFY_URL: http://api.nguyenth4nh.xyz/notifications
+  ID_URL: https://id.nguyenth4nh.id.vn
+  AUTH_URL: https://app.nguyenth4nh.id.vn
+  NOTIFY_URL: http://api.nguyenth4nh.id.vn/notifications
   AUTH_URL_INTERNAL: http://webapp-clusterip.frontend.svc.cluster.local:3000
   API_URL: http://gateway-clusterip.backend.svc.cluster.local/
   ID_URL_INTERNAL: http://identity-clusterip.backend.svc.cluster.local
+  NEXT_PUBLIC_NOTIFY_URL: https://api.nguyenth4nh.id.vn/notifications
+
 
 
 

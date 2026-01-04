@@ -1,4 +1,3 @@
-# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -7,38 +6,58 @@ metadata:
   labels:
     app: order-svc
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: order-svc
-  replicas: 1
   strategy:
+    type: RollingUpdate
     rollingUpdate:
       maxSurge: 25%
       maxUnavailable: 25%
-    type: RollingUpdate
   template:
     metadata:
       labels:
         app: order-svc
     spec:
       initContainers:
-      - name: wait-for-postgres
-        image: busybox:1.36
-        command:
-          - sh
-          - -c
-          - |
-            echo "Waiting for Postgres..."
-            until nc -z postgres-clusterip.backend.svc.cluster.local 5432; do
-              echo "Postgres not ready, sleeping 5s..."
-              sleep 5
-            done
-            echo "Postgres is ready!"
+        - name: wait-for-postgres
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - |
+              echo "Waiting for PostgreSQL to be ready..."
+              for i in $(seq 1 30); do
+                nc -z postgres-clusterip.backend.svc.cluster.local 5432
+                if [ $? -eq 0 ]; then
+                  echo "PostgreSQL is ready!"
+                  exit 0
+                fi
+                echo "PostgreSQL not ready, retry $i/30, sleeping 5s..."
+                sleep 5
+              done
+              echo "PostgreSQL still not ready after 30 retries, exiting."
+              exit 1
+        - name: wait-for-rabbitmq
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - |
+            - echo "Waiting for RabbitMQ..."
+                for i in $(seq 1 30); do
+                  nc -z rabbit-clusterip.backend.svc.cluster.local 5672 && exit 0
+                  echo "RabbitMQ not ready ($i/30), sleep 5s"
+                  sleep 5
+                done
+                echo "RabbitMQ not ready after 30 retries"
+                exit 1
       containers:
         - name: order-svc
           image: nguyenthanh/order-svc
           imagePullPolicy: Never
-          env: 
+          env:
             - name: ConnectionStrings__DefaultConnection
               valueFrom:
                 secretKeyRef:
@@ -46,9 +65,9 @@ spec:
                   key: connString
             - name: RabbitMQ__Username
               valueFrom:
-                secretKeyRef: 
+                secretKeyRef:
                   name: rabbit-secret
-                  key: username 
+                  key: username
             - name: RabbitMQ__Password
               valueFrom:
                 secretKeyRef:
@@ -60,9 +79,7 @@ spec:
           ports:
             - containerPort: 80
               name: http
-
 ---
-# https://kubernetes.io/docs/concepts/services-networking/service/
 apiVersion: v1
 kind: Service
 metadata:
@@ -70,10 +87,9 @@ metadata:
   namespace: backend
 spec:
   selector:
-    app: order-svc #tro dung container
+    app: order-svc
   type: ClusterIP
   ports:
     - port: 80
       targetPort: 80
       name: http
----

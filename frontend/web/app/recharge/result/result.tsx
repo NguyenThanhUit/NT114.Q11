@@ -20,7 +20,7 @@ export default function ResultPage() {
                     return;
                 }
 
-                const url = `https://api.nguyenth4nh.xyz/Vnpay/Callback?${queryParams}`;
+                const url = `https://api.nguyenth4nh.id.vn/Vnpay/Callback?${queryParams}`;
                 console.log("[VNPay Callback] Fetching from:", url);
 
                 const response = await fetch(url);

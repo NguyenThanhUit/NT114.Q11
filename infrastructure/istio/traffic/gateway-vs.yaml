@@ -5,7 +5,7 @@ metadata:
   namespace: backend
 spec:
   hosts:
-    - api.nguyenth4nh.xyz
+    - api.nguyenth4nh.id.vn
   gateways:
     - istio-system/main-gateway
   http:
@@ -47,5 +47,13 @@ spec:
       route:
         - destination:
             host: gateway-clusterip.backend.svc.cluster.local
+            port:
+              number: 80
+    - match:
+        - uri:
+            prefix: "/notifications"
+      route:
+        - destination:
+            host: notify-clusterip.backend.svc.cluster.local
             port:
               number: 80

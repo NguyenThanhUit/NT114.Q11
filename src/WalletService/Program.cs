@@ -11,7 +11,40 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddSingleton<IVnpay, Vnpay>();
+builder.Services.AddSingleton<IVnpay>(sp =>
+{
+    var config = sp.GetRequiredService<IConfiguration>();
+    var vnpayConfig = config.GetSection("Vnpay");
+
+    Console.WriteLine("[VNPAY INIT] Starting initialization...");
+
+    var tmnCode = vnpayConfig["TmnCode"];
+    var hashSecret = vnpayConfig["HashSecret"];
+    var baseUrl = vnpayConfig["BaseUrl"];
+    var callbackUrl = vnpayConfig["CallbackUrl"];
+
+    Console.WriteLine($"[VNPAY INIT] TmnCode: {tmnCode}");
+    Console.WriteLine($"[VNPAY INIT] HashSecret: {(string.IsNullOrEmpty(hashSecret) ? "NULL" : "SET")}");
+    Console.WriteLine($"[VNPAY INIT] BaseUrl: {baseUrl}");
+    Console.WriteLine($"[VNPAY INIT] CallbackUrl: {callbackUrl}");
+
+    try
+    {
+        var vnpay = new Vnpay();
+        vnpay.Initialize(tmnCode!, hashSecret!, baseUrl!, callbackUrl!, "2.1.0", "other");
+        Console.WriteLine("[VNPAY INIT] Initialization successful!");
+        return vnpay;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"[VNPAY INIT] Initialization failed: {ex.Message}");
+        Console.WriteLine(ex.StackTrace);
+        throw; // vẫn ném để app biết có lỗi
+    }
+});
+
+
+
 builder.Services.AddMassTransit(x =>
 {
 

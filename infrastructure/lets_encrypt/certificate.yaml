@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: multi-domain-cert
+  namespace: istio-system
+spec:
+  secretName: multi-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - app.nguyenth4nh.id.vn
+  - api.nguyenth4nh.id.vn
+  - id.nguyenth4nh.id.vn

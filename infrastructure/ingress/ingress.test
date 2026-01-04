@@ -8,12 +8,12 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - app.nguyenth4nh.xyz
-        - api.nguyenth4nh.xyz
-        - id.nguyenth4nh.xyz
+        - app.nguyenth4nh.id.vn
+        - api.nguyenth4nh.id.vn
+        - id.nguyenth4nh.id.vn
       secretName: nguyenth4nh-app-tls
   rules:
-    - host: app.nguyenth4nh.xyz
+    - host: app.nguyenth4nh.id.vn
       http:
         paths:
           - path: /
@@ -24,7 +24,7 @@ spec:
                 namespace: frontend  
                 port:
                   number: 3000
-    - host: api.nguyenth4nh.xyz
+    - host: api.nguyenth4nh.id.vn
       http:
         paths:
           - path: /
@@ -35,7 +35,7 @@ spec:
                 namespace: backend
                 port:
                   number: 80
-    - host: id.nguyenth4nh.xyz
+    - host: id.nguyenth4nh.id.vn
       http:
         paths:
           - path: /

@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: app.nguyenth4nh.xyz
+    - host: app.nguyenth4nh.id.vn
       http:
         paths:
           - path: /

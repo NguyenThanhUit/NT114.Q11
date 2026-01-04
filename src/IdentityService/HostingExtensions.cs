@@ -25,7 +25,7 @@ internal static class HostingExtensions
 {
     options.AddPolicy("MyPolicy", policy =>
     {
-        policy.WithOrigins("https://app.nguyenth4nh.xyz")
+        policy.WithOrigins("https://app.nguyenth4nh.id.vn")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
