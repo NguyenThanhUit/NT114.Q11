@@ -38,7 +38,7 @@ spec:
             exit 1
       containers:
         - name: buyings-svc
-          image: nguyenthanh91ndu/buyings-svc
+          image: nguyenthanh91ndu/buying-svc
           imagePullPolicy: IfNotPresent
           env: 
             - name: ConnectionStrings__BuyingDbConnection

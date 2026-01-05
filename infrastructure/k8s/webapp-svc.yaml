@@ -42,7 +42,7 @@ metadata:
 spec:
   selector:
     app: webapp-svc #tro dung container
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 3000
       targetPort: 3000
