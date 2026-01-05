@@ -26,6 +26,9 @@ export default function SignalRProvider({ children }: Props) {
     // Hardcode URL vào đây
     const notifyUrl = "https://api.nguyenth4nh.id.vn/notifications";
 
+    // --- Log debug ---
+    console.log("[SignalRProvider] notifyUrl =", notifyUrl);
+
     const handleAuctionFinished = useCallback((finishedAuction: AuctionFinished) => {
         const auctionPromise = getDetailedViewData(finishedAuction.auctionID);
         return toast.promise(auctionPromise, {
@@ -48,22 +51,33 @@ export default function SignalRProvider({ children }: Props) {
     }, [setCurrentPrice, addBid, params.id]);
 
     useEffect(() => {
-        if (!connection.current) {
-            connection.current = new HubConnectionBuilder()
-                .withUrl(notifyUrl)
-                .withAutomaticReconnect()
-                .build();
+        console.log("[SignalRProvider] useEffect called, connection =", connection.current);
 
-            connection.current.start().catch(console.error);
+        if (!connection.current) {
+            console.log("[SignalRProvider] Creating new HubConnection...");
+
+            try {
+                connection.current = new HubConnectionBuilder()
+                    .withUrl(notifyUrl)
+                    .withAutomaticReconnect()
+                    .build();
+
+                console.log("[SignalRProvider] Starting connection...");
+                connection.current.start()
+                    .then(() => console.log("[SignalRProvider] Connection started"))
+                    .catch(err => console.error("[SignalRProvider] Connection error:", err));
+            } catch (err) {
+                console.error("[SignalRProvider] HubConnectionBuilder error:", err);
+            }
         }
 
-        connection.current.off('BidPlaced');
-        connection.current.off('AuctionCreated');
-        connection.current.off('AuctionFinished');
+        connection.current?.off('BidPlaced');
+        connection.current?.off('AuctionCreated');
+        connection.current?.off('AuctionFinished');
 
-        connection.current.on('BidPlaced', handleBidPlaced);
-        connection.current.on('AuctionCreated', handleAuctionCreated);
-        connection.current.on('AuctionFinished', handleAuctionFinished);
+        connection.current?.on('BidPlaced', handleBidPlaced);
+        connection.current?.on('AuctionCreated', handleAuctionCreated);
+        connection.current?.on('AuctionFinished', handleAuctionFinished);
 
         return () => {
             connection.current?.off('BidPlaced', handleBidPlaced);

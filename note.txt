@@ -7,3 +7,24 @@ Append behind spec into ingress yaml
         app.nguyenth4nh.id.vn
         id.nguyenth4nh.id.vn
         api.nguyenth4nh.id.vn 
+
+Attach policy inline into node group:
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateVolume",
+                "ec2:AttachVolume",
+                "ec2:DescribeVolume*",
+                "ec2:DescribeInstances",
+                "ec2:ModifyVolume",
+                "ec2:DeleteVolume"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+
+install ebs csi: kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-1.21"

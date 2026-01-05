@@ -1,29 +1,21 @@
-# https://kubernetes.io/docs/concepts/services-networking/ingress/
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-svc
-  namespace: ingress-nginx
+  name: backend-ingress
+  namespace: backend
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod   # dùng ClusterIssuer Let's Encrypt
 spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - app.nguyenth4nh.id.vn
         - api.nguyenth4nh.id.vn
+      secretName: api-nguyenth4nh-tls
+    - hosts:
         - id.nguyenth4nh.id.vn
-      secretName: nguyenth4nh-app-tls
+      secretName: id-nguyenth4nh-tls
   rules:
-    - host: app.nguyenth4nh.id.vn
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: webapp-clusterip
-                namespace: frontend  
-                port:
-                  number: 3000
     - host: api.nguyenth4nh.id.vn
       http:
         paths:
@@ -32,7 +24,6 @@ spec:
             backend:
               service:
                 name: gateway-clusterip
-                namespace: backend
                 port:
                   number: 80
     - host: id.nguyenth4nh.id.vn
@@ -43,6 +34,5 @@ spec:
             backend:
               service:
                 name: identity-clusterip
-                namespace: backend
                 port:
                   number: 80

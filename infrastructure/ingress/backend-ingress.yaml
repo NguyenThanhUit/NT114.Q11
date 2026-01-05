@@ -7,6 +7,11 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - api.nguyenth4nh.id.vn
+        - id.nguyenth4nh.id.vn
+      secretName: all-tls
   rules:
     - host: api.nguyenth4nh.id.vn
       http:
