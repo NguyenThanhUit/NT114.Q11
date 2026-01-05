@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
         - name: identity-svc
-          image: nguyenthanh/identity-svc
-          imagePullPolicy: Never
+          image: nguyenthanh91ndu/identity-svc
+          imagePullPolicy: IfNotPresent
           env:
             - name: CLIENTID
               valueFrom:

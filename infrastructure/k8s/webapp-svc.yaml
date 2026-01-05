@@ -18,8 +18,8 @@ spec:
     spec:
       containers:
         - name: webapp-svc
-          image: nguyenthanh/web-app
-          imagePullPolicy: Never
+          image: nguyenthanh91ndu/web-app
+          imagePullPolicy: IfNotPresent
           env:
             - name: AUTH_SECRET
               valueFrom:

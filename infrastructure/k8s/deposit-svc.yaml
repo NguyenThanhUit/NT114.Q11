@@ -23,8 +23,8 @@ spec:
     spec:
       containers:
         - name: deposits-svc
-          image: nguyenthanh/deposits-svc
-          imagePullPolicy: Never
+          image: nguyenthanh91ndu/deposits-svc
+          imagePullPolicy: IfNotPresent
           env: 
             - name: ConnectionStrings__DepositDbConnection
               valueFrom:

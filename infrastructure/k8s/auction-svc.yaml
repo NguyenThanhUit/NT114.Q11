@@ -56,8 +56,8 @@ spec:
             exit 1
       containers:
       - name: auction-svc
-        image: nguyenthanh/auctions-svc
-        imagePullPolicy: Never
+        image: nguyenthanh91ndu/auctions-svc
+        imagePullPolicy: IfNotPresent
         env:
           - name: ConnectionStrings__DefaultConnection
             valueFrom:

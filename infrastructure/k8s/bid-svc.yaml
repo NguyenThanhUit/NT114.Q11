@@ -38,8 +38,8 @@ spec:
               exit 1
       containers:
         - name: bid-svc
-          image: nguyenthanh/bid-svc
-          imagePullPolicy: Never
+          image: nguyenthanh91ndu/bid-svc
+          imagePullPolicy: IfNotPresent
           env:
             - name: ConnectionStrings__BidDbConnection
               valueFrom:

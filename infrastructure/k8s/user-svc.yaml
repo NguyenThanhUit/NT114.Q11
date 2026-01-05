@@ -23,8 +23,8 @@ spec:
     spec:
       containers:
         - name: user-svc
-          image: nguyenthanh/user-svc
-          imagePullPolicy: Never
+          image: nguyenthanh91ndu/user-svc
+          imagePullPolicy: IfNotPresent
           env:
             - name: ConnectionStrings__UserDbConnection
               valueFrom:

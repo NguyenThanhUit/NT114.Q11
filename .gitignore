@@ -4,3 +4,7 @@ obj/
 
 infrastructure/secret/devSecret.yaml
 
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup

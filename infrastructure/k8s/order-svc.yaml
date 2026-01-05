@@ -55,8 +55,8 @@ spec:
                 exit 1
       containers:
         - name: order-svc
-          image: nguyenthanh/order-svc
-          imagePullPolicy: Never
+          image: nguyenthanh91ndu/order-svc
+          imagePullPolicy: IfNotPresent
           env:
             - name: ConnectionStrings__DefaultConnection
               valueFrom:

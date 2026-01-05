@@ -33,8 +33,8 @@ spec:
             exit 1
       containers:
         - name: search-svc
-          image: nguyenthanh/search-svc
-          imagePullPolicy: Never
+          image: nguyenthanh91ndu/search-svc
+          imagePullPolicy: IfNotPresent
           env:
             - name: ConnectionStrings__MongoDbConnection
               valueFrom:
