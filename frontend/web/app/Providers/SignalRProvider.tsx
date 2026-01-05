@@ -12,9 +12,7 @@ import { Auction, AuctionFinished, Bid } from "@/index";
 import AuctionFinishedToast from "@/components/AuctionFinshiedToast";
 import AuctionCreatedToast from "@/components/AuctionCreatedToast";
 
-type Props = {
-    children: ReactNode,
-};
+type Props = { children: ReactNode };
 
 export default function SignalRProvider({ children }: Props) {
     const session = useSession();
@@ -25,57 +23,38 @@ export default function SignalRProvider({ children }: Props) {
     const addBid = useBidStore(state => state.addBid);
     const params = useParams<{ id: string }>();
 
+    // Hardcode URL vào đây
+    const notifyUrl = "https://api.nguyenth4nh.id.vn/notifications";
+
     const handleAuctionFinished = useCallback((finishedAuction: AuctionFinished) => {
         const auctionPromise = getDetailedViewData(finishedAuction.auctionID);
         return toast.promise(auctionPromise, {
             loading: 'Loading auction finished data...',
-            success: (auction) => (
-                <AuctionFinishedToast
-                    finishedAuction={finishedAuction}
-                    auction={auction}
-                />
-            ),
+            success: (auction) => <AuctionFinishedToast finishedAuction={finishedAuction} auction={auction} />,
             error: () => 'Auction finished with error'
-        }, {
-            success: { duration: 100000, icon: null }
-        });
+        }, { success: { duration: 100000, icon: null } });
     }, []);
 
     const handleAuctionCreated = useCallback((auction: Auction) => {
         if (user?.username !== auction.seller) {
-            return toast(<AuctionCreatedToast auction={auction} />, {
-                duration: 10000,
-            });
+            return toast(<AuctionCreatedToast auction={auction} />, { duration: 10000 });
         }
     }, [user]);
 
     const handleBidPlaced = useCallback((bidRaw: any) => {
-        const bid: Bid = {
-            ...bidRaw,
-            auctionId: bidRaw.auctionId ?? bidRaw.auctionID,
-        };
-
-        if (bid.bidStatus.includes('Accepted')) {
-            setCurrentPrice(bid.auctionId, bid.amount);
-        }
-
-        if (params.id === bid.auctionId) {
-            addBid(bid);
-        }
+        const bid: Bid = { ...bidRaw, auctionId: bidRaw.auctionId ?? bidRaw.auctionID };
+        if (bid.bidStatus.includes('Accepted')) setCurrentPrice(bid.auctionId, bid.amount);
+        if (params.id === bid.auctionId) addBid(bid);
     }, [setCurrentPrice, addBid, params.id]);
 
     useEffect(() => {
-        const notifyUrl = process.env.NEXT_PUBLIC_NOTIFY_URL!;
-
         if (!connection.current) {
             connection.current = new HubConnectionBuilder()
                 .withUrl(notifyUrl)
                 .withAutomaticReconnect()
                 .build();
 
-            connection.current
-                .start()
-                .catch(() => { });
+            connection.current.start().catch(console.error);
         }
 
         connection.current.off('BidPlaced');
