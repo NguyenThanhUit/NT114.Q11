@@ -19,7 +19,7 @@ spec:
       containers:
         - name: webapp-svc
           image: nguyenthanh91ndu/web-app
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: AUTH_SECRET
               valueFrom:
@@ -42,7 +42,7 @@ metadata:
 spec:
   selector:
     app: webapp-svc #tro dung container
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 3000
       targetPort: 3000
