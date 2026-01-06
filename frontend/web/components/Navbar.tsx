@@ -53,16 +53,6 @@ export default function Navbar() {
             </div>
 
             <div className="flex gap-4 pl-80">
-                <Link href="/">
-                    <button
-                        className={`px-4 py-2 border rounded-md ${pathName === "/"
-                            ? "border-red-500 text-red-600 font-semibold"
-                            : "border-gray-300 text-gray-800 hover:bg-gray-100"
-                            }`}
-                    >
-                        Sản phẩm
-                    </button>
-                </Link>
                 <Link href="/auctions">
                     <button
                         className={`px-4 py-2 border rounded-md ${pathName.startsWith("/auctions")
@@ -73,16 +63,17 @@ export default function Navbar() {
                         Đấu giá
                     </button>
                 </Link>
-                <Link href="/trending">
+                <Link href="/">
                     <button
-                        className={`px-4 py-2 border rounded-md ${pathName.startsWith("/trending")
+                        className={`px-4 py-2 border rounded-md ${pathName === "/"
                             ? "border-red-500 text-red-600 font-semibold"
                             : "border-gray-300 text-gray-800 hover:bg-gray-100"
                             }`}
                     >
-                        Xếp hạng
+                        Sản phẩm
                     </button>
                 </Link>
+    
                 <Link href="/blog">
                     <button
                         className={`px-4 py-2 border rounded-md ${pathName.startsWith("/blog")
@@ -91,6 +82,16 @@ export default function Navbar() {
                             }`}
                     >
                         Blog
+                    </button>
+                </Link>
+                <Link href="/trending">
+                    <button
+                        className={`px-4 py-2 border rounded-md ${pathName.startsWith("/trending")
+                            ? "border-red-500 text-red-600 font-semibold"
+                            : "border-gray-300 text-gray-800 hover:bg-gray-100"
+                            }`}
+                    >
+                        Xếp hạng
                     </button>
                 </Link>
                 <Link href="/support">
@@ -104,7 +105,6 @@ export default function Navbar() {
                     </button>
                 </Link>
             </div>
-
             <div className="flex items-center gap-4">
                 {user && !loading && (
                     <Link href={`/order/cart/`}>

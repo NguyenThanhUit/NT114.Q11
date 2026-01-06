@@ -1,0 +1,70 @@
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notify-svc
+  namespace: backend
+  labels:
+    app: notify-svc
+spec:
+  selector:
+    matchLabels:
+      app: notify-svc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: notify-svc
+    spec:
+      initContainers:
+        - name: wait-for-rabbitmq
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - |
+              echo "Waiting for RabbitMQ..."
+              for i in $(seq 1 30); do
+                nc -z rabbit-clusterip.backend.svc.cluster.local 5672 && exit 0
+                echo "RabbitMQ not ready ($i/30), sleep 5s"
+                sleep 5
+              done
+              echo "RabbitMQ not ready after 30 retries"
+              exit 1
+      containers:
+        - name: notify-svc
+          image: nguyenthanh/notify-svc
+          imagePullPolicy: Never
+          env: 
+            - name: RabbitMQ__Username
+              valueFrom:
+                secretKeyRef: 
+                  name: rabbit-secret
+                  key: username 
+            - name: RabbitMQ__Password
+              valueFrom:
+                secretKeyRef:
+                  name: rabbit-secret
+                  key: password
+          envFrom:
+            - configMapRef:
+                name: notify-svc-config
+          ports:
+            - containerPort: 80
+              name: web
+---
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: notify-clusterip
+  namespace: backend
+spec:
+  selector:
+    app: notify-svc #tro dung container
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      name: http
+---

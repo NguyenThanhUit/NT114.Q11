@@ -41,20 +41,20 @@ spec:
         perTryTimeout: 2s
         retryOn: gateway-error,connect-failure
 
-    # - match:
-    #     - uri:
-    #         prefix: "/auctions"
-    #   fault:
-    #     abort:
-    #       httpStatus: 500
-    #       percentage:
-    #         value: 20  #fault injection 20%
-    #   route:
-    #     - destination:
-    #         host: webapp-clusterip
-    #         subset: v1
-    #   timeout: 5s
-    #   retries:
-    #     attempts: 2
-    #     perTryTimeout: 2s
-    #     retryOn: gateway-error,connect-failure
+    - match:
+        - uri:
+            prefix: "/auctions"
+      fault:
+        abort:
+          httpStatus: 500
+          percentage:
+            value: 20  #fault injection 20%
+      route:
+        - destination:
+            host: webapp-clusterip
+            subset: v1
+      timeout: 5s
+      retries:
+        attempts: 2
+        perTryTimeout: 2s
+        retryOn: gateway-error,connect-failure
