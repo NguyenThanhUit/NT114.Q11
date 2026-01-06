@@ -90,7 +90,10 @@ jobs:
         uses: actions/checkout@v4
         with: 
           fetch-depth: 2
-      
+      - name: Set image version
+        run: |
+          VERSION=v${{ github.run_number }}
+          echo "IMAGE_VERSION=$VERSION" >> $GITHUB_ENV
       - name: Check for change
         run: |
           if [[ "${{ github.event.inputs.force_rebuild }}" == "true" ]]; then
@@ -123,7 +126,9 @@ jobs:
           context: .
           file: ${{ matrix.service.path }}/Dockerfile
           push: true
-          tags: ${{ matrix.service.name }}:latest
+          tags: |
+            ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
+            ${{ matrix.service.name }}:latest
           #Khi build cac layer duoc them vao
           cache-from: type=gha
           cache-to: type=gha,mode=max 
