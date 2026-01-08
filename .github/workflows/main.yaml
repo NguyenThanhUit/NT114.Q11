@@ -7,6 +7,10 @@ on:
         description: "Force rebuild all service"
         required: false
         default: false
+      skip_security_scan:
+        description: "Skip Trivy security scan"
+        required: false
+        default: false
   push:
     branches: ["main"]
   pull_request:
@@ -17,10 +21,8 @@ env:
   AWS_REGION: us-east-1
   AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-  #Dung cho bucket luu tfstate
   BUCKET_TF_STATE: ${{secrets.BUCKET_TF_STATE}}
   EKS_CLUSTER: specialProject
-
 
 jobs:
   Testing:
@@ -57,6 +59,8 @@ jobs:
   Build-and-Push:
     needs: Testing
     runs-on: ubuntu-latest
+    outputs:
+      image_version: ${{ steps.set_version.outputs.version }}
     env:
       continue: 'false'
     strategy:
@@ -90,10 +94,14 @@ jobs:
         uses: actions/checkout@v4
         with: 
           fetch-depth: 2
+          
       - name: Set image version
+        id: set_version
         run: |
           VERSION=v${{ github.run_number }}
           echo "IMAGE_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
       - name: Check for change
         run: |
           if [[ "${{ github.event.inputs.force_rebuild }}" == "true" ]]; then
@@ -106,7 +114,6 @@ jobs:
             echo "Changes detected in ${{ matrix.service.path }}. Proceeding with build"
             echo "continue=true" >> $GITHUB_ENV
           fi
-
 
       - name: Set up Docker buildx
         if: env.continue == 'true'
@@ -129,11 +136,60 @@ jobs:
           tags: |
             ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
             ${{ matrix.service.name }}:latest
-          #Khi build cac layer duoc them vao
           cache-from: type=gha
-          cache-to: type=gha,mode=max 
+          cache-to: type=gha,mode=max
+          
+      - name: Run Trivy vulnerability scanner
+        if: env.continue == 'true' && github.event.inputs.skip_security_scan != 'true'
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
+          format: 'sarif'
+          output: 'trivy-results-${{ matrix.service.name }}.sarif'
+          severity: 'CRITICAL,HIGH'
+          
+      - name: Upload Trivy results to GitHub Security
+        if: env.continue == 'true' && github.event.inputs.skip_security_scan != 'true'
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results-${{ matrix.service.name }}.sarif'
+          category: ${{ matrix.service.name }}
+          
+      - name: Generate Trivy report (Table format)
+        if: env.continue == 'true' && github.event.inputs.skip_security_scan != 'true'
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
+          format: 'table'
+          severity: 'CRITICAL,HIGH,MEDIUM'
+          
+      - name: Fail build on Critical vulnerabilities
+        if: env.continue == 'true' && github.event.inputs.skip_security_scan != 'true'
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
+          format: 'json'
+          exit-code: '1'
+          severity: 'CRITICAL'
+          ignore-unfixed: true
 
-      
+  Security-Summary:
+    needs: Build-and-Push
+    runs-on: ubuntu-latest
+    if: github.event.inputs.skip_security_scan != 'true'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Create Security Summary
+        run: |
+          echo "## 🔒 Security Scan Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All images have been scanned with Trivy for vulnerabilities." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Check the Security tab for detailed results" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔍 Severity levels scanned: CRITICAL, HIGH, MEDIUM" >> $GITHUB_STEP_SUMMARY
+          echo "- ⚠️ Build fails on CRITICAL vulnerabilities" >> $GITHUB_STEP_SUMMARY
 
   Deploy_K8s:
     needs: Build-and-Push
@@ -156,7 +212,7 @@ jobs:
 
       - name: Verify cluster connection
         run: kubectl get nodes
-
+      
       - name: Install istioctl
         run: |
           curl -L https://istio.io/downloadIstio | sh -
@@ -177,4 +233,3 @@ jobs:
         run: |
           kubectl label namespace backend istio-injection=enabled --overwrite
           kubectl label namespace frontend istio-injection=enabled --overwrite
-
