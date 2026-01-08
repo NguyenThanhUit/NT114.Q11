@@ -255,9 +255,9 @@ jobs:
                 
                 jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="CRITICAL") | 
                   "**" + .VulnerabilityID + "** - " + .PkgName + "\n" +
-                  "- **Installed:** \`" + .InstalledVersion + "\`\n" +
-                  "- **Fixed:** \`" + (.FixedVersion // "Not available") + "\`\n" +
-                  "- **Description:** " + ((.Description // "N/A")[:200] | gsub("\n"; " ")) + "...\n" +
+                  "- **Installed:** " + .InstalledVersion + "\n" +
+                  "- **Fixed:** " + (.FixedVersion // "Not available") + "\n" +
+                  "- **Description:** " + ((.Description // "N/A")[0:200] | gsub("\n"; " ")) + "...\n" +
                   "- **Reference:** " + (.PrimaryURL // "N/A") + "\n"
                 ' "$JSON_FILE" >> service-summary.md
                 
@@ -271,9 +271,9 @@ jobs:
                 
                 jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="HIGH") | 
                   "**" + .VulnerabilityID + "** - " + .PkgName + "\n" +
-                  "- **Installed:** \`" + .InstalledVersion + "\`\n" +
-                  "- **Fixed:** \`" + (.FixedVersion // "Not available") + "\`\n" +
-                  "- **Description:** " + ((.Description // "N/A")[:150] | gsub("\n"; " ")) + "...\n" +
+                  "- **Installed:** " + .InstalledVersion + "\n" +
+                  "- **Fixed:** " + (.FixedVersion // "Not available") + "\n" +
+                  "- **Description:** " + ((.Description // "N/A")[0:150] | gsub("\n"; " ")) + "...\n" +
                   "- **Reference:** " + (.PrimaryURL // "N/A") + "\n"
                 ' "$JSON_FILE" | head -n 60 >> service-summary.md
                 
