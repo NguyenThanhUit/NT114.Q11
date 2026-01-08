@@ -1,0 +1,23 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: deny-browsers-to-api
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      istio: ingressgateway
+  action: DENY
+  rules:
+  - to:
+    - operation:
+        hosts: ["api.nguyenth4nh.id.vn"]
+        ports: ["443"]
+    when:
+    - key: request.headers[user-agent]
+      values: 
+      - "Mozilla/*"
+      - "Chrome/*"
+      - "Safari/*"
+      - "Edge/*"
+      - "curl/*"

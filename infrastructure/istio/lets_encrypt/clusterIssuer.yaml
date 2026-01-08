@@ -10,5 +10,8 @@ spec:
       name: letsencrypt-prod-key
     solvers:
     - http01:
-        ingress:
-          class: istio
+        gatewayHTTPRoute:
+          parentRefs:
+          - name: main-gateway
+            namespace: istio-system
+            kind: Gateway

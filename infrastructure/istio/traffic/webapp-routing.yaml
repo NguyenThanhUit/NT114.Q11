@@ -1,0 +1,42 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: webapp-vs
+  namespace: frontend
+spec:
+  hosts:
+    - app.nguyenth4nh.id.vn
+  gateways:
+    - istio-system/main-gateway
+  http:
+    - route:
+        - destination:
+            host: webapp-clusterip.frontend.svc.cluster.local
+            port:
+              number: 3000
+      timeout: 60s
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: webapp-dr
+  namespace: frontend
+spec:
+  host: webapp-clusterip.frontend.svc.cluster.local
+
+  trafficPolicy:
+    loadBalancer:
+      consistentHash:
+        httpCookie:
+          name: webapp-sticky
+          ttl: 0s     #
+    tls:
+      mode: ISTIO_MUTUAL
+
+  subsets:
+    - name: blue
+      labels:
+        version: v56
+    - name: green
+      labels:
+        version: latest

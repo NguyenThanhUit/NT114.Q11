@@ -17,7 +17,7 @@ spec:
         abort:
           httpStatus: 500
           percentage:
-            value: 10 #fault injection 10%
+            value: 10 
       route:
         - destination:
             host: webapp-clusterip
@@ -48,7 +48,7 @@ spec:
         abort:
           httpStatus: 500
           percentage:
-            value: 20  #fault injection 20%
+            value: 20  
       route:
         - destination:
             host: webapp-clusterip

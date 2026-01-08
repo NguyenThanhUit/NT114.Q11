@@ -1,4 +1,4 @@
-# Deployment Auction Service
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,38 +22,32 @@ spec:
         app: auction-svc
     spec:
       initContainers:
-      - name: wait-for-postgres
-        image: busybox:1.36
-        command:
-          - sh
-          - -c
-          - |
-            echo "Waiting for PostgreSQL to be ready..."
-            for i in $(seq 1 30); do
-              nc -z postgres-clusterip.backend.svc.cluster.local 5432
-              if [ $? -eq 0 ]; then
-                echo "PostgreSQL is ready!"
-                exit 0
-              fi
-              echo "PostgreSQL not ready, retry $i/30, sleeping 5s..."
-              sleep 5
-            done
-            echo "PostgreSQL still not ready after 30 retries, exiting."
-            exit 1
-      - name: wait-for-rabbitmq
-        image: busybox:1.36
-        command:
-          - sh
-          - -c
-          - |
-            echo "Waiting for RabbitMQ..."
-            for i in $(seq 1 30); do
-              nc -z rabbit-clusterip.backend.svc.cluster.local 5672 && exit 0
-              echo "RabbitMQ not ready ($i/30), sleep 5s"
-              sleep 5
-            done
-            echo "RabbitMQ not ready after 30 retries"
-            exit 1
+        - name: wait-for-postgres
+          image: alpine:3.19
+          command:
+            - sh
+            - -c
+            - |
+              apk add --no-cache netcat-openbsd
+              echo "Waiting for PostgreSQL..."
+              until nc -zv postgres-clusterip.backend.svc.cluster.local 5432; do
+                echo "PostgreSQL not ready, retrying in 5s..."
+                sleep 5
+              done
+              echo "PostgreSQL is ready!"
+        - name: wait-for-rabbitmq
+          image: alpine:3.19
+          command:
+            - sh
+            - -c
+            - |
+              apk add --no-cache netcat-openbsd
+              echo "Waiting for RabbitMQ..."
+              until nc -zv rabbit-clusterip.backend.svc.cluster.local 5672; do
+                echo "RabbitMQ not ready, retrying in 5s..."
+                sleep 5
+              done
+              echo "RabbitMQ is ready!"
       containers:
       - name: auction-svc
         image: nguyenthanh/auctions-svc
@@ -84,7 +78,7 @@ spec:
             name: grpc
 
 ---
-# Service Auction ClusterIP
+
 apiVersion: v1
 kind: Service
 metadata:

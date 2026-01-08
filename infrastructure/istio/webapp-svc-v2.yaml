@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapp-svc-v56
+  name: webapp-svc-latest
   namespace: frontend
   labels:
     app: webapp
-    version: v56
+    version: latest
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: webapp
-      version: v56
+      version: latest
   template:
     metadata:
       labels:
         app: webapp
-        version: v56
+        version: latest
     spec:
       containers:
         - name: webapp
-          image: nguyenthanh91ndu/web-app:v56
-          imagePullPolicy: IfNotPresent
+          image: nguyenthanh91ndu/web-app:latest
+          imagePullPolicy: Always
           env:
             - name: AUTH_SECRET
               valueFrom:
@@ -34,18 +34,3 @@ spec:
           ports:
             - containerPort: 3000
               name: web
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: webapp-clusterip
-  namespace: frontend
-spec:
-  selector:
-    app: webapp  
-  type: ClusterIP
-  ports:
-    - port: 3000
-      targetPort: 3000
-      name: tcp
----

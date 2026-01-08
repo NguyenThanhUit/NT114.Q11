@@ -26,8 +26,6 @@ export default function SignalRProvider({ children }: Props) {
     // Hardcode URL vào đây
     const notifyUrl = "https://api.nguyenth4nh.id.vn/notifications";
 
-    // --- Log debug ---
-    console.log("[SignalRProvider] notifyUrl =", notifyUrl);
 
     const handleAuctionFinished = useCallback((finishedAuction: AuctionFinished) => {
         const auctionPromise = getDetailedViewData(finishedAuction.auctionID);
@@ -51,10 +49,8 @@ export default function SignalRProvider({ children }: Props) {
     }, [setCurrentPrice, addBid, params.id]);
 
     useEffect(() => {
-        console.log("[SignalRProvider] useEffect called, connection =", connection.current);
 
         if (!connection.current) {
-            console.log("[SignalRProvider] Creating new HubConnection...");
 
             try {
                 connection.current = new HubConnectionBuilder()
@@ -62,7 +58,6 @@ export default function SignalRProvider({ children }: Props) {
                     .withAutomaticReconnect()
                     .build();
 
-                console.log("[SignalRProvider] Starting connection...");
                 connection.current.start()
                     .then(() => console.log("[SignalRProvider] Connection started"))
                     .catch(err => console.error("[SignalRProvider] Connection error:", err));

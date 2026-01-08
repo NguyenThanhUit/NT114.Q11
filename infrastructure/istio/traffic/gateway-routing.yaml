@@ -17,6 +17,7 @@ spec:
             host: gateway-clusterip.backend.svc.cluster.local
             port:
               number: 80
+
     - match:
         - uri:
             prefix: "/search/auctions"
@@ -25,6 +26,7 @@ spec:
             host: gateway-clusterip.backend.svc.cluster.local
             port:
               number: 80
+
     - match:
         - uri:
             prefix: "/search/products"
@@ -33,6 +35,7 @@ spec:
             host: gateway-clusterip.backend.svc.cluster.local
             port:
               number: 80
+
     - match:
         - uri:
             prefix: "/users"
@@ -41,6 +44,7 @@ spec:
             host: gateway-clusterip.backend.svc.cluster.local
             port:
               number: 80
+
     - match:
         - uri:
             prefix: "/orders"
@@ -49,6 +53,7 @@ spec:
             host: gateway-clusterip.backend.svc.cluster.local
             port:
               number: 80
+
     - match:
         - uri:
             prefix: "/notifications"
@@ -57,3 +62,22 @@ spec:
             host: notify-clusterip.backend.svc.cluster.local
             port:
               number: 80
+    - route:
+        - destination:
+            host: gateway-clusterip.backend.svc.cluster.local
+            port:
+              number: 80
+      timeout: 30s
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: gateway-dr
+  namespace: backend
+spec:
+  host: gateway-clusterip.backend.svc.cluster.local
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN
+    tls:
+      mode: ISTIO_MUTUAL
