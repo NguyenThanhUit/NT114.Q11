@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019b9e05-2621-73ab-99b0-bf3c2eaad244",
-  "CreatedAt": "2026-01-08T14:31:36.225242511Z",
+  "ReportID": "019b9e15-46e4-793a-be5a-6b448d840fc2",
+  "CreatedAt": "2026-01-08T14:49:13.188605896Z",
   "ArtifactID": "sha256:54bff10c7be92c6bea3daaa95dbe56eefa6c12cba3c8f66865a6cd794f4e5fea",
   "ArtifactName": "nguyenthanh91ndu/order-svc:latest",
   "ArtifactType": "container_image",
@@ -8239,18 +8239,18 @@
           "Name": "OrderService",
           "Identifier": {
             "PURL": "pkg:nuget/OrderService@1.0.0",
-            "UID": "110d925550d33666"
+            "UID": "5ba710081170e3a2"
           },
           "Version": "1.0.0",
           "Relationship": "root",
           "DependsOn": [
-            "Microsoft.EntityFrameworkCore.Design/9.0.2",
             "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.4",
             "Polly/8.6.3",
             "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1",
             "MassTransit.EntityFrameworkCore/8.3.7",
             "MassTransit.RabbitMQ/8.4.0-develop.2236",
-            "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13"
+            "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
+            "Microsoft.EntityFrameworkCore.Design/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:eb171c105116938b6365fe2b941e4e942d5d2e07c863bbb6cf678eb67569da7a",
@@ -8364,23 +8364,23 @@
           "Name": "Microsoft.EntityFrameworkCore.Design",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@9.0.2",
-            "UID": "717ce5b18feeb7b"
+            "UID": "43121821a9751b87"
           },
           "Version": "9.0.2",
           "Relationship": "direct",
           "DependsOn": [
-            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
-            "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
-            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
-            "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
-            "Microsoft.Extensions.DependencyModel/9.0.2",
-            "Microsoft.Extensions.Logging/9.0.2",
-            "Mono.TextTemplating/3.0.0",
             "System.Text.Json/9.0.2",
             "Humanizer.Core/2.14.1",
+            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
+            "Microsoft.Extensions.Caching.Memory/9.0.2",
+            "Microsoft.Extensions.DependencyModel/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2",
             "Microsoft.Build.Locator/1.7.8",
-            "Microsoft.CodeAnalysis.CSharp/4.8.0"
+            "Microsoft.CodeAnalysis.CSharp/4.8.0",
+            "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
+            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Mono.TextTemplating/3.0.0"
           ],
           "Layer": {
             "Digest": "sha256:eb171c105116938b6365fe2b941e4e942d5d2e07c863bbb6cf678eb67569da7a",
@@ -8398,14 +8398,14 @@
           "Name": "Npgsql.EntityFrameworkCore.PostgreSQL",
           "Identifier": {
             "PURL": "pkg:nuget/Npgsql.EntityFrameworkCore.PostgreSQL@9.0.4",
-            "UID": "a28e49eabeee17bf"
+            "UID": "8a1548c65b60888c"
           },
           "Version": "9.0.4",
           "Relationship": "direct",
           "DependsOn": [
-            "Npgsql/9.0.3",
             "Microsoft.EntityFrameworkCore/9.0.2",
-            "Microsoft.EntityFrameworkCore.Relational/9.0.2"
+            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
+            "Npgsql/9.0.3"
           ],
           "Layer": {
             "Digest": "sha256:eb171c105116938b6365fe2b941e4e942d5d2e07c863bbb6cf678eb67569da7a",
@@ -8488,16 +8488,16 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.4.0-develop.2236",
-            "UID": "69e595816922c06d"
+            "UID": "d5a7d3156e42c40"
           },
           "Version": "8.4.0-develop.2236",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "MassTransit.Abstractions/8.4.0-develop.2236",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2",
+            "MassTransit.Abstractions/8.4.0-develop.2236",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:eb171c105116938b6365fe2b941e4e942d5d2e07c863bbb6cf678eb67569da7a",
@@ -8703,15 +8703,15 @@
           "Name": "Microsoft.EntityFrameworkCore",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore@9.0.2",
-            "UID": "42eaf59f14d07674"
+            "UID": "80fbd1555f1ff528"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Logging/9.0.2",
             "Microsoft.EntityFrameworkCore.Abstractions/9.0.2",
-            "Microsoft.Extensions.Caching.Memory/9.0.2"
+            "Microsoft.Extensions.Caching.Memory/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:eb171c105116938b6365fe2b941e4e942d5d2e07c863bbb6cf678eb67569da7a",
@@ -8750,16 +8750,16 @@
           "Name": "Microsoft.EntityFrameworkCore.Relational",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Relational@9.0.2",
-            "UID": "e88b1faffeaf3be7"
+            "UID": "b60448ca6dab06cd"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Logging/9.0.2",
-            "Microsoft.EntityFrameworkCore/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2",
+            "Microsoft.EntityFrameworkCore/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:eb171c105116938b6365fe2b941e4e942d5d2e07c863bbb6cf678eb67569da7a",
@@ -8923,15 +8923,15 @@
           "Name": "Microsoft.Extensions.Logging",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Logging@9.0.2",
-            "UID": "e141585fda636c4f"
+            "UID": "56e773e9cc2d0df9"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.Extensions.DependencyInjection/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2",
-            "Microsoft.Extensions.DependencyInjection/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:eb171c105116938b6365fe2b941e4e942d5d2e07c863bbb6cf678eb67569da7a",
@@ -9367,15 +9367,15 @@
           "Name": "System.Composition.TypedParts",
           "Identifier": {
             "PURL": "pkg:nuget/System.Composition.TypedParts@7.0.0",
-            "UID": "b6b20dc307aa7a3b"
+            "UID": "b0a8c9cc25d9a60f"
           },
           "Version": "7.0.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "System.Composition.AttributedModel/7.0.0",
             "System.Composition.Hosting/7.0.0",
-            "System.Composition.Runtime/7.0.0",
-            "System.Composition.AttributedModel/7.0.0"
+            "System.Composition.Runtime/7.0.0"
           ],
           "Layer": {
             "Digest": "sha256:eb171c105116938b6365fe2b941e4e942d5d2e07c863bbb6cf678eb67569da7a",
@@ -9481,14 +9481,14 @@
           "Name": "System.Text.Json",
           "Identifier": {
             "PURL": "pkg:nuget/System.Text.Json@9.0.2",
-            "UID": "3fb8f6dc24bffe36"
+            "UID": "129c1ea60c7b13c6"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "System.Text.Encodings.Web/9.0.2",
-            "System.IO.Pipelines/9.0.2"
+            "System.IO.Pipelines/9.0.2",
+            "System.Text.Encodings.Web/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:eb171c105116938b6365fe2b941e4e942d5d2e07c863bbb6cf678eb67569da7a",
