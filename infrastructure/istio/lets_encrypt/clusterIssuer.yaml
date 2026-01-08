@@ -7,11 +7,10 @@ spec:
     email: nguyenthanh91ndu1819@gmail.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: letsencrypt-prod-key
+      name: letsencrypt-prod
     solvers:
     - http01:
         gatewayHTTPRoute:
           parentRefs:
           - name: main-gateway
             namespace: istio-system
-            kind: Gateway
