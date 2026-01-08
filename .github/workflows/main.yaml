@@ -134,35 +134,38 @@ jobs:
             ${{ matrix.service.name }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          
+      
+      - name: Set sanitized service name
+        id: sanitize
+        run: |
+            SAFE_NAME=$(echo "${{ matrix.service.name }}" | tr '/' '-')
+            echo "safe_name=$SAFE_NAME" >> $GITHUB_OUTPUT
+      
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ matrix.service.name }}:latest
           format: 'sarif'
-          output: 'trivy-results-${{ matrix.service.name }}.sarif'
+          output: 'trivy-results-${{ steps.sanitize.outputs.safe_name }}.sarif'
           severity: 'CRITICAL,HIGH'
           
       - name: Upload Trivy results to GitHub Security
-        if: env.continue == 'true'
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: 'trivy-results-${{ matrix.service.name }}.sarif'
-          category: ${{ matrix.service.name }}
+          sarif_file: 'trivy-results-${{ steps.sanitize.outputs.safe_name }}.sarif'
+          category: ${{ steps.sanitize.outputs.safe_name }}
           
       - name: Generate Trivy report (Table format)
-        if: env.continue == 'true'
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
+          image-ref: ${{ matrix.service.name }}:latest
           format: 'table'
           severity: 'CRITICAL,HIGH,MEDIUM'
           
       - name: Fail build on Critical vulnerabilities
-        if: env.continue == 'true'
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
+          image-ref: ${{ matrix.service.name }}:latest
           format: 'json'
           exit-code: '1'
           severity: 'CRITICAL'
