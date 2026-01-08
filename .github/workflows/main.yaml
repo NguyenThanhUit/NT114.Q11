@@ -7,10 +7,6 @@ on:
         description: "Force rebuild all service"
         required: false
         default: false
-      skip_security_scan:
-        description: "Skip Trivy security scan"
-        required: false
-        default: false
   push:
     branches: ["main"]
   pull_request:
@@ -140,7 +136,7 @@ jobs:
           cache-to: type=gha,mode=max
           
       - name: Run Trivy vulnerability scanner
-        if: env.continue == 'true' && github.event.inputs.skip_security_scan != 'true'
+        if: env.continue == 'true'
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
@@ -149,14 +145,14 @@ jobs:
           severity: 'CRITICAL,HIGH'
           
       - name: Upload Trivy results to GitHub Security
-        if: env.continue == 'true' && github.event.inputs.skip_security_scan != 'true'
+        if: env.continue == 'true'
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results-${{ matrix.service.name }}.sarif'
           category: ${{ matrix.service.name }}
           
       - name: Generate Trivy report (Table format)
-        if: env.continue == 'true' && github.event.inputs.skip_security_scan != 'true'
+        if: env.continue == 'true'
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
@@ -164,7 +160,7 @@ jobs:
           severity: 'CRITICAL,HIGH,MEDIUM'
           
       - name: Fail build on Critical vulnerabilities
-        if: env.continue == 'true' && github.event.inputs.skip_security_scan != 'true'
+        if: env.continue == 'true'
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
@@ -176,7 +172,6 @@ jobs:
   Security-Summary:
     needs: Build-and-Push
     runs-on: ubuntu-latest
-    if: github.event.inputs.skip_security_scan != 'true'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
