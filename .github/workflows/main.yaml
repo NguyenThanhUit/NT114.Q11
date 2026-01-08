@@ -178,10 +178,10 @@ jobs:
       - name: Create output directory
         run: mkdir -p "trivy-reports"
 
-      - name: Install Trivy
+      - name: Install Trivy and jq
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl
+          sudo apt-get install -y curl jq
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin
 
       - name: Login to Docker
@@ -205,6 +205,126 @@ jobs:
             ${{ matrix.service.name }}:latest
           
           echo "Scan completed for ${{ matrix.service.name }}"
+
+      - name: Generate detailed summary for this service
+        run: |
+          echo "### 🔍 ${{ matrix.service.name }}" >> service-summary.md
+          echo "" >> service-summary.md
+          echo "**Scan Date:** ${DATE}" >> service-summary.md
+          echo "" >> service-summary.md
+          
+          JSON_FILE="trivy-reports/scan-${{ steps.sanitize.outputs.safe_name }}-${DATE}.json"
+          
+          if [ -f "$JSON_FILE" ]; then
+            # Count by severity
+            CRITICAL_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="CRITICAL")] | length' "$JSON_FILE")
+            HIGH_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="HIGH")] | length' "$JSON_FILE")
+            MEDIUM_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="MEDIUM")] | length' "$JSON_FILE")
+            LOW_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="LOW")] | length' "$JSON_FILE")
+            
+            TOTAL=$((CRITICAL_COUNT + HIGH_COUNT + MEDIUM_COUNT + LOW_COUNT))
+            
+            echo "**Summary:** $TOTAL vulnerabilities found" >> service-summary.md
+            echo "" >> service-summary.md
+            
+            if [ "$TOTAL" -eq "0" ]; then
+              echo "✅ **No vulnerabilities found!**" >> service-summary.md
+              echo "" >> service-summary.md
+              echo "---" >> service-summary.md
+              echo "" >> service-summary.md
+            else
+              # Show counts
+              if [ "$CRITICAL_COUNT" -gt "0" ]; then
+                echo "- 🔴 **CRITICAL:** $CRITICAL_COUNT" >> service-summary.md
+              fi
+              if [ "$HIGH_COUNT" -gt "0" ]; then
+                echo "- 🟠 **HIGH:** $HIGH_COUNT" >> service-summary.md
+              fi
+              if [ "$MEDIUM_COUNT" -gt "0" ]; then
+                echo "- 🟡 **MEDIUM:** $MEDIUM_COUNT" >> service-summary.md
+              fi
+              if [ "$LOW_COUNT" -gt "0" ]; then
+                echo "- 🟢 **LOW:** $LOW_COUNT" >> service-summary.md
+              fi
+              echo "" >> service-summary.md
+              
+              # Detail CRITICAL vulnerabilities
+              if [ "$CRITICAL_COUNT" -gt "0" ]; then
+                echo "#### 🔴 CRITICAL Vulnerabilities" >> service-summary.md
+                echo "" >> service-summary.md
+                
+                jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="CRITICAL") | 
+                  "**" + .VulnerabilityID + "** - " + .PkgName + "\n" +
+                  "- **Installed:** \`" + .InstalledVersion + "\`\n" +
+                  "- **Fixed:** \`" + (.FixedVersion // "Not available") + "\`\n" +
+                  "- **Description:** " + ((.Description // "N/A")[:200] | gsub("\n"; " ")) + "...\n" +
+                  "- **Reference:** " + (.PrimaryURL // "N/A") + "\n"
+                ' "$JSON_FILE" >> service-summary.md
+                
+                echo "" >> service-summary.md
+              fi
+              
+              # Detail HIGH vulnerabilities (limit to first 10)
+              if [ "$HIGH_COUNT" -gt "0" ]; then
+                echo "#### 🟠 HIGH Vulnerabilities (Top 10)" >> service-summary.md
+                echo "" >> service-summary.md
+                
+                jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="HIGH") | 
+                  "**" + .VulnerabilityID + "** - " + .PkgName + "\n" +
+                  "- **Installed:** \`" + .InstalledVersion + "\`\n" +
+                  "- **Fixed:** \`" + (.FixedVersion // "Not available") + "\`\n" +
+                  "- **Description:** " + ((.Description // "N/A")[:150] | gsub("\n"; " ")) + "...\n" +
+                  "- **Reference:** " + (.PrimaryURL // "N/A") + "\n"
+                ' "$JSON_FILE" | head -n 60 >> service-summary.md
+                
+                if [ "$HIGH_COUNT" -gt "10" ]; then
+                  echo "_... and $((HIGH_COUNT - 10)) more HIGH vulnerabilities_" >> service-summary.md
+                fi
+                echo "" >> service-summary.md
+              fi
+              
+              # Summary for MEDIUM and LOW
+              if [ "$MEDIUM_COUNT" -gt "0" ]; then
+                echo "#### 🟡 MEDIUM Vulnerabilities" >> service-summary.md
+                echo "" >> service-summary.md
+                echo "<details>" >> service-summary.md
+                echo "<summary>Click to expand ($MEDIUM_COUNT issues)</summary>" >> service-summary.md
+                echo "" >> service-summary.md
+                
+                jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="MEDIUM") | 
+                  "- **" + .VulnerabilityID + "** (" + .PkgName + " " + .InstalledVersion + " → " + (.FixedVersion // "N/A") + ")"
+                ' "$JSON_FILE" >> service-summary.md
+                
+                echo "" >> service-summary.md
+                echo "</details>" >> service-summary.md
+                echo "" >> service-summary.md
+              fi
+              
+              if [ "$LOW_COUNT" -gt "0" ]; then
+                echo "#### 🟢 LOW Vulnerabilities" >> service-summary.md
+                echo "" >> service-summary.md
+                echo "<details>" >> service-summary.md
+                echo "<summary>Click to expand ($LOW_COUNT issues)</summary>" >> service-summary.md
+                echo "" >> service-summary.md
+                
+                jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="LOW") | 
+                  "- **" + .VulnerabilityID + "** (" + .PkgName + " " + .InstalledVersion + " → " + (.FixedVersion // "N/A") + ")"
+                ' "$JSON_FILE" >> service-summary.md
+                
+                echo "" >> service-summary.md
+                echo "</details>" >> service-summary.md
+                echo "" >> service-summary.md
+              fi
+              
+              echo "---" >> service-summary.md
+              echo "" >> service-summary.md
+            fi
+          else
+            echo "⚠️ Scan failed or no results" >> service-summary.md
+            echo "" >> service-summary.md
+            echo "---" >> service-summary.md
+            echo "" >> service-summary.md
+          fi
           
       - name: Generate SARIF report
         run: |
@@ -222,8 +342,12 @@ jobs:
           sarif_file: trivy-reports/scan-${{ steps.sanitize.outputs.safe_name }}-${{ env.DATE }}.sarif
           category: ${{ steps.sanitize.outputs.safe_name }}
 
-      - name: Verify scan results exist
-        run: ls -lh trivy-reports/
+      - name: Upload service summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: summary-${{ steps.sanitize.outputs.safe_name }}
+          path: service-summary.md
+          retention-days: 30
 
       - name: Upload scan results as artifact
         uses: actions/upload-artifact@v4
@@ -236,6 +360,8 @@ jobs:
     needs: Trivy-Security-Scan
     runs-on: ubuntu-latest
     name: "Commit all Trivy reports"
+    permissions:
+      contents: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -248,19 +374,43 @@ jobs:
       - name: Organize reports
         run: |
           mkdir -p "GitHub Actions/Trivy Automation"
+          
+          # Copy JSON files
           find trivy-reports-all -type f -name "*.json" -exec cp {} "GitHub Actions/Trivy Automation/" \;
+          
+          # Merge all summaries into one README
+          echo "# 🔒 Trivy Security Scan Report" > "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "**Scan Date:** $(date +%m.%d.%Y)" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "---" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          
+          # Merge all service summaries
+          find trivy-reports-all -name "service-summary.md" -exec cat {} >> "GitHub Actions/Trivy Automation/README.md" \;
+          
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "---" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "## 📊 How to Read This Report" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "- **JSON Files:** Raw scan data in \`scan-*-*.json\`" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "- **Severity Levels:**" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "  - 🔴 CRITICAL: Fix immediately" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "  - 🟠 HIGH: Fix as soon as possible" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "  - 🟡 MEDIUM: Plan to fix" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "  - 🟢 LOW: Fix when convenient" >> "GitHub Actions/Trivy Automation/README.md"
+          
           ls -lh "GitHub Actions/Trivy Automation/"
 
       - name: Commit scan results to repository
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add "GitHub Actions/Trivy Automation/"
           git diff --quiet && git diff --staged --quiet || (
-            git commit -m "Add Trivy scan results ($(date +%m.%d.%Y))"
-            git push origin HEAD:main
+            git commit -m "📊 Add Trivy scan results ($(date +%m.%d.%Y))"
+            git push
           )
 
   Deploy_K8s:
