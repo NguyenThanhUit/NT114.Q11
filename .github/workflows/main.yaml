@@ -1,6 +1,6 @@
 name: specializedProjects
 
-on: 
+on:
   workflow_dispatch:
     inputs:
       force_rebuild:
@@ -11,14 +11,14 @@ on:
     branches: ["main"]
   pull_request:
     branches:
-      - main 
+      - main
 
 permissions:
   contents: write
   security-events: write
   actions: read
 env:
-  AWS_REGION: us-east-1
+  AWS_REGION: ap-southeast-1
   AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
   BUCKET_TF_STATE: ${{secrets.BUCKET_TF_STATE}}
@@ -31,10 +31,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup .NET 
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: "8.0.x"
 
       - name: Install SonarScanner
         run: dotnet tool install --global dotnet-sonarscanner
@@ -62,46 +62,46 @@ jobs:
     outputs:
       image_version: ${{ steps.set_version.outputs.version }}
     env:
-      continue: 'false'
+      continue: "false"
     strategy:
       matrix:
         service:
-          - name: 'nguyenthanh91ndu/auction-svc'
-            path: 'src/AuctionService'
-          - name: 'nguyenthanh91ndu/bidding-svc'
-            path: 'src/BiddingService'
-          - name: 'nguyenthanh91ndu/buying-svc'
-            path: 'src/BuyingService'
-          - name: 'nguyenthanh91ndu/gateway-svc'
-            path: 'src/GatewayService'
-          - name: 'nguyenthanh91ndu/identity-svc'
-            path: 'src/IdentityService'
-          - name: 'nguyenthanh91ndu/notify-svc'
-            path: 'src/NotificationService'
-          - name: 'nguyenthanh91ndu/order-svc'
-            path: 'src/OrderService'
-          - name: 'nguyenthanh91ndu/search-svc'
-            path: 'src/SearchService'
-          - name: 'nguyenthanh91ndu/user-svc'
-            path: 'src/UserService'
-          - name: 'nguyenthanh91ndu/deposits-svc'
-            path: 'src/WalletService'
-          - name: 'nguyenthanh91ndu/web-app'
-            path: 'frontend/web'
+          - name: "nguyenthanh91ndu/auction-svc"
+            path: "src/AuctionService"
+          - name: "nguyenthanh91ndu/bidding-svc"
+            path: "src/BiddingService"
+          - name: "nguyenthanh91ndu/buying-svc"
+            path: "src/BuyingService"
+          - name: "nguyenthanh91ndu/gateway-svc"
+            path: "src/GatewayService"
+          - name: "nguyenthanh91ndu/identity-svc"
+            path: "src/IdentityService"
+          - name: "nguyenthanh91ndu/notify-svc"
+            path: "src/NotificationService"
+          - name: "nguyenthanh91ndu/order-svc"
+            path: "src/OrderService"
+          - name: "nguyenthanh91ndu/search-svc"
+            path: "src/SearchService"
+          - name: "nguyenthanh91ndu/user-svc"
+            path: "src/UserService"
+          - name: "nguyenthanh91ndu/deposits-svc"
+            path: "src/WalletService"
+          - name: "nguyenthanh91ndu/web-app"
+            path: "frontend/web"
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 2
-          
+
       - name: Set image version
         id: set_version
         run: |
           VERSION=v${{ github.run_number }}
           echo "IMAGE_VERSION=$VERSION" >> $GITHUB_ENV
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          
+
       - name: Check for change
         run: |
           if [[ "${{ github.event.inputs.force_rebuild }}" == "true" ]]; then
@@ -118,14 +118,14 @@ jobs:
       - name: Set up Docker buildx
         if: env.continue == 'true'
         uses: docker/setup-buildx-action@v3
-    
+
       - name: Login to Docker
         if: env.continue == 'true'
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
-    
+
       - name: Build and push docker image
         if: env.continue == 'true'
         uses: docker/build-push-action@v6
@@ -149,18 +149,18 @@ jobs:
     strategy:
       matrix:
         service:
-          - name: 'nguyenthanh91ndu/auction-svc'
-          - name: 'nguyenthanh91ndu/bidding-svc'
-          - name: 'nguyenthanh91ndu/buying-svc'
-          - name: 'nguyenthanh91ndu/gateway-svc'
-          - name: 'nguyenthanh91ndu/identity-svc'
-          - name: 'nguyenthanh91ndu/notify-svc'
-          - name: 'nguyenthanh91ndu/order-svc'
-          - name: 'nguyenthanh91ndu/search-svc'
-          - name: 'nguyenthanh91ndu/user-svc'
-          - name: 'nguyenthanh91ndu/deposits-svc'
-          - name: 'nguyenthanh91ndu/web-app'
-    
+          - name: "nguyenthanh91ndu/auction-svc"
+          - name: "nguyenthanh91ndu/bidding-svc"
+          - name: "nguyenthanh91ndu/buying-svc"
+          - name: "nguyenthanh91ndu/gateway-svc"
+          - name: "nguyenthanh91ndu/identity-svc"
+          - name: "nguyenthanh91ndu/notify-svc"
+          - name: "nguyenthanh91ndu/order-svc"
+          - name: "nguyenthanh91ndu/search-svc"
+          - name: "nguyenthanh91ndu/user-svc"
+          - name: "nguyenthanh91ndu/deposits-svc"
+          - name: "nguyenthanh91ndu/web-app"
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -168,13 +168,13 @@ jobs:
       - name: Set Date
         id: set-date
         run: echo "DATE=$(date +%m.%d.%Y)" >> $GITHUB_ENV
-      
+
       - name: Set sanitized service name
         id: sanitize
         run: |
           SAFE_NAME=$(echo "${{ matrix.service.name }}" | tr '/' '-')
           echo "safe_name=$SAFE_NAME" >> $GITHUB_OUTPUT
-      
+
       - name: Create output directory
         run: mkdir -p "trivy-reports"
 
@@ -189,7 +189,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
-      
+
       - name: Download Trivy vulnerability database
         run: trivy image --download-db-only
 
@@ -203,7 +203,7 @@ jobs:
             --severity CRITICAL,HIGH,MEDIUM,LOW \
             -o "$OUTPUT_FILE" \
             ${{ matrix.service.name }}:latest
-          
+
           echo "Scan completed for ${{ matrix.service.name }}"
 
       - name: Generate detailed summary for this service
@@ -212,9 +212,9 @@ jobs:
           echo "" >> service-summary.md
           echo "**Scan Date:** ${DATE}" >> service-summary.md
           echo "" >> service-summary.md
-          
+
           JSON_FILE="trivy-reports/scan-${{ steps.sanitize.outputs.safe_name }}-${DATE}.json"
-          
+
           if [ -f "$JSON_FILE" ]; then
             # Count by severity
             CRITICAL_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="CRITICAL")] | length' "$JSON_FILE")
@@ -325,7 +325,7 @@ jobs:
             echo "---" >> service-summary.md
             echo "" >> service-summary.md
           fi
-          
+
       - name: Generate SARIF report
         run: |
           SARIF_FILE="trivy-reports/scan-${{ steps.sanitize.outputs.safe_name }}-${DATE}.sarif"
@@ -365,19 +365,19 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        
+
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
           path: trivy-reports-all
-          
+
       - name: Organize reports
         run: |
           mkdir -p "GitHub Actions/Trivy Automation"
-          
+
           # Copy JSON files
           find trivy-reports-all -type f -name "*.json" -exec cp {} "GitHub Actions/Trivy Automation/" \;
-          
+
           # Merge all summaries into one README
           echo "# 🔒 Trivy Security Scan Report" > "GitHub Actions/Trivy Automation/README.md"
           echo "" >> "GitHub Actions/Trivy Automation/README.md"
@@ -385,10 +385,10 @@ jobs:
           echo "" >> "GitHub Actions/Trivy Automation/README.md"
           echo "---" >> "GitHub Actions/Trivy Automation/README.md"
           echo "" >> "GitHub Actions/Trivy Automation/README.md"
-          
+
           # Merge all service summaries
           find trivy-reports-all -name "service-summary.md" -exec cat {} >> "GitHub Actions/Trivy Automation/README.md" \;
-          
+
           echo "" >> "GitHub Actions/Trivy Automation/README.md"
           echo "---" >> "GitHub Actions/Trivy Automation/README.md"
           echo "" >> "GitHub Actions/Trivy Automation/README.md"
@@ -400,7 +400,7 @@ jobs:
           echo "  - 🟠 HIGH: Fix as soon as possible" >> "GitHub Actions/Trivy Automation/README.md"
           echo "  - 🟡 MEDIUM: Plan to fix" >> "GitHub Actions/Trivy Automation/README.md"
           echo "  - 🟢 LOW: Fix when convenient" >> "GitHub Actions/Trivy Automation/README.md"
-          
+
           ls -lh "GitHub Actions/Trivy Automation/"
 
       - name: Commit scan results to repository
@@ -412,17 +412,60 @@ jobs:
             git commit -m "📊 Add Trivy scan results ($(date +%m.%d.%Y))"
             git push
           )
-
-  Deploy_K8s:
-    needs: Build-and-Push
+  SetUp_Terraform:
+    needs: Commit-Trivy-Reports
     runs-on: ubuntu-latest
-    name: "Deploy Kubernetes manifests"
+    name: "Apply Terraform code changes"
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./terraform
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.6.3"
+
+      - name: Terraform init
+        id: init
+        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
+        #run: terraform init -backend=false
+
+      - name: Terraform format
+        id: fmt
+        run: terraform fmt -check
+
+      - name: Terraform validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform plan
+        id: plan
+        run: terraform plan -no-color -input=false -out planfile
+        continue-on-error: true
+
+      - name: Terraform plan status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+      - name: Terraform Apply
+        if: (github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch'))
+        run: terraform apply -auto-approve -input=false -parallelism=1 planfile
+
+  Deploy_Infrastructure:
+    needs: SetUp_Terraform
+    runs-on: ubuntu-latest
+    name: "Deploy Kubernetes Infrastructure"
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v5.0.0
+        uses: aws-actions/configure-aws-credentials@v5
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -430,28 +473,120 @@ jobs:
 
       - name: Update kubeconfig for EKS
         run: |
-          aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER }}
+          aws eks update-kubeconfig \
+            --region ${{ env.AWS_REGION }} \
+            --name ${{ env.EKS_CLUSTER }}
 
-      - name: Verify cluster connection
+      - name: Verify cluster
         run: kubectl get nodes
-      
+
+      # ---------- ISTIO ----------
       - name: Install istioctl
         run: |
           curl -L https://istio.io/downloadIstio | sh -
-          cd istio-*
-          sudo mv bin/istioctl /usr/local/bin/
-          istioctl version
+          sudo mv istio-*/bin/istioctl /usr/local/bin/
 
       - name: Install Istio (demo profile)
-        run: |
-          istioctl install --set profile=demo -y
+        run: istioctl install --set profile=demo -y
 
+      # ---------- NAMESPACE ----------
       - name: Create namespaces
         run: |
           kubectl create namespace backend --dry-run=client -o yaml | kubectl apply -f -
           kubectl create namespace frontend --dry-run=client -o yaml | kubectl apply -f -
 
-      - name: Enable Istio sidecar injection
+      - name: Enable Istio injection
         run: |
           kubectl label namespace backend istio-injection=enabled --overwrite
           kubectl label namespace frontend istio-injection=enabled --overwrite
+
+      # ---------- STORAGE ----------
+      - name: Install EBS CSI Driver
+        run: |
+          kubectl apply -k \
+            "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-1.21"
+
+      # ---------- CERT MANAGER ----------
+      - name: Install cert-manager
+        run: |
+          kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
+
+      - name: Wait for cert-manager
+        run: |
+          kubectl wait --for=condition=Available deployment/cert-manager \
+            -n cert-manager --timeout=120s
+          kubectl wait --for=condition=Available deployment/cert-manager-webhook \
+            -n cert-manager --timeout=120s
+          kubectl wait --for=condition=Available deployment/cert-manager-cainjector \
+            -n cert-manager --timeout=120s
+
+      # ---------- TLS ----------
+      - name: Apply ClusterIssuer
+        run: kubectl apply -f infrastructure/istio/lets_encrypt/clusterIssuer.yaml
+
+      - name: Apply Certificate
+        run: kubectl apply -f infrastructure/istio/lets_encrypt/certificate.yaml
+
+      # ---------- SECRETS ----------
+      - name: Apply secrets
+        run: |
+          mkdir -p infrastructure/secret
+          echo "${{ secrets.K8S_SECRET_FILE }}" > infrastructure/secret/devsecrets.yaml
+          kubectl apply -f infrastructure/secret/devsecrets.yaml
+
+  Deploy_Applications:
+    needs: Deploy_Infrastructure
+    runs-on: ubuntu-latest
+    name: "Deploy Application Services"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Update kubeconfig for EKS
+        run: |
+          aws eks update-kubeconfig \
+            --region ${{ env.AWS_REGION }} \
+            --name ${{ env.EKS_CLUSTER }}
+
+      - name: Apply PVC
+        run: kubectl apply -f infrastructure/k8s/eks-pvc.yaml
+
+      - name: Apply Databases
+        run: |
+            kubectl apply -f infrastructure/k8s/postgres-svc.yaml
+            kubectl apply -f infrastructure/k8s/mongo-svc.yaml
+            kubectl apply -f infrastructure/k8s/rabbitmq-svc.yaml
+
+      - name: Apply Backend services
+        run: |
+            kubectl apply -f infrastructure/k8s/identity-svc.yaml
+            kubectl apply -f infrastructure/k8s/user-svc.yaml
+            kubectl apply -f infrastructure/k8s/order-svc.yaml
+            kubectl apply -f infrastructure/k8s/buying-svc.yaml
+            kubectl apply -f infrastructure/k8s/bid-svc.yaml
+            kubectl apply -f infrastructure/k8s/auction-svc.yaml
+            kubectl apply -f infrastructure/k8s/search-svc.yaml
+            kubectl apply -f infrastructure/k8s/notify-svc.yaml
+
+      - name: Apply Gateway & Frontend
+        run: |
+            kubectl apply -f infrastructure/k8s/gateway-svc.yaml
+            kubectl apply -f infrastructure/k8s/webapp-svc.yaml
+      
+      - name: Restart deployment
+        run: |
+            kubectl rollout restart deployment -n backend
+
+
+
+
+
+

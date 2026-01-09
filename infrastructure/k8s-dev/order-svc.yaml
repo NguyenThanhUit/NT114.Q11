@@ -30,8 +30,8 @@ spec:
               apk add --no-cache netcat-openbsd
               echo "Waiting for PostgreSQL..."
               until nc -zv postgres-clusterip.backend.svc.cluster.local 5432; do
-                echo "PostgreSQL not ready, retrying in 5s..."
-                sleep 5
+                echo "PostgreSQL not ready, retrying in 20s..."
+                sleep 20
               done
               echo "PostgreSQL is ready!"
         - name: wait-for-rabbitmq
@@ -43,8 +43,8 @@ spec:
               apk add --no-cache netcat-openbsd
               echo "Waiting for RabbitMQ..."
               until nc -zv rabbit-clusterip.backend.svc.cluster.local 5672; do
-                echo "RabbitMQ not ready, retrying in 5s..."
-                sleep 5
+                echo "RabbitMQ not ready, retrying in 20s..."
+                sleep 20
               done
               echo "RabbitMQ is ready!"
       containers:

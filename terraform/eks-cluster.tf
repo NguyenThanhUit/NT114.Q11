@@ -13,8 +13,8 @@ module "eks" {
     ami_type = "AL2_x86_64"
 
   }
-  
-node_security_group_additional_rules = {
+
+  node_security_group_additional_rules = {
     ingress_15017 = {
       description                   = "Cluster API - Istio Webhook namespace.sidecar-injector.istio.io"
       protocol                      = "TCP"
@@ -34,16 +34,20 @@ node_security_group_additional_rules = {
   }
 
   eks_managed_node_groups = {
-  one = {
-    name = "node-group-1"
-    instance_types = ["t3.medium"]
-    min_size = 2
-    max_size = 5
-    desired_size = 3
-    additional_tags = {
-      "k8s.io/cluster-autoscaler/enabled" = "true"
-      "k8s.io/cluster-autoscaler/${local.cluster_name}" = "owned"
-    }
+    one = {
+      name           = "node-group-1"
+      instance_types = ["t3.medium"]
+      min_size       = 2
+      max_size       = 5
+      desired_size   = 3
+      additional_tags = {
+        "k8s.io/cluster-autoscaler/enabled"               = "true"
+        "k8s.io/cluster-autoscaler/${local.cluster_name}" = "owned"
+      }
+      additional_iam_policies = [
+        "arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicy"
+      ]
     }
   }
+
 }
