@@ -9,16 +9,14 @@ spec:
   gateways:
     - istio-system/main-gateway
   http:
-    - route:
+    - match:
+        - uri:
+            prefix: /
+      route:
         - destination:
             host: identity-clusterip.backend.svc.cluster.local
             port:
               number: 80
-      timeout: 10s
-      retries:
-        attempts: 2
-        perTryTimeout: 3s
-        retryOn: 5xx,connect-failure,reset
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
@@ -29,20 +27,8 @@ spec:
   host: identity-clusterip.backend.svc.cluster.local
   trafficPolicy:
     tls:
-      mode: ISTIO_MUTUAL
+      mode: DISABLE
 
     loadBalancer:
       simple: ROUND_ROBIN
 
-    connectionPool:
-      tcp:
-        maxConnections: 100
-      http:
-        http1MaxPendingRequests: 100
-        maxRequestsPerConnection: 10
-
-    outlierDetection:
-      consecutive5xxErrors: 5
-      interval: 10s
-      baseEjectionTime: 30s
-      maxEjectionPercent: 100

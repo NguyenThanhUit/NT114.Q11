@@ -483,8 +483,9 @@ jobs:
       # ---------- ISTIO ----------
       - name: Install istioctl
         run: |
-          curl -L https://istio.io/downloadIstio | sh -
-          sudo mv istio-*/bin/istioctl /usr/local/bin/
+          curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.28.0 sh -
+          sudo mv istio-1.28.0/bin/istioctl /usr/local/bin/
+
 
       - name: Install Istio (demo profile)
         run: istioctl install --set profile=demo -y
@@ -561,6 +562,9 @@ jobs:
 
       - name: Apply PVC
         run: kubectl apply -f infrastructure/k8s/eks-pvc.yaml
+        
+      - name: Apply config 
+        run: kubectl apply -f infrastructure/k8s/config-svc.yaml
 
       - name: Apply Databases
         run: |
