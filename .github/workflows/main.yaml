@@ -507,6 +507,9 @@ jobs:
             "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-1.21"
 
       # ---------- CERT MANAGER ----------
+      - name: Install gateway-api
+        run: |
+            kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
       - name: Install cert-manager
         run: |
           kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
@@ -519,7 +522,7 @@ jobs:
             -n cert-manager --timeout=120s
           kubectl wait --for=condition=Available deployment/cert-manager-cainjector \
             -n cert-manager --timeout=120s
-
+      
       # ---------- TLS ----------
       - name: Apply ClusterIssuer
         run: kubectl apply -f infrastructure/istio/lets_encrypt/clusterIssuer.yaml

@@ -9,9 +9,10 @@ module "eks" {
   subnet_ids                     = module.vpc.private_subnets
   cluster_endpoint_public_access = true
 
+  enable_irsa = true
+
   eks_managed_node_group_defaults = {
     ami_type = "AL2_x86_64"
-
   }
 
   node_security_group_additional_rules = {
@@ -44,10 +45,45 @@ module "eks" {
         "k8s.io/cluster-autoscaler/enabled"               = "true"
         "k8s.io/cluster-autoscaler/${local.cluster_name}" = "owned"
       }
-      additional_iam_policies = [
-        "arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicy"
-      ]
+    }
+  }
+}
+
+module "ebs_csi_driver_irsa" {
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  version = "~> 5.0"
+
+  role_name_prefix = "${local.cluster_name}-ebs-csi-"
+
+  attach_ebs_csi_policy = true
+
+  oidc_providers = {
+    main = {
+      provider_arn               = module.eks.oidc_provider_arn
+      namespace_service_accounts = ["kube-system:ebs-csi-controller-sa"]
     }
   }
 
+  tags = {
+    Name = "${local.cluster_name}-ebs-csi-driver-role"
+  }
+}
+
+resource "aws_eks_addon" "ebs_csi_driver" {
+  cluster_name             = module.eks.cluster_name
+  addon_name               = "aws-ebs-csi-driver"
+  addon_version            = "v1.36.0-eksbuild.1"
+  service_account_role_arn = module.ebs_csi_driver_irsa.iam_role_arn
+
+  resolve_conflicts_on_create = "OVERWRITE"
+  resolve_conflicts_on_update = "PRESERVE"
+
+  tags = {
+    Name = "${local.cluster_name}-ebs-csi-driver"
+  }
+
+  depends_on = [
+    module.eks,
+    module.ebs_csi_driver_irsa
+  ]
 }
