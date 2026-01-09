@@ -8,3 +8,6 @@ terraform/.terraform/
 terraform/.terraform.lock.hcl
 *.tfstate
 *.tfstate.backup
+
+devcerts/
+infrastructure/certs/
