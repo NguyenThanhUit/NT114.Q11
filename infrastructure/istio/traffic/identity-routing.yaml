@@ -27,7 +27,7 @@ spec:
   host: identity-clusterip.backend.svc.cluster.local
   trafficPolicy:
     tls:
-      mode: DISABLE
+      mode: ISTIO_MUTUAL
 
     loadBalancer:
       simple: ROUND_ROBIN

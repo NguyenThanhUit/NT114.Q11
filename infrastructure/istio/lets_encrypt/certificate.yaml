@@ -4,7 +4,7 @@ metadata:
   name: multi-domain-cert
   namespace: istio-system
 spec:
-  secretName: multi-domain-tls 
+  secretName: multi-domain-tls
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer

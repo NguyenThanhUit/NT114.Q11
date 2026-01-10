@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: acme-challenge
+  namespace: istio-system
+spec:
+  hosts:
+  - "app.nguyenth4nh.id.vn"
+  - "api.nguyenth4nh.id.vn"
+  - "id.nguyenth4nh.id.vn"
+  gateways:
+  - main-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /.well-known/acme-challenge/
+    route:
+    - destination:
+        host: cm-acme-http-solver.cert-manager.svc.cluster.local
+        port:
+          number: 8089

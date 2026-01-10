@@ -531,6 +531,9 @@ jobs:
       - name: Apply Certificate
         run: kubectl apply -f infrastructure/istio/lets_encrypt/certificate.yaml
 
+      - name: Apply acme
+        run: kubectl apply -f infrastructure/istio/lets_encrypt/acme-vs.yaml
+
       # ---------- SECRETS ----------
       - name: Apply secrets
         run: |
@@ -588,9 +591,13 @@ jobs:
             kubectl apply -f infrastructure/k8s/gateway-svc.yaml
             kubectl apply -f infrastructure/k8s/webapp-svc.yaml
       
-      - name: Restart deployment
+      - name: Apply webapp-v2
         run: |
-            kubectl rollout restart deployment -n backend
+            kubectl apply -f infrastructure/istio/webapp-svc-v2.yaml
+
+      - name: Apply istio traffic
+        run: |
+          kubectl apply -f infrastructure/istio/traffic
 
 
 
