@@ -1,33 +1,117 @@
 # 🔒 Trivy Security Scan Report
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
 ---
 
 ### 🔍 nguyenthanh91ndu/deposits-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 0 vulnerabilities found
+**Summary:** 9 vulnerabilities found
 
-✅ **No vulnerabilities found!**
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 4
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+
+#### 🟡 MEDIUM Vulnerabilities
+
+<details>
+<summary>Click to expand (4 issues)</summary>
+
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+
+</details>
 
 ---
 
 ### 🔍 nguyenthanh91ndu/identity-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 2 vulnerabilities found
+**Summary:** 11 vulnerabilities found
 
-- 🟡 **MEDIUM:** 1
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 5
 - 🟢 **LOW:** 1
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
 
 #### 🟡 MEDIUM Vulnerabilities
 
 <details>
-<summary>Click to expand (1 issues)</summary>
+<summary>Click to expand (5 issues)</summary>
 
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
 - **CVE-2024-39694** (Duende.IdentityServer 7.0.4 → 7.0.6, 6.3.10, 6.2.5, 6.1.8, 6.0.5)
 
 </details>
@@ -45,7 +129,7 @@
 
 ### 🔍 nguyenthanh91ndu/web-app
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
 **Summary:** 8 vulnerabilities found
 
@@ -103,81 +187,449 @@
 
 ### 🔍 nguyenthanh91ndu/gateway-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 0 vulnerabilities found
+**Summary:** 9 vulnerabilities found
 
-✅ **No vulnerabilities found!**
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 4
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+
+#### 🟡 MEDIUM Vulnerabilities
+
+<details>
+<summary>Click to expand (4 issues)</summary>
+
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+
+</details>
 
 ---
 
 ### 🔍 nguyenthanh91ndu/buying-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 0 vulnerabilities found
+**Summary:** 9 vulnerabilities found
 
-✅ **No vulnerabilities found!**
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 4
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+
+#### 🟡 MEDIUM Vulnerabilities
+
+<details>
+<summary>Click to expand (4 issues)</summary>
+
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+
+</details>
 
 ---
 
 ### 🔍 nguyenthanh91ndu/order-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 0 vulnerabilities found
+**Summary:** 9 vulnerabilities found
 
-✅ **No vulnerabilities found!**
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 4
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+
+#### 🟡 MEDIUM Vulnerabilities
+
+<details>
+<summary>Click to expand (4 issues)</summary>
+
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+
+</details>
 
 ---
 
 ### 🔍 nguyenthanh91ndu/search-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 0 vulnerabilities found
+**Summary:** 9 vulnerabilities found
 
-✅ **No vulnerabilities found!**
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 4
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+
+#### 🟡 MEDIUM Vulnerabilities
+
+<details>
+<summary>Click to expand (4 issues)</summary>
+
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+
+</details>
 
 ---
 
 ### 🔍 nguyenthanh91ndu/user-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 0 vulnerabilities found
+**Summary:** 9 vulnerabilities found
 
-✅ **No vulnerabilities found!**
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 4
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+
+#### 🟡 MEDIUM Vulnerabilities
+
+<details>
+<summary>Click to expand (4 issues)</summary>
+
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+
+</details>
 
 ---
 
 ### 🔍 nguyenthanh91ndu/auction-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 0 vulnerabilities found
+**Summary:** 9 vulnerabilities found
 
-✅ **No vulnerabilities found!**
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 4
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+
+#### 🟡 MEDIUM Vulnerabilities
+
+<details>
+<summary>Click to expand (4 issues)</summary>
+
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+
+</details>
 
 ---
 
 ### 🔍 nguyenthanh91ndu/notify-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 0 vulnerabilities found
+**Summary:** 9 vulnerabilities found
 
-✅ **No vulnerabilities found!**
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 4
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+
+#### 🟡 MEDIUM Vulnerabilities
+
+<details>
+<summary>Click to expand (4 issues)</summary>
+
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+
+</details>
 
 ---
 
 ### 🔍 nguyenthanh91ndu/bidding-svc
 
-**Scan Date:** 01.09.2026
+**Scan Date:** 01.10.2026
 
-**Summary:** 0 vulnerabilities found
+**Summary:** 9 vulnerabilities found
 
-✅ **No vulnerabilities found!**
+- 🟠 **HIGH:** 5
+- 🟡 **MEDIUM:** 4
+
+#### 🟠 HIGH Vulnerabilities (Top 10)
+
+**CVE-2025-68973** - gpgv
+- **Installed:** 2.2.40-1.1+deb12u1
+- **Fixed:** 2.2.40-1.1+deb12u2
+- **Description:** In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write fo...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-68973
+
+**CVE-2025-6020** - libpam-modules
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-modules-bin
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam-runtime
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+**CVE-2025-6020** - libpam0g
+- **Installed:** 1.5.2-6+deb12u1
+- **Fixed:** 1.5.2-6+deb12u2
+- **Description:** A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevat...
+- **Reference:** https://avd.aquasec.com/nvd/cve-2025-6020
+
+
+#### 🟡 MEDIUM Vulnerabilities
+
+<details>
+<summary>Click to expand (4 issues)</summary>
+
+- **CVE-2024-22365** (libpam-modules 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-modules-bin 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam-runtime 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+- **CVE-2024-22365** (libpam0g 1.5.2-6+deb12u1 → 1.5.2-6+deb12u2)
+
+</details>
 
 ---
 
