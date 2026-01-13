@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bb571-312f-75ff-a90a-90fef9c514f8",
-  "CreatedAt": "2026-01-13T03:40:52.911394165Z",
+  "ReportID": "019bb665-a1e2-7d15-bfda-c4631260f43a",
+  "CreatedAt": "2026-01-13T08:07:52.546858345Z",
   "ArtifactID": "sha256:386891f9153294b22e121ee7b4f70a2d51a9ff94cfbf221300d708a3833cb053",
   "ArtifactName": "nguyenthanh91ndu/identity-svc:latest",
   "ArtifactType": "container_image",
@@ -8372,11 +8372,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8538,11 +8536,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8704,11 +8700,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8870,11 +8864,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8973,22 +8965,22 @@
           "Name": "IdentityService",
           "Identifier": {
             "PURL": "pkg:nuget/IdentityService@1.0.0",
-            "UID": "a576d1b6c62a1d7e"
+            "UID": "1358a519d53d6e96"
           },
           "Version": "1.0.0",
           "Relationship": "root",
           "DependsOn": [
-            "Microsoft.AspNetCore.Identity.UI/8.0.3",
-            "Npgsql.EntityFrameworkCore.PostgreSQL/8.0.4",
-            "Infobip.Api.SDK/1.0.3",
-            "Polly/8.6.3",
             "Serilog.AspNetCore/8.0.0",
             "Twilio/7.11.1",
             "DotNetEnv/3.1.1",
-            "Duende.IdentityServer.AspNetIdentity/7.0.4",
-            "Microsoft.AspNetCore.Authentication.Google/8.0.3",
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/8.0.3",
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.3"
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.3",
+            "Npgsql.EntityFrameworkCore.PostgreSQL/8.0.4",
+            "Duende.IdentityServer.AspNetIdentity/7.0.4",
+            "Infobip.Api.SDK/1.0.3",
+            "Microsoft.AspNetCore.Authentication.Google/8.0.3",
+            "Microsoft.AspNetCore.Identity.UI/8.0.3",
+            "Polly/8.6.3"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9167,15 +9159,15 @@
           "Name": "Npgsql.EntityFrameworkCore.PostgreSQL",
           "Identifier": {
             "PURL": "pkg:nuget/Npgsql.EntityFrameworkCore.PostgreSQL@8.0.4",
-            "UID": "7eb8918c90d6d0dc"
+            "UID": "ff31e5fedf7e99"
           },
           "Version": "8.0.4",
           "Relationship": "direct",
           "DependsOn": [
-            "Npgsql/8.0.3",
             "Microsoft.EntityFrameworkCore/8.0.4",
             "Microsoft.EntityFrameworkCore.Abstractions/8.0.4",
-            "Microsoft.EntityFrameworkCore.Relational/8.0.4"
+            "Microsoft.EntityFrameworkCore.Relational/8.0.4",
+            "Npgsql/8.0.3"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9216,18 +9208,18 @@
           "Name": "Serilog.AspNetCore",
           "Identifier": {
             "PURL": "pkg:nuget/Serilog.AspNetCore@8.0.0",
-            "UID": "c4003ad9af83da08"
+            "UID": "84cd9595ab49bfb7"
           },
           "Version": "8.0.0",
           "Relationship": "direct",
           "DependsOn": [
+            "Serilog.Extensions.Hosting/8.0.0",
             "Serilog.Formatting.Compact/2.0.0",
+            "Serilog.Settings.Configuration/8.0.0",
             "Serilog.Sinks.Debug/2.0.0",
             "Serilog.Sinks.File/5.0.0",
             "Serilog/3.1.1",
-            "Serilog.Extensions.Hosting/8.0.0",
             "Serilog.Extensions.Logging/8.0.0",
-            "Serilog.Settings.Configuration/8.0.0",
             "Serilog.Sinks.Console/5.0.0"
           ],
           "Layer": {
@@ -9271,14 +9263,14 @@
           "Name": "Duende.IdentityServer",
           "Identifier": {
             "PURL": "pkg:nuget/Duende.IdentityServer@7.0.4",
-            "UID": "5fdd629de5230b8b"
+            "UID": "6d8dbde2338bb4a6"
           },
           "Version": "7.0.4",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.AspNetCore.Authentication.OpenIdConnect/8.0.3",
-            "Duende.IdentityServer.Storage/7.0.4"
+            "Duende.IdentityServer.Storage/7.0.4",
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect/8.0.3"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9387,14 +9379,14 @@
           "Name": "Microsoft.AspNet.WebApi.Client",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.AspNet.WebApi.Client@5.2.7",
-            "UID": "2451b78b5274e1e0"
+            "UID": "6a9fc11cf36f396e"
           },
           "Version": "5.2.7",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Newtonsoft.Json.Bson/1.0.1",
-            "Newtonsoft.Json/13.0.1"
+            "Newtonsoft.Json/13.0.1",
+            "Newtonsoft.Json.Bson/1.0.1"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9568,16 +9560,16 @@
           "Name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.CSharp.Workspaces@4.5.0",
-            "UID": "eb1220954707219f"
+            "UID": "ef7dbb0c737fedb4"
           },
           "Version": "4.5.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "Humanizer.Core/2.14.1",
             "Microsoft.CodeAnalysis.CSharp/4.5.0",
             "Microsoft.CodeAnalysis.Common/4.5.0",
-            "Microsoft.CodeAnalysis.Workspaces.Common/4.5.0",
-            "Humanizer.Core/2.14.1"
+            "Microsoft.CodeAnalysis.Workspaces.Common/4.5.0"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9687,17 +9679,17 @@
           "Name": "Microsoft.EntityFrameworkCore.Design",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@8.0.3",
-            "UID": "5d6a710abc32b330"
+            "UID": "8ca7cfb6169131c1"
           },
           "Version": "8.0.3",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyModel/8.0.0",
             "Mono.TextTemplating/2.2.1",
             "Humanizer.Core/2.14.1",
             "Microsoft.CodeAnalysis.CSharp.Workspaces/4.5.0",
-            "Microsoft.EntityFrameworkCore.Relational/8.0.4"
+            "Microsoft.EntityFrameworkCore.Relational/8.0.4",
+            "Microsoft.Extensions.DependencyModel/8.0.0"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9971,14 +9963,14 @@
           "Name": "Microsoft.Extensions.WebEncoders",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.WebEncoders@8.0.11",
-            "UID": "622a005c6f33ae3d"
+            "UID": "ce854e3219fa9ce4"
           },
           "Version": "8.0.11",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Options/8.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2"
+            "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2",
+            "Microsoft.Extensions.Options/8.0.2"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -10065,14 +10057,14 @@
           "Name": "Microsoft.IdentityModel.Protocols",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols@7.1.2",
-            "UID": "9034f45e40dbb165"
+            "UID": "5ba8ff4ccdccafeb"
           },
           "Version": "7.1.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.IdentityModel.Tokens/8.3.1",
-            "Microsoft.IdentityModel.Logging/8.3.1"
+            "Microsoft.IdentityModel.Logging/8.3.1",
+            "Microsoft.IdentityModel.Tokens/8.3.1"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -10680,7 +10672,7 @@
           "PkgName": "Duende.IdentityServer",
           "PkgIdentifier": {
             "PURL": "pkg:nuget/Duende.IdentityServer@7.0.4",
-            "UID": "5fdd629de5230b8b"
+            "UID": "6d8dbde2338bb4a6"
           },
           "InstalledVersion": "7.0.4",
           "FixedVersion": "7.0.6, 6.3.10, 6.2.5, 6.1.8, 6.0.5",
@@ -10732,7 +10724,7 @@
           "PkgName": "Duende.IdentityServer",
           "PkgIdentifier": {
             "PURL": "pkg:nuget/Duende.IdentityServer@7.0.4",
-            "UID": "5fdd629de5230b8b"
+            "UID": "6d8dbde2338bb4a6"
           },
           "InstalledVersion": "7.0.4",
           "FixedVersion": "7.0.8",

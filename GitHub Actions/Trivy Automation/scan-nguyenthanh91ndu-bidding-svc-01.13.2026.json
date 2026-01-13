@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bb571-2985-7b21-9321-778f526fd064",
-  "CreatedAt": "2026-01-13T03:40:50.949730624Z",
+  "ReportID": "019bb665-ad2e-7648-8018-ad39dc40ac28",
+  "CreatedAt": "2026-01-13T08:07:55.438413044Z",
   "ArtifactID": "sha256:c6929f3a06e48374bf3f45e14890197f31b04487a39d91cc00725f67a7b4cbd0",
   "ArtifactName": "nguyenthanh91ndu/bidding-svc:latest",
   "ArtifactType": "container_image",
@@ -8372,11 +8372,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8538,11 +8536,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8704,11 +8700,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8870,11 +8864,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -9284,12 +9276,12 @@
           "Name": "Microsoft.IdentityModel.Protocols",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols@7.1.2",
-            "UID": "d128050c6db68054"
+            "UID": "895361ce9e73166a"
           },
           "Version": "7.1.2",
           "DependsOn": [
-            "Microsoft.IdentityModel.Tokens/7.1.2",
-            "Microsoft.IdentityModel.Logging/7.1.2"
+            "Microsoft.IdentityModel.Logging/7.1.2",
+            "Microsoft.IdentityModel.Tokens/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:029f16f837b76333e6b1c9f94ced348b994ef86015257efcfab8cae6b86d820f",
@@ -9371,15 +9363,15 @@
           "Name": "MongoDB.Driver",
           "Identifier": {
             "PURL": "pkg:nuget/MongoDB.Driver@3.2.0",
-            "UID": "b639b17809d9a933"
+            "UID": "377ee62adfd340e8"
           },
           "Version": "3.2.0",
           "DependsOn": [
+            "MongoDB.Bson/3.2.0",
             "SharpCompress/0.30.1",
             "Snappier/1.0.0",
             "ZstdSharp.Port/0.7.3",
-            "DnsClient/1.6.1",
-            "MongoDB.Bson/3.2.0"
+            "DnsClient/1.6.1"
           ],
           "Layer": {
             "Digest": "sha256:029f16f837b76333e6b1c9f94ced348b994ef86015257efcfab8cae6b86d820f",
