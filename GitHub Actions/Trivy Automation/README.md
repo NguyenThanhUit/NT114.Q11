@@ -1,12 +1,12 @@
 # 🔒 Trivy Security Scan Report
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 ---
 
 ### 🔍 nguyenthanh91ndu/deposits-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 9 vulnerabilities found
 
@@ -62,7 +62,7 @@
 
 ### 🔍 nguyenthanh91ndu/identity-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 11 vulnerabilities found
 
@@ -129,7 +129,7 @@
 
 ### 🔍 nguyenthanh91ndu/web-app
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 8 vulnerabilities found
 
@@ -187,7 +187,7 @@
 
 ### 🔍 nguyenthanh91ndu/gateway-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 9 vulnerabilities found
 
@@ -243,7 +243,7 @@
 
 ### 🔍 nguyenthanh91ndu/buying-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 9 vulnerabilities found
 
@@ -299,7 +299,7 @@
 
 ### 🔍 nguyenthanh91ndu/order-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 9 vulnerabilities found
 
@@ -355,7 +355,7 @@
 
 ### 🔍 nguyenthanh91ndu/search-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 9 vulnerabilities found
 
@@ -411,7 +411,7 @@
 
 ### 🔍 nguyenthanh91ndu/user-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 9 vulnerabilities found
 
@@ -467,7 +467,7 @@
 
 ### 🔍 nguyenthanh91ndu/auction-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 9 vulnerabilities found
 
@@ -523,7 +523,7 @@
 
 ### 🔍 nguyenthanh91ndu/notify-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 9 vulnerabilities found
 
@@ -579,7 +579,7 @@
 
 ### 🔍 nguyenthanh91ndu/bidding-svc
 
-**Scan Date:** 01.10.2026
+**Scan Date:** 01.13.2026
 
 **Summary:** 9 vulnerabilities found
 
