@@ -11,6 +11,28 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+//Khoi tao ket noi mongo db truoc
+await Policy
+    .Handle<TimeoutException>()
+    .Or<MongoException>()
+    .WaitAndRetryAsync(
+        retryCount: 10,
+        sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(5),
+        onRetry: (exception, timeSpan, retry, ctx) =>
+        {
+            Console.WriteLine($"MongoDB not ready yet, retry {retry}: {exception.Message}");
+        }
+    )
+    .ExecuteAsync(async () =>
+    {
+        await DB.InitAsync(
+            "BidDb", 
+            MongoClientSettings.FromConnectionString(
+                builder.Configuration.GetConnectionString("BidDbConnection")
+            )
+        );
+        Console.WriteLine("MongoDB initialized successfully!");
+    });
 //Thêm mass transit
 builder.Services.AddMassTransit(x =>
 {
@@ -56,6 +78,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
         option.TokenValidationParameters.NameClaimType = "username";
     });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthorization();
 
@@ -78,13 +101,13 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-await Policy.Handle<TimeoutException>()
-    .WaitAndRetryAsync(5, retryAttempt => TimeSpan.FromSeconds(10))
-    .ExecuteAndCaptureAsync(async () =>
-    {
-        await DB.InitAsync("BidDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("BidDbConnection")));
+// await Policy.Handle<TimeoutException>()
+//     .WaitAndRetryAsync(5, retryAttempt => TimeSpan.FromSeconds(10))
+//     .ExecuteAndCaptureAsync(async () =>
+//     {
+//         await DB.InitAsync("BidDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("BidDbConnection")));
 
-    });
+//     });
 
 // await DB.InitAsync("BidDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("BidDbConnection")));
 

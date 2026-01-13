@@ -17,7 +17,7 @@ spec:
     - id.nguyenth4nh.id.vn
     tls:
       mode: SIMPLE
-      credentialName: multi-domain-tls  # ← Đổi thành multi-tls
+      credentialName: multi-domain-tls 
   - port:
       number: 80
       name: http

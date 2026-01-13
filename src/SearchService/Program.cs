@@ -17,8 +17,17 @@ builder.Services.AddControllers();
 //Thêm mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // //Thêm HTTP client
-builder.Services.AddHttpClient<OrderSvcHttpClient>().AddPolicyHandler(GetPolicy());
-builder.Services.AddHttpClient<AuctionSvcHTTPClient>().AddPolicyHandler(GetPolicy());
+builder.Services.AddHttpClient<OrderSvcHttpClient>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(120);
+})
+.AddPolicyHandler(GetPolicy());
+
+builder.Services.AddHttpClient<AuctionSvcHTTPClient>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(120);
+})
+.AddPolicyHandler(GetPolicy());
 builder.Services.AddMassTransit(x =>
 {
     //Them consumer

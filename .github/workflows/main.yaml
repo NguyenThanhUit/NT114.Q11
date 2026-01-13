@@ -525,14 +525,14 @@ jobs:
             -n cert-manager --timeout=120s
       
       # ---------- TLS ----------
-      - name: Apply ClusterIssuer
-        run: kubectl apply -f infrastructure/istio/lets_encrypt/clusterIssuer.yaml
+      # - name: Apply ClusterIssuer
+      #   run: kubectl apply -f infrastructure/istio/lets_encrypt/clusterIssuer.yaml
 
-      - name: Apply Certificate
-        run: kubectl apply -f infrastructure/istio/lets_encrypt/certificate.yaml
+      # - name: Apply Certificate
+      #   run: kubectl apply -f infrastructure/istio/lets_encrypt/certificate.yaml
 
-      - name: Apply acme
-        run: kubectl apply -f infrastructure/istio/lets_encrypt/acme-vs.yaml
+      # - name: Apply acme
+      #   run: kubectl apply -f infrastructure/istio/lets_encrypt/acme-vs.yaml
 
       # ---------- SECRETS ----------
       - name: Apply secrets

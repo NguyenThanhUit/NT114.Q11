@@ -27,9 +27,9 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "special-project-bucket-1"
+    bucket = "special-project-bucket-2"
     key    = "terraform.tfstate"
-    region = "us-east-1"
+    region = "ap-southeast-1"
   }
 
   required_version = "~> 1.6.3"

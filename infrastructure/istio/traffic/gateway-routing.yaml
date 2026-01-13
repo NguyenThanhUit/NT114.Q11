@@ -67,7 +67,6 @@ spec:
             host: gateway-clusterip.backend.svc.cluster.local
             port:
               number: 80
-      timeout: 30s
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule

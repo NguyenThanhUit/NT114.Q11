@@ -20,33 +20,6 @@ spec:
       labels:
         app: order-svc
     spec:
-      initContainers:
-        - name: wait-for-postgres
-          image: alpine:3.19
-          command:
-            - sh
-            - -c
-            - |
-              apk add --no-cache netcat-openbsd
-              echo "Waiting for PostgreSQL..."
-              until nc -zv postgres-clusterip.backend.svc.cluster.local 5432; do
-                echo "PostgreSQL not ready, retrying in 20s..."
-                sleep 20
-              done
-              echo "PostgreSQL is ready!"
-        - name: wait-for-rabbitmq
-          image: alpine:3.19
-          command:
-            - sh
-            - -c
-            - |
-              apk add --no-cache netcat-openbsd
-              echo "Waiting for RabbitMQ..."
-              until nc -zv rabbit-clusterip.backend.svc.cluster.local 5672; do
-                echo "RabbitMQ not ready, retrying in 20s..."
-                sleep 20
-              done
-              echo "RabbitMQ is ready!"
       containers:
         - name: order-svc
           image: nguyenthanh/order-svc

@@ -1,4 +1,4 @@
-Apply cert: kubectl create secret tls multi-tls --cert=server.crt --key=server.key -n istio-system
+Apply cert: kubectl create secret tls multi-domain-tls --cert=server.crt --key=server.key -n istio-system
 
 
 Append behind spec into ingress yaml
