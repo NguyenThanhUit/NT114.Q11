@@ -1,0 +1,606 @@
+name: specializedProjects
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_rebuild:
+        description: "Force rebuild all service"
+        required: false
+        default: false
+  push:
+    branches: ["main"]
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  security-events: write
+  actions: read
+env:
+  AWS_REGION: ap-southeast-1
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  BUCKET_TF_STATE: ${{secrets.BUCKET_TF_STATE}}
+  EKS_CLUSTER: specialProject
+
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Install SonarScanner
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      - name: Begin SonarCloud Scan
+        run: |
+          dotnet sonarscanner begin \
+          /k:"${{ secrets.SONAR_PROJECT_KEY }}" \
+          /o:"${{ secrets.SONAR_ORG_KEY }}" \
+          /d:sonar.login=${{ secrets.SONAR_TOKEN }} \
+          /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-incremental --configuration Release
+
+      - name: End SonarCloud Scan
+        run: dotnet sonarscanner end /d:sonar.login=${{ secrets.SONAR_TOKEN }}
+
+  Build-and-Push:
+    needs: Testing
+    runs-on: ubuntu-latest
+    outputs:
+      image_version: ${{ steps.set_version.outputs.version }}
+    env:
+      continue: "false"
+    strategy:
+      matrix:
+        service:
+          - name: "nguyenthanh91ndu/auction-svc"
+            path: "src/AuctionService"
+          - name: "nguyenthanh91ndu/bidding-svc"
+            path: "src/BiddingService"
+          - name: "nguyenthanh91ndu/buying-svc"
+            path: "src/BuyingService"
+          - name: "nguyenthanh91ndu/gateway-svc"
+            path: "src/GatewayService"
+          - name: "nguyenthanh91ndu/identity-svc"
+            path: "src/IdentityService"
+          - name: "nguyenthanh91ndu/notify-svc"
+            path: "src/NotificationService"
+          - name: "nguyenthanh91ndu/order-svc"
+            path: "src/OrderService"
+          - name: "nguyenthanh91ndu/search-svc"
+            path: "src/SearchService"
+          - name: "nguyenthanh91ndu/user-svc"
+            path: "src/UserService"
+          - name: "nguyenthanh91ndu/deposits-svc"
+            path: "src/WalletService"
+          - name: "nguyenthanh91ndu/web-app"
+            path: "frontend/web"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set image version
+        id: set_version
+        run: |
+          VERSION=v${{ github.run_number }}
+          echo "IMAGE_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Check for change
+        run: |
+          if [[ "${{ github.event.inputs.force_rebuild }}" == "true" ]]; then
+            echo "Force rebuild enabled. Proceeding with build."
+            echo "continue=true" >> $GITHUB_ENV
+          elif git diff --quiet HEAD^ HEAD -- ${{ matrix.service.path }}; then
+            echo "No change in ${{ matrix.service.path }}. Skipping build"
+            echo "continue=false" >> $GITHUB_ENV
+          else
+            echo "Changes detected in ${{ matrix.service.path }}. Proceeding with build"
+            echo "continue=true" >> $GITHUB_ENV
+          fi
+
+      - name: Set up Docker buildx
+        if: env.continue == 'true'
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker
+        if: env.continue == 'true'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Build and push docker image
+        if: env.continue == 'true'
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ${{ matrix.service.path }}/Dockerfile
+          push: true
+          tags: |
+            ${{ matrix.service.name }}:${{ env.IMAGE_VERSION }}
+            ${{ matrix.service.name }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  Trivy-Security-Scan:
+    needs: Build-and-Push
+    runs-on: ubuntu-latest
+    name: "Security scan with Trivy"
+    permissions:
+      contents: write
+      security-events: write
+    strategy:
+      matrix:
+        service:
+          - name: "nguyenthanh91ndu/auction-svc"
+          - name: "nguyenthanh91ndu/bidding-svc"
+          - name: "nguyenthanh91ndu/buying-svc"
+          - name: "nguyenthanh91ndu/gateway-svc"
+          - name: "nguyenthanh91ndu/identity-svc"
+          - name: "nguyenthanh91ndu/notify-svc"
+          - name: "nguyenthanh91ndu/order-svc"
+          - name: "nguyenthanh91ndu/search-svc"
+          - name: "nguyenthanh91ndu/user-svc"
+          - name: "nguyenthanh91ndu/deposits-svc"
+          - name: "nguyenthanh91ndu/web-app"
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set Date
+        id: set-date
+        run: echo "DATE=$(date +%m.%d.%Y)" >> $GITHUB_ENV
+
+      - name: Set sanitized service name
+        id: sanitize
+        run: |
+          SAFE_NAME=$(echo "${{ matrix.service.name }}" | tr '/' '-')
+          echo "safe_name=$SAFE_NAME" >> $GITHUB_OUTPUT
+
+      - name: Create output directory
+        run: mkdir -p "trivy-reports"
+
+      - name: Install Trivy and jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl jq
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin
+
+      - name: Login to Docker
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Download Trivy vulnerability database
+        run: trivy image --download-db-only
+
+      - name: Run Trivy vulnerability scanner
+        run: |
+          OUTPUT_FILE="trivy-reports/scan-${{ steps.sanitize.outputs.safe_name }}-${DATE}.json"
+          trivy image \
+            --format json \
+            --ignore-unfixed \
+            --vuln-type os,library \
+            --severity CRITICAL,HIGH,MEDIUM,LOW \
+            -o "$OUTPUT_FILE" \
+            ${{ matrix.service.name }}:latest
+
+          echo "Scan completed for ${{ matrix.service.name }}"
+
+      - name: Generate detailed summary for this service
+        run: |
+          echo "### 🔍 ${{ matrix.service.name }}" >> service-summary.md
+          echo "" >> service-summary.md
+          echo "**Scan Date:** ${DATE}" >> service-summary.md
+          echo "" >> service-summary.md
+
+          JSON_FILE="trivy-reports/scan-${{ steps.sanitize.outputs.safe_name }}-${DATE}.json"
+
+          if [ -f "$JSON_FILE" ]; then
+            # Count by severity
+            CRITICAL_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="CRITICAL")] | length' "$JSON_FILE")
+            HIGH_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="HIGH")] | length' "$JSON_FILE")
+            MEDIUM_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="MEDIUM")] | length' "$JSON_FILE")
+            LOW_COUNT=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="LOW")] | length' "$JSON_FILE")
+            
+            TOTAL=$((CRITICAL_COUNT + HIGH_COUNT + MEDIUM_COUNT + LOW_COUNT))
+            
+            echo "**Summary:** $TOTAL vulnerabilities found" >> service-summary.md
+            echo "" >> service-summary.md
+            
+            if [ "$TOTAL" -eq "0" ]; then
+              echo "✅ **No vulnerabilities found!**" >> service-summary.md
+              echo "" >> service-summary.md
+              echo "---" >> service-summary.md
+              echo "" >> service-summary.md
+            else
+              # Show counts
+              if [ "$CRITICAL_COUNT" -gt "0" ]; then
+                echo "- 🔴 **CRITICAL:** $CRITICAL_COUNT" >> service-summary.md
+              fi
+              if [ "$HIGH_COUNT" -gt "0" ]; then
+                echo "- 🟠 **HIGH:** $HIGH_COUNT" >> service-summary.md
+              fi
+              if [ "$MEDIUM_COUNT" -gt "0" ]; then
+                echo "- 🟡 **MEDIUM:** $MEDIUM_COUNT" >> service-summary.md
+              fi
+              if [ "$LOW_COUNT" -gt "0" ]; then
+                echo "- 🟢 **LOW:** $LOW_COUNT" >> service-summary.md
+              fi
+              echo "" >> service-summary.md
+              
+              # Detail CRITICAL vulnerabilities
+              if [ "$CRITICAL_COUNT" -gt "0" ]; then
+                echo "#### 🔴 CRITICAL Vulnerabilities" >> service-summary.md
+                echo "" >> service-summary.md
+                
+                jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="CRITICAL") | 
+                  "**" + .VulnerabilityID + "** - " + .PkgName + "\n" +
+                  "- **Installed:** " + .InstalledVersion + "\n" +
+                  "- **Fixed:** " + (.FixedVersion // "Not available") + "\n" +
+                  "- **Description:** " + ((.Description // "N/A")[0:200] | gsub("\n"; " ")) + "...\n" +
+                  "- **Reference:** " + (.PrimaryURL // "N/A") + "\n"
+                ' "$JSON_FILE" >> service-summary.md
+                
+                echo "" >> service-summary.md
+              fi
+              
+              # Detail HIGH vulnerabilities (limit to first 10)
+              if [ "$HIGH_COUNT" -gt "0" ]; then
+                echo "#### 🟠 HIGH Vulnerabilities (Top 10)" >> service-summary.md
+                echo "" >> service-summary.md
+                
+                jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="HIGH") | 
+                  "**" + .VulnerabilityID + "** - " + .PkgName + "\n" +
+                  "- **Installed:** " + .InstalledVersion + "\n" +
+                  "- **Fixed:** " + (.FixedVersion // "Not available") + "\n" +
+                  "- **Description:** " + ((.Description // "N/A")[0:150] | gsub("\n"; " ")) + "...\n" +
+                  "- **Reference:** " + (.PrimaryURL // "N/A") + "\n"
+                ' "$JSON_FILE" | head -n 60 >> service-summary.md
+                
+                if [ "$HIGH_COUNT" -gt "10" ]; then
+                  echo "_... and $((HIGH_COUNT - 10)) more HIGH vulnerabilities_" >> service-summary.md
+                fi
+                echo "" >> service-summary.md
+              fi
+              
+              # Summary for MEDIUM and LOW
+              if [ "$MEDIUM_COUNT" -gt "0" ]; then
+                echo "#### 🟡 MEDIUM Vulnerabilities" >> service-summary.md
+                echo "" >> service-summary.md
+                echo "<details>" >> service-summary.md
+                echo "<summary>Click to expand ($MEDIUM_COUNT issues)</summary>" >> service-summary.md
+                echo "" >> service-summary.md
+                
+                jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="MEDIUM") | 
+                  "- **" + .VulnerabilityID + "** (" + .PkgName + " " + .InstalledVersion + " → " + (.FixedVersion // "N/A") + ")"
+                ' "$JSON_FILE" >> service-summary.md
+                
+                echo "" >> service-summary.md
+                echo "</details>" >> service-summary.md
+                echo "" >> service-summary.md
+              fi
+              
+              if [ "$LOW_COUNT" -gt "0" ]; then
+                echo "#### 🟢 LOW Vulnerabilities" >> service-summary.md
+                echo "" >> service-summary.md
+                echo "<details>" >> service-summary.md
+                echo "<summary>Click to expand ($LOW_COUNT issues)</summary>" >> service-summary.md
+                echo "" >> service-summary.md
+                
+                jq -r '.Results[]?.Vulnerabilities[]? | select(.Severity=="LOW") | 
+                  "- **" + .VulnerabilityID + "** (" + .PkgName + " " + .InstalledVersion + " → " + (.FixedVersion // "N/A") + ")"
+                ' "$JSON_FILE" >> service-summary.md
+                
+                echo "" >> service-summary.md
+                echo "</details>" >> service-summary.md
+                echo "" >> service-summary.md
+              fi
+              
+              echo "---" >> service-summary.md
+              echo "" >> service-summary.md
+            fi
+          else
+            echo "⚠️ Scan failed or no results" >> service-summary.md
+            echo "" >> service-summary.md
+            echo "---" >> service-summary.md
+            echo "" >> service-summary.md
+          fi
+
+      - name: Generate SARIF report
+        run: |
+          SARIF_FILE="trivy-reports/scan-${{ steps.sanitize.outputs.safe_name }}-${DATE}.sarif"
+          trivy image \
+            --format sarif \
+            --ignore-unfixed \
+            --severity CRITICAL,HIGH \
+            -o "$SARIF_FILE" \
+            ${{ matrix.service.name }}:latest
+
+      - name: Upload SARIF to GitHub Security
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-reports/scan-${{ steps.sanitize.outputs.safe_name }}-${{ env.DATE }}.sarif
+          category: ${{ steps.sanitize.outputs.safe_name }}
+
+      - name: Upload service summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: summary-${{ steps.sanitize.outputs.safe_name }}
+          path: service-summary.md
+          retention-days: 30
+
+      - name: Upload scan results as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-scan-${{ steps.sanitize.outputs.safe_name }}-${{ env.DATE }}
+          path: trivy-reports/
+          retention-days: 30
+
+  Commit-Trivy-Reports:
+    needs: Trivy-Security-Scan
+    runs-on: ubuntu-latest
+    name: "Commit all Trivy reports"
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: trivy-reports-all
+
+      - name: Organize reports
+        run: |
+          mkdir -p "GitHub Actions/Trivy Automation"
+
+          # Copy JSON files
+          find trivy-reports-all -type f -name "*.json" -exec cp {} "GitHub Actions/Trivy Automation/" \;
+
+          # Merge all summaries into one README
+          echo "# 🔒 Trivy Security Scan Report" > "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "**Scan Date:** $(date +%m.%d.%Y)" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "---" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+
+          # Merge all service summaries
+          find trivy-reports-all -name "service-summary.md" -exec cat {} >> "GitHub Actions/Trivy Automation/README.md" \;
+
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "---" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "## 📊 How to Read This Report" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "- **JSON Files:** Raw scan data in \`scan-*-*.json\`" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "- **Severity Levels:**" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "  - 🔴 CRITICAL: Fix immediately" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "  - 🟠 HIGH: Fix as soon as possible" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "  - 🟡 MEDIUM: Plan to fix" >> "GitHub Actions/Trivy Automation/README.md"
+          echo "  - 🟢 LOW: Fix when convenient" >> "GitHub Actions/Trivy Automation/README.md"
+
+          ls -lh "GitHub Actions/Trivy Automation/"
+
+      - name: Commit scan results to repository
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add "GitHub Actions/Trivy Automation/"
+          git diff --quiet && git diff --staged --quiet || (
+            git commit -m "📊 Add Trivy scan results ($(date +%m.%d.%Y))"
+            git push
+          )
+  SetUp_Terraform:
+    needs: Commit-Trivy-Reports
+    runs-on: ubuntu-latest
+    name: "Apply Terraform code changes"
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./terraform
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.6.3"
+
+      - name: Terraform init
+        id: init
+        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
+        #run: terraform init -backend=false
+
+      - name: Terraform format
+        id: fmt
+        run: terraform fmt -check
+
+      - name: Terraform validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform plan
+        id: plan
+        run: terraform plan -no-color -input=false -out planfile
+        continue-on-error: true
+
+      - name: Terraform plan status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+      - name: Terraform Apply
+        if: (github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch'))
+        run: terraform apply -auto-approve -input=false -parallelism=1 planfile
+
+  Deploy_Infrastructure:
+    needs: SetUp_Terraform
+    runs-on: ubuntu-latest
+    name: "Deploy Kubernetes Infrastructure"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Update kubeconfig for EKS
+        run: |
+          aws eks update-kubeconfig \
+            --region ${{ env.AWS_REGION }} \
+            --name ${{ env.EKS_CLUSTER }}
+
+      - name: Verify cluster
+        run: kubectl get nodes
+
+      # ---------- ISTIO ----------
+      - name: Install istioctl
+        run: |
+          curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.28.0 sh -
+          sudo mv istio-1.28.0/bin/istioctl /usr/local/bin/
+
+
+      - name: Install Istio (demo profile)
+        run: istioctl install --set profile=demo -y
+
+      # ---------- NAMESPACE ----------
+      - name: Create namespaces
+        run: |
+          kubectl create namespace backend --dry-run=client -o yaml | kubectl apply -f -
+          kubectl create namespace frontend --dry-run=client -o yaml | kubectl apply -f -
+
+      - name: Enable Istio injection
+        run: |
+          kubectl label namespace backend istio-injection=enabled --overwrite
+          kubectl label namespace frontend istio-injection=enabled --overwrite
+
+      # ---------- STORAGE ----------
+      - name: Install EBS CSI Driver
+        run: |
+          kubectl apply -k \
+            "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-1.21"
+
+      # ---------- CERT MANAGER ----------
+      - name: Install gateway-api
+        run: |
+            kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
+      - name: Install cert-manager
+        run: |
+          kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
+
+      - name: Wait for cert-manager
+        run: |
+          kubectl wait --for=condition=Available deployment/cert-manager \
+            -n cert-manager --timeout=120s
+          kubectl wait --for=condition=Available deployment/cert-manager-webhook \
+            -n cert-manager --timeout=120s
+          kubectl wait --for=condition=Available deployment/cert-manager-cainjector \
+            -n cert-manager --timeout=120s
+      
+      # ---------- TLS ----------
+      # - name: Apply ClusterIssuer
+      #   run: kubectl apply -f infrastructure/istio/lets_encrypt/clusterIssuer.yaml
+
+      # - name: Apply Certificate
+      #   run: kubectl apply -f infrastructure/istio/lets_encrypt/certificate.yaml
+
+      # - name: Apply acme
+      #   run: kubectl apply -f infrastructure/istio/lets_encrypt/acme-vs.yaml
+
+      # ---------- SECRETS ----------
+      - name: Apply secrets
+        run: |
+          mkdir -p infrastructure/secret
+          echo "${{ secrets.K8S_SECRET_FILE }}" > infrastructure/secret/devsecrets.yaml
+          kubectl apply -f infrastructure/secret/devsecrets.yaml
+
+  Deploy_Applications:
+    needs: Deploy_Infrastructure
+    runs-on: ubuntu-latest
+    name: "Deploy Application Services"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Update kubeconfig for EKS
+        run: |
+          aws eks update-kubeconfig \
+            --region ${{ env.AWS_REGION }} \
+            --name ${{ env.EKS_CLUSTER }}
+
+      - name: Apply PVC
+        run: kubectl apply -f infrastructure/k8s/eks-pvc.yaml
+        
+      - name: Apply config 
+        run: kubectl apply -f infrastructure/k8s/config-svc.yaml
+
+      - name: Apply Databases
+        run: |
+            kubectl apply -f infrastructure/k8s/postgres-svc.yaml
+            kubectl apply -f infrastructure/k8s/mongo-svc.yaml
+            kubectl apply -f infrastructure/k8s/rabbitmq-svc.yaml
+
+      - name: Apply Backend services
+        run: |
+            kubectl apply -f infrastructure/k8s/identity-svc.yaml
+            kubectl apply -f infrastructure/k8s/user-svc.yaml
+            kubectl apply -f infrastructure/k8s/order-svc.yaml
+            kubectl apply -f infrastructure/k8s/buying-svc.yaml
+            kubectl apply -f infrastructure/k8s/bid-svc.yaml
+            kubectl apply -f infrastructure/k8s/auction-svc.yaml
+            kubectl apply -f infrastructure/k8s/search-svc.yaml
+            kubectl apply -f infrastructure/k8s/notify-svc.yaml
+
+      - name: Apply Gateway & Frontend
+        run: |
+            kubectl apply -f infrastructure/k8s/gateway-svc.yaml
+            kubectl apply -f infrastructure/k8s/webapp-svc.yaml
+      
+      - name: Apply webapp-v2
+        run: |
+            kubectl apply -f infrastructure/istio/webapp-svc-v2.yaml
+
+      - name: Apply istio traffic
+        run: |
+          kubectl apply -f infrastructure/istio/traffic
+
+
+
+
+
+
