@@ -355,7 +355,6 @@ jobs:
           name: trivy-scan-${{ steps.sanitize.outputs.safe_name }}-${{ env.DATE }}
           path: trivy-reports/
           retention-days: 30
-
   Commit-Trivy-Reports:
     needs: Trivy-Security-Scan
     runs-on: ubuntu-latest
@@ -366,40 +365,37 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Download all artifacts
+      - name: Download Trivy scan artifacts
         uses: actions/download-artifact@v4
         with:
+          pattern: trivy-scan-*
           path: trivy-reports-all
+          merge-multiple: true
+
+      - name: Download Trivy summary artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: summary-*
+          path: trivy-reports-all
+          merge-multiple: true
 
       - name: Organize reports
         run: |
           mkdir -p "GitHub Actions/Trivy Automation"
 
-          # Copy JSON files
           find trivy-reports-all -type f -name "*.json" -exec cp {} "GitHub Actions/Trivy Automation/" \;
 
-          # Merge all summaries into one README
           echo "# 🔒 Trivy Security Scan Report" > "GitHub Actions/Trivy Automation/README.md"
           echo "" >> "GitHub Actions/Trivy Automation/README.md"
           echo "**Scan Date:** $(date +%m.%d.%Y)" >> "GitHub Actions/Trivy Automation/README.md"
           echo "" >> "GitHub Actions/Trivy Automation/README.md"
           echo "---" >> "GitHub Actions/Trivy Automation/README.md"
-          echo "" >> "GitHub Actions/Trivy Automation/README.md"
 
-          # Merge all service summaries
           find trivy-reports-all -name "service-summary.md" -exec cat {} >> "GitHub Actions/Trivy Automation/README.md" \;
 
           echo "" >> "GitHub Actions/Trivy Automation/README.md"
           echo "---" >> "GitHub Actions/Trivy Automation/README.md"
-          echo "" >> "GitHub Actions/Trivy Automation/README.md"
           echo "## 📊 How to Read This Report" >> "GitHub Actions/Trivy Automation/README.md"
-          echo "" >> "GitHub Actions/Trivy Automation/README.md"
-          echo "- **JSON Files:** Raw scan data in \`scan-*-*.json\`" >> "GitHub Actions/Trivy Automation/README.md"
-          echo "- **Severity Levels:**" >> "GitHub Actions/Trivy Automation/README.md"
-          echo "  - 🔴 CRITICAL: Fix immediately" >> "GitHub Actions/Trivy Automation/README.md"
-          echo "  - 🟠 HIGH: Fix as soon as possible" >> "GitHub Actions/Trivy Automation/README.md"
-          echo "  - 🟡 MEDIUM: Plan to fix" >> "GitHub Actions/Trivy Automation/README.md"
-          echo "  - 🟢 LOW: Fix when convenient" >> "GitHub Actions/Trivy Automation/README.md"
 
           ls -lh "GitHub Actions/Trivy Automation/"
 
@@ -412,6 +408,7 @@ jobs:
             git commit -m "📊 Add Trivy scan results ($(date +%m.%d.%Y))"
             git push
           )
+
   SetUp_Terraform:
     needs: Commit-Trivy-Reports
     runs-on: ubuntu-latest
