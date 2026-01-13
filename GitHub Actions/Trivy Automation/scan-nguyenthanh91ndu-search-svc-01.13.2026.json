@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bb665-bcfc-7449-9af8-691c72a667ec",
-  "CreatedAt": "2026-01-13T08:07:59.484282971Z",
+  "ReportID": "019bb771-e543-73d9-986a-d53c6e725dd0",
+  "CreatedAt": "2026-01-13T13:00:53.443254542Z",
   "ArtifactID": "sha256:2bd9d7307fed40f4671b11760bcea0e34eb1d02a16e84f52541b7daf6848e16b",
   "ArtifactName": "nguyenthanh91ndu/search-svc:latest",
   "ArtifactType": "container_image",
@@ -9004,12 +9004,12 @@
           "Name": "AutoMapper.Extensions.Microsoft.DependencyInjection",
           "Identifier": {
             "PURL": "pkg:nuget/AutoMapper.Extensions.Microsoft.DependencyInjection@12.0.1",
-            "UID": "13c32464a32faa09"
+            "UID": "74b3b76636c8193d"
           },
           "Version": "12.0.1",
           "DependsOn": [
-            "Microsoft.Extensions.Options/9.0.2",
-            "AutoMapper/12.0.1"
+            "AutoMapper/12.0.1",
+            "Microsoft.Extensions.Options/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:0d36ccf0ffad9d2feeded025b75ad6c566439c53f718bc339bf722c0eb1f3dc6",
@@ -9046,14 +9046,14 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.3.7-develop.2222",
-            "UID": "53dca9b4b50e0662"
+            "UID": "75839adcd47bc499"
           },
           "Version": "8.3.7-develop.2222",
           "DependsOn": [
+            "Microsoft.Extensions.Options/9.0.2",
             "MassTransit.Abstractions/8.3.7-develop.2222",
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:0d36ccf0ffad9d2feeded025b75ad6c566439c53f718bc339bf722c0eb1f3dc6",
@@ -9135,12 +9135,12 @@
           "Name": "Microsoft.Extensions.Configuration",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Configuration@9.0.2",
-            "UID": "aa7d6460c884db0"
+            "UID": "29aed1529dbb5b7a"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.Extensions.Primitives/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.Primitives/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:0d36ccf0ffad9d2feeded025b75ad6c566439c53f718bc339bf722c0eb1f3dc6",
@@ -9318,13 +9318,13 @@
           "Name": "Microsoft.Extensions.Http.Polly",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Http.Polly@9.0.2",
-            "UID": "975721a847349130"
+            "UID": "fab48e3da2a29ae5"
           },
           "Version": "9.0.2",
           "DependsOn": [
+            "Polly.Extensions.Http/3.0.0",
             "Microsoft.Extensions.Http/9.0.2",
-            "Polly/8.6.3",
-            "Polly.Extensions.Http/3.0.0"
+            "Polly/8.6.3"
           ],
           "Layer": {
             "Digest": "sha256:0d36ccf0ffad9d2feeded025b75ad6c566439c53f718bc339bf722c0eb1f3dc6",
@@ -9412,15 +9412,15 @@
           "Name": "Microsoft.Extensions.Options.ConfigurationExtensions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Options.ConfigurationExtensions@9.0.2",
-            "UID": "96d5925261434034"
+            "UID": "50a1047e90960670"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.Extensions.Options/9.0.2",
-            "Microsoft.Extensions.Primitives/9.0.2",
             "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
             "Microsoft.Extensions.Configuration.Binder/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "Microsoft.Extensions.Options/9.0.2",
+            "Microsoft.Extensions.Primitives/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:0d36ccf0ffad9d2feeded025b75ad6c566439c53f718bc339bf722c0eb1f3dc6",
@@ -9495,16 +9495,16 @@
           "Name": "MongoDB.Driver",
           "Identifier": {
             "PURL": "pkg:nuget/MongoDB.Driver@3.2.0",
-            "UID": "dc3b092daae74c5"
+            "UID": "42d5b859a2ea7607"
           },
           "Version": "3.2.0",
           "DependsOn": [
+            "SharpCompress/0.30.1",
+            "Snappier/1.0.0",
             "ZstdSharp.Port/0.7.3",
             "DnsClient/1.6.1",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "MongoDB.Bson/3.2.0",
-            "SharpCompress/0.30.1",
-            "Snappier/1.0.0"
+            "MongoDB.Bson/3.2.0"
           ],
           "Layer": {
             "Digest": "sha256:0d36ccf0ffad9d2feeded025b75ad6c566439c53f718bc339bf722c0eb1f3dc6",

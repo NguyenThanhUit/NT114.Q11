@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bb665-b6b3-71b5-9aa3-883aa5878963",
-  "CreatedAt": "2026-01-13T08:07:57.875114811Z",
+  "ReportID": "019bb771-e658-7245-ac79-d6ddae37f19c",
+  "CreatedAt": "2026-01-13T13:00:53.720149698Z",
   "ArtifactID": "sha256:4af8d9653d82ec148844e68247543cd501c3c347f547d0f3c7ceec5542d9c80f",
   "ArtifactName": "nguyenthanh91ndu/notify-svc:latest",
   "ArtifactType": "container_image",
@@ -8961,22 +8961,49 @@
       "Type": "dotnet-core",
       "Packages": [
         {
-          "ID": "Contracts/1.0.0",
-          "Name": "Contracts",
+          "ID": "NotificationService/1.0.0",
+          "Name": "NotificationService",
           "Identifier": {
-            "PURL": "pkg:nuget/Contracts@1.0.0",
-            "UID": "4c01807aac7c606b"
+            "PURL": "pkg:nuget/NotificationService@1.0.0",
+            "UID": "4203692ade085bbb"
           },
           "Version": "1.0.0",
           "Relationship": "root",
+          "DependsOn": [
+            "MassTransit.RabbitMQ/8.3.7"
+          ],
           "Layer": {
             "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
             "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"
           },
           "Locations": [
             {
-              "StartLine": 252,
-              "EndLine": 256
+              "StartLine": 128,
+              "EndLine": 132
+            }
+          ]
+        },
+        {
+          "ID": "MassTransit.RabbitMQ/8.3.7",
+          "Name": "MassTransit.RabbitMQ",
+          "Identifier": {
+            "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7",
+            "UID": "310cfa76394a325b"
+          },
+          "Version": "8.3.7",
+          "Relationship": "direct",
+          "DependsOn": [
+            "MassTransit/8.3.7",
+            "RabbitMQ.Client/7.1.1"
+          ],
+          "Layer": {
+            "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
+            "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"
+          },
+          "Locations": [
+            {
+              "StartLine": 147,
+              "EndLine": 153
             }
           ]
         },
@@ -8985,9 +9012,11 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.3.7",
-            "UID": "13e0a95e46a16631"
+            "UID": "27bc242781c3eba0"
           },
           "Version": "8.3.7",
+          "Indirect": true,
+          "Relationship": "indirect",
           "DependsOn": [
             "MassTransit.Abstractions/8.3.7"
           ],
@@ -9007,9 +9036,11 @@
           "Name": "MassTransit.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.Abstractions@8.3.7",
-            "UID": "d706da99efef0516"
+            "UID": "bef5884424466dee"
           },
           "Version": "8.3.7",
+          "Indirect": true,
+          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
             "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"
@@ -9022,36 +9053,15 @@
           ]
         },
         {
-          "ID": "MassTransit.RabbitMQ/8.3.7",
-          "Name": "MassTransit.RabbitMQ",
-          "Identifier": {
-            "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7",
-            "UID": "9728588b330739d7"
-          },
-          "Version": "8.3.7",
-          "DependsOn": [
-            "MassTransit/8.3.7",
-            "RabbitMQ.Client/7.1.1"
-          ],
-          "Layer": {
-            "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
-            "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"
-          },
-          "Locations": [
-            {
-              "StartLine": 147,
-              "EndLine": 153
-            }
-          ]
-        },
-        {
           "ID": "RabbitMQ.Client/7.1.1",
           "Name": "RabbitMQ.Client",
           "Identifier": {
             "PURL": "pkg:nuget/RabbitMQ.Client@7.1.1",
-            "UID": "b91c23eaf7e70b0"
+            "UID": "38e1a3565bfe536c"
           },
           "Version": "7.1.1",
+          "Indirect": true,
+          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
             "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"

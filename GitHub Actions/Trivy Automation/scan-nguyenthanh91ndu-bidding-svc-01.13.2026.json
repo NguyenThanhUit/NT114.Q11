@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bb665-ad2e-7648-8018-ad39dc40ac28",
-  "CreatedAt": "2026-01-13T08:07:55.438413044Z",
+  "ReportID": "019bb771-f432-72a6-8def-bb9e5c32ea1b",
+  "CreatedAt": "2026-01-13T13:00:57.26617471Z",
   "ArtifactID": "sha256:c6929f3a06e48374bf3f45e14890197f31b04487a39d91cc00725f67a7b4cbd0",
   "ArtifactName": "nguyenthanh91ndu/bidding-svc:latest",
   "ArtifactType": "container_image",
@@ -9363,15 +9363,15 @@
           "Name": "MongoDB.Driver",
           "Identifier": {
             "PURL": "pkg:nuget/MongoDB.Driver@3.2.0",
-            "UID": "377ee62adfd340e8"
+            "UID": "b639b17809d9a933"
           },
           "Version": "3.2.0",
           "DependsOn": [
-            "MongoDB.Bson/3.2.0",
             "SharpCompress/0.30.1",
             "Snappier/1.0.0",
             "ZstdSharp.Port/0.7.3",
-            "DnsClient/1.6.1"
+            "DnsClient/1.6.1",
+            "MongoDB.Bson/3.2.0"
           ],
           "Layer": {
             "Digest": "sha256:029f16f837b76333e6b1c9f94ced348b994ef86015257efcfab8cae6b86d820f",
