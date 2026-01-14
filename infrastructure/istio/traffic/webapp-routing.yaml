@@ -29,7 +29,7 @@ spec:
       consistentHash:
         httpCookie:
           name: webapp-sticky
-          ttl: 0s     #
+          ttl: 0s     
     tls:
       mode: ISTIO_MUTUAL
 

@@ -563,41 +563,56 @@ jobs:
             --region ${{ env.AWS_REGION }} \
             --name ${{ env.EKS_CLUSTER }}
 
+
       - name: Apply PVC
         run: kubectl apply -f infrastructure/k8s/eks-pvc.yaml
-        
-      - name: Apply config 
+          
+      - name: Apply Config Services
         run: kubectl apply -f infrastructure/k8s/config-svc.yaml
+
 
       - name: Apply Databases
         run: |
-            kubectl apply -f infrastructure/k8s/postgres-svc.yaml
-            kubectl apply -f infrastructure/k8s/mongo-svc.yaml
-            kubectl apply -f infrastructure/k8s/rabbitmq-svc.yaml
+          kubectl apply -f infrastructure/k8s/postgres-svc.yaml
+          kubectl apply -f infrastructure/k8s/mongo-svc.yaml
+          kubectl apply -f infrastructure/k8s/rabbitmq-svc.yaml
 
-      - name: Apply Backend services
-        run: |
-            kubectl apply -f infrastructure/k8s/identity-svc.yaml
-            kubectl apply -f infrastructure/k8s/user-svc.yaml
-            kubectl apply -f infrastructure/k8s/order-svc.yaml
-            kubectl apply -f infrastructure/k8s/buying-svc.yaml
-            kubectl apply -f infrastructure/k8s/bid-svc.yaml
-            kubectl apply -f infrastructure/k8s/auction-svc.yaml
-            kubectl apply -f infrastructure/k8s/search-svc.yaml
-            kubectl apply -f infrastructure/k8s/notify-svc.yaml
 
-      - name: Apply Gateway & Frontend
-        run: |
-            kubectl apply -f infrastructure/k8s/gateway-svc.yaml
-            kubectl apply -f infrastructure/k8s/webapp-svc.yaml
-      
-      - name: Apply webapp-v2
-        run: |
-            kubectl apply -f infrastructure/istio/webapp-svc-v2.yaml
-
-      - name: Apply istio traffic
+      - name: Apply Istio Traffic (early)
         run: |
           kubectl apply -f infrastructure/istio/traffic
+
+
+      - name: Apply Backend services (except search)
+        run: |
+          kubectl apply -f infrastructure/k8s/identity-svc.yaml
+          kubectl apply -f infrastructure/k8s/user-svc.yaml
+          kubectl apply -f infrastructure/k8s/order-svc.yaml
+          kubectl apply -f infrastructure/k8s/buying-svc.yaml
+          kubectl apply -f infrastructure/k8s/bid-svc.yaml
+          kubectl apply -f infrastructure/k8s/auction-svc.yaml
+          kubectl apply -f infrastructure/k8s/notify-svc.yaml
+
+
+      - name: Wait 10s for auction & order
+        run: sleep 10
+
+   
+      - name: Apply Search service
+        run: |
+          kubectl apply -f infrastructure/k8s/search-svc.yaml
+
+ 
+      - name: Apply Gateway & Frontend
+        run: |
+          kubectl apply -f infrastructure/k8s/gateway-svc.yaml
+          kubectl apply -f infrastructure/k8s/webapp-svc.yaml
+
+  
+      - name: Apply Webapp v2
+        run: |
+          kubectl apply -f infrastructure/istio/webapp-svc-v2.yaml
+
 
 
 

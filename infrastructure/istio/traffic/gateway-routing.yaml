@@ -62,6 +62,7 @@ spec:
             host: notify-clusterip.backend.svc.cluster.local
             port:
               number: 80
+
     - route:
         - destination:
             host: gateway-clusterip.backend.svc.cluster.local
@@ -78,5 +79,9 @@ spec:
   trafficPolicy:
     loadBalancer:
       simple: ROUND_ROBIN
-    tls:
-      mode: ISTIO_MUTUAL
+    connectionPool:
+      tcp:
+        connectTimeout: 10s
+      http:
+        idleTimeout: 1h
+        maxRequestsPerConnection: 100

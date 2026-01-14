@@ -19,13 +19,13 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // //Thêm HTTP client
 builder.Services.AddHttpClient<OrderSvcHttpClient>(client =>
 {
-    client.Timeout = TimeSpan.FromSeconds(120);
+    client.Timeout = TimeSpan.FromSeconds(30);
 })
 .AddPolicyHandler(GetPolicy());
 
 builder.Services.AddHttpClient<AuctionSvcHTTPClient>(client =>
 {
-    client.Timeout = TimeSpan.FromSeconds(120);
+    client.Timeout = TimeSpan.FromSeconds(30);
 })
 .AddPolicyHandler(GetPolicy());
 builder.Services.AddMassTransit(x =>
