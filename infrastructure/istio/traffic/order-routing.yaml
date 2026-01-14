@@ -7,18 +7,19 @@ spec:
   hosts:
   - order-clusterip.backend.svc.cluster.local
   http:
-  - timeout: 60s                     # Tăng lên 60s cho order service (có thể xử lý lâu)
+  - timeout: 30s                 
     retries:
-      attempts: 3                    # Tăng lên 3 lần thử
-      perTryTimeout: 20s             # 20s mỗi lần
-      retryOn: connect-failure,refused-stream,unavailable,cancelled,retriable-status-codes,5xx
+      attempts: 2                  
+      perTryTimeout: 10s           
+      retryOn: connect-failure,refused-stream,unavailable,5xx
     route:
     - destination:
         host: order-clusterip.backend.svc.cluster.local
         port:
-          number: 80                 # Thêm port number
+          number: 80
+
 ---
-apiVersion: networking.istio.io/v1beta1
+apiVersion: networking.istio.io/v1
 kind: DestinationRule
 metadata:
   name: order-dr
@@ -27,21 +28,23 @@ spec:
   host: order-clusterip.backend.svc.cluster.local
   trafficPolicy:
     tls:
-      mode: ISTIO_MUTUAL            
-    loadBalancer:
-      simple: ROUND_ROBIN
+      mode: ISTIO_MUTUAL
+
     connectionPool:
       tcp:
-        maxConnections: 1000
-        connectTimeout: 30s
+        maxConnections: 100
+        connectTimeout: 5s
+        tcpKeepalive:
+          time: 30s
+          interval: 10s
+
       http:
-        http1MaxPendingRequests: 1024
-        http2MaxRequests: 1024
         maxRequestsPerConnection: 100
-        idleTimeout: 3600s
-        h2UpgradePolicy: UPGRADE
+        idleTimeout: 10s
+
     outlierDetection:
       consecutive5xxErrors: 5
-      interval: 30s
+      interval: 5s
       baseEjectionTime: 30s
       maxEjectionPercent: 50
+
