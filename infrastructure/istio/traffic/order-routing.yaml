@@ -1,50 +1,10 @@
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
-  name: order-vs
-  namespace: backend
-spec:
-  hosts:
-  - order-clusterip.backend.svc.cluster.local
-  http:
-  - timeout: 30s                 
-    retries:
-      attempts: 2                  
-      perTryTimeout: 10s           
-      retryOn: connect-failure,refused-stream,unavailable,5xx
-    route:
-    - destination:
-        host: order-clusterip.backend.svc.cluster.local
-        port:
-          number: 80
-
----
 apiVersion: networking.istio.io/v1
 kind: DestinationRule
 metadata:
-  name: order-dr
+  name: order-svc-dr
   namespace: backend
 spec:
   host: order-clusterip.backend.svc.cluster.local
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL
-
-    connectionPool:
-      tcp:
-        maxConnections: 100
-        connectTimeout: 5s
-        tcpKeepalive:
-          time: 30s
-          interval: 10s
-
-      http:
-        maxRequestsPerConnection: 100
-        idleTimeout: 10s
-
-    outlierDetection:
-      consecutive5xxErrors: 5
-      interval: 5s
-      baseEjectionTime: 30s
-      maxEjectionPercent: 50
-
