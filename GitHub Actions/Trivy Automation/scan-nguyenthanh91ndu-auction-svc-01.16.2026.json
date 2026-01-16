@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc673-f387-70b3-83b3-2457129d9b15",
-  "CreatedAt": "2026-01-16T10:57:26.407046924Z",
+  "ReportID": "019bc716-5d1b-7a01-8798-815fcbbc8367",
+  "CreatedAt": "2026-01-16T13:54:50.267656633Z",
   "ArtifactID": "sha256:1ef905e5b44eefaadc2c4a0761d85314549f3b8e8a4e749cc2b00921530091ae",
   "ArtifactName": "nguyenthanh91ndu/auction-svc:latest",
   "ArtifactType": "container_image",
@@ -8289,7 +8289,7 @@
             "https://github.com/gpg/gnupg/compare/gnupg-2.2.50...gnupg-2.2.51",
             "https://gpg.fail/memcpy",
             "https://linux.oracle.com/cve/CVE-2025-68973.html",
-            "https://linux.oracle.com/errata/ELSA-2026-0697.html",
+            "https://linux.oracle.com/errata/ELSA-2026-0719.html",
             "https://lists.debian.org/debian-lts-announce/2026/01/msg00008.html",
             "https://media.ccc.de/v/39c3-to-sign-or-not-to-sign-practical-vulnerabilities-i",
             "https://news.ycombinator.com/item?id=46403200",
@@ -8377,9 +8377,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8444,12 +8446,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8541,9 +8543,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8608,12 +8612,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8705,9 +8709,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8772,12 +8778,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8869,9 +8875,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8936,12 +8944,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -9338,14 +9346,14 @@
           "Name": "Microsoft.EntityFrameworkCore.Relational",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Relational@9.0.2",
-            "UID": "c81b37a0c929c015"
+            "UID": "3321259e85254c85"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.Extensions.Logging/9.0.2",
             "Microsoft.EntityFrameworkCore/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9385,15 +9393,15 @@
           "Name": "Microsoft.Extensions.Caching.Memory",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Caching.Memory@9.0.2",
-            "UID": "1cdcfcb02fa3f87f"
+            "UID": "da185edfb5450763"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
             "Microsoft.Extensions.Caching.Abstractions/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
+            "Microsoft.Extensions.Options/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9626,12 +9634,12 @@
           "Name": "Microsoft.IdentityModel.Protocols",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols@7.1.2",
-            "UID": "5a7fae50563f6d30"
+            "UID": "2ab88291566983bb"
           },
           "Version": "7.1.2",
           "DependsOn": [
-            "Microsoft.IdentityModel.Tokens/7.1.2",
-            "Microsoft.IdentityModel.Logging/7.1.2"
+            "Microsoft.IdentityModel.Logging/7.1.2",
+            "Microsoft.IdentityModel.Tokens/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9716,13 +9724,13 @@
           "Name": "Npgsql.EntityFrameworkCore.PostgreSQL",
           "Identifier": {
             "PURL": "pkg:nuget/Npgsql.EntityFrameworkCore.PostgreSQL@9.0.4",
-            "UID": "87be3196414391ab"
+            "UID": "8514e1043294731c"
           },
           "Version": "9.0.4",
           "DependsOn": [
+            "Npgsql/9.0.3",
             "Microsoft.EntityFrameworkCore/9.0.2",
-            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
-            "Npgsql/9.0.3"
+            "Microsoft.EntityFrameworkCore.Relational/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9841,12 +9849,12 @@
           "Name": "System.IdentityModel.Tokens.Jwt",
           "Identifier": {
             "PURL": "pkg:nuget/System.IdentityModel.Tokens.Jwt@7.1.2",
-            "UID": "e3d38317729b2f80"
+            "UID": "2718f35a39069984"
           },
           "Version": "7.1.2",
           "DependsOn": [
-            "Microsoft.IdentityModel.JsonWebTokens/7.1.2",
-            "Microsoft.IdentityModel.Tokens/7.1.2"
+            "Microsoft.IdentityModel.Tokens/7.1.2",
+            "Microsoft.IdentityModel.JsonWebTokens/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",

@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc673-f329-7502-b78c-2219bb3614c0",
-  "CreatedAt": "2026-01-16T10:57:26.313329357Z",
+  "ReportID": "019bc716-4e5c-7d35-88d2-5af936c4852e",
+  "CreatedAt": "2026-01-16T13:54:46.492869132Z",
   "ArtifactID": "sha256:07a6202c6ccca857637a11e8480dd0694b46621c8218b4ddce6d5323ad9f036c",
   "ArtifactName": "nguyenthanh91ndu/user-svc:latest",
   "ArtifactType": "container_image",
@@ -8289,7 +8289,7 @@
             "https://github.com/gpg/gnupg/compare/gnupg-2.2.50...gnupg-2.2.51",
             "https://gpg.fail/memcpy",
             "https://linux.oracle.com/cve/CVE-2025-68973.html",
-            "https://linux.oracle.com/errata/ELSA-2026-0697.html",
+            "https://linux.oracle.com/errata/ELSA-2026-0719.html",
             "https://lists.debian.org/debian-lts-announce/2026/01/msg00008.html",
             "https://media.ccc.de/v/39c3-to-sign-or-not-to-sign-practical-vulnerabilities-i",
             "https://news.ycombinator.com/item?id=46403200",
@@ -8377,9 +8377,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8444,12 +8446,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8541,9 +8543,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8608,12 +8612,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8705,9 +8709,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8772,12 +8778,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8869,9 +8875,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8936,12 +8944,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8970,18 +8978,18 @@
           "Name": "UserService",
           "Identifier": {
             "PURL": "pkg:nuget/UserService@1.0.0",
-            "UID": "842aaa95901095c9"
+            "UID": "51e24d179e67b189"
           },
           "Version": "1.0.0",
           "Relationship": "root",
           "DependsOn": [
+            "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1",
+            "MassTransit.RabbitMQ/8.3.7-develop.2222",
+            "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
             "Microsoft.EntityFrameworkCore.Design/9.0.2",
             "Microsoft.Extensions.Http.Polly/9.0.2",
             "MongoDB.Entities/24.1.1",
-            "Polly/8.6.3",
-            "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1",
-            "MassTransit.RabbitMQ/8.3.7-develop.2222",
-            "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13"
+            "Polly/8.6.3"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -9070,22 +9078,22 @@
           "Name": "Microsoft.EntityFrameworkCore.Design",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@9.0.2",
-            "UID": "ddfec8a33d7c3e54"
+            "UID": "d55a2ac8aec8a45e"
           },
           "Version": "9.0.2",
           "Relationship": "direct",
           "DependsOn": [
-            "System.Text.Json/9.0.2",
-            "Humanizer.Core/2.14.1",
-            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
-            "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.DependencyModel/9.0.2",
             "Mono.TextTemplating/3.0.0",
-            "Microsoft.Build.Locator/1.7.8",
-            "Microsoft.CodeAnalysis.CSharp/4.8.0",
+            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
             "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
             "Microsoft.EntityFrameworkCore.Relational/9.0.2",
             "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.DependencyModel/9.0.2",
+            "System.Text.Json/9.0.2",
+            "Humanizer.Core/2.14.1",
+            "Microsoft.Build.Locator/1.7.8",
+            "Microsoft.CodeAnalysis.CSharp/4.8.0",
+            "Microsoft.Extensions.Caching.Memory/9.0.2",
             "Microsoft.Extensions.Logging/9.0.2"
           ],
           "Layer": {
@@ -9104,14 +9112,14 @@
           "Name": "Microsoft.Extensions.Http.Polly",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Http.Polly@9.0.2",
-            "UID": "e1aeaa27447c081b"
+            "UID": "70539f50e0ca401e"
           },
           "Version": "9.0.2",
           "Relationship": "direct",
           "DependsOn": [
+            "Microsoft.Extensions.Http/9.0.2",
             "Polly/8.6.3",
-            "Polly.Extensions.Http/3.0.0",
-            "Microsoft.Extensions.Http/9.0.2"
+            "Polly.Extensions.Http/3.0.0"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -9427,15 +9435,15 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.MSBuild@4.8.0",
-            "UID": "5693b250b3b99750"
+            "UID": "c6eb4128146b16ee"
           },
           "Version": "4.8.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "System.Text.Json/9.0.2",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0",
-            "System.Text.Json/9.0.2"
+            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -9551,17 +9559,17 @@
           "Name": "Microsoft.Extensions.Caching.Memory",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Caching.Memory@9.0.2",
-            "UID": "19c923870df8ef7e"
+            "UID": "ffa7d0bcf44ab0cd"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
-            "Microsoft.Extensions.Caching.Abstractions/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
+            "Microsoft.Extensions.Caching.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -9722,15 +9730,15 @@
           "Name": "Microsoft.Extensions.Diagnostics",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Diagnostics@9.0.2",
-            "UID": "cd3f8e1ca8a4382a"
+            "UID": "e4684ccb40747c41"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.2",
             "Microsoft.Extensions.Configuration/9.0.2",
-            "Microsoft.Extensions.Diagnostics.Abstractions/9.0.2"
+            "Microsoft.Extensions.Diagnostics.Abstractions/9.0.2",
+            "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -9748,15 +9756,15 @@
           "Name": "Microsoft.Extensions.Diagnostics.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Diagnostics.Abstractions@9.0.2",
-            "UID": "c46cb86ab542847a"
+            "UID": "e797e24bef6877f9"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "System.Diagnostics.DiagnosticSource/9.0.2",
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2",
+            "System.Diagnostics.DiagnosticSource/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -9774,18 +9782,18 @@
           "Name": "Microsoft.Extensions.Http",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Http@9.0.2",
-            "UID": "7c42846005a05c5c"
+            "UID": "e6387449f5fe14a2"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Diagnostics/9.0.2",
             "Microsoft.Extensions.Logging/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2",
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -9829,14 +9837,14 @@
           "Name": "Microsoft.Extensions.Logging.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Logging.Abstractions@9.0.2",
-            "UID": "591bbbc8a7222191"
+            "UID": "c4459aa8601f9131"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "System.Diagnostics.DiagnosticSource/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "System.Diagnostics.DiagnosticSource/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -9879,17 +9887,17 @@
           "Name": "Microsoft.Extensions.Options.ConfigurationExtensions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Options.ConfigurationExtensions@9.0.2",
-            "UID": "5eef9e4badc22014"
+            "UID": "ddfcdc0a12c3dc8c"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Configuration.Binder/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.Configuration.Binder/9.0.2",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -10092,18 +10100,18 @@
           "Name": "MongoDB.Driver",
           "Identifier": {
             "PURL": "pkg:nuget/MongoDB.Driver@3.2.0",
-            "UID": "ba8861ca48334ee3"
+            "UID": "fbdecb05ffcc2e64"
           },
           "Version": "3.2.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "MongoDB.Bson/3.2.0",
             "SharpCompress/0.30.1",
             "Snappier/1.0.0",
             "ZstdSharp.Port/0.7.3",
             "DnsClient/1.6.1",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "MongoDB.Bson/3.2.0"
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
@@ -10367,15 +10375,15 @@
           "Name": "System.Composition.TypedParts",
           "Identifier": {
             "PURL": "pkg:nuget/System.Composition.TypedParts@7.0.0",
-            "UID": "11c19c9d42a5ade7"
+            "UID": "35051a2712b5ae28"
           },
           "Version": "7.0.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "System.Composition.AttributedModel/7.0.0",
             "System.Composition.Hosting/7.0.0",
-            "System.Composition.Runtime/7.0.0",
-            "System.Composition.AttributedModel/7.0.0"
+            "System.Composition.Runtime/7.0.0"
           ],
           "Layer": {
             "Digest": "sha256:db01c4448b511316e7d6186e2a671cc1fe1508dc7b2f710b4d39987c12fe5d20",
