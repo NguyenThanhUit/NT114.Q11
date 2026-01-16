@@ -15,6 +15,8 @@ spec:
     metadata:
       labels:
         app: notify-svc
+      annotations:
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
         - name: notify-svc

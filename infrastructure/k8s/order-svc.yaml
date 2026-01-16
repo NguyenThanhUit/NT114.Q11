@@ -19,6 +19,8 @@ spec:
     metadata:
       labels:
         app: order-svc
+      annotations:
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
         - name: order-svc

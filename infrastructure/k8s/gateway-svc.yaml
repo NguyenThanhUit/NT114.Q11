@@ -15,6 +15,8 @@ spec:
     metadata:
       labels:
         app: gateway-svc
+      annotations:
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
         - name: gateway-svc

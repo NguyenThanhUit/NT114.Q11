@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: postgres
+      annotations:
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
       - name: postgres

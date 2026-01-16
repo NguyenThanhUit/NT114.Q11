@@ -77,6 +77,8 @@ metadata:
 spec:
   host: gateway-clusterip.backend.svc.cluster.local
   trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
     loadBalancer:
       simple: ROUND_ROBIN
     connectionPool:
@@ -85,3 +87,4 @@ spec:
       http:
         idleTimeout: 1h
         maxRequestsPerConnection: 100
+

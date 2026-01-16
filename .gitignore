@@ -9,5 +9,10 @@ terraform/.terraform.lock.hcl
 *.tfstate
 *.tfstate.backup
 
+terraform-eks/.terraform/
+terraform-eks/.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+
 devcerts/
 infrastructure/certs/

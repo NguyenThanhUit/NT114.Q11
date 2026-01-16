@@ -20,6 +20,8 @@ spec:
     metadata:
       labels:
         app: auction-svc
+      annotations:
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
       - name: auction-svc

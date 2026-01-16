@@ -1,48 +1,10 @@
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
-  name: auction-vs
-  namespace: backend
-spec:
-  hosts:
-  - auction-clusterip.backend.svc.cluster.local
-  http:
-  - match:
-    - port: 80 
-    timeout: 60s
-    retries:
-      attempts: 3
-      perTryTimeout: 20s
-      retryOn: connect-failure,refused-stream,unavailable,cancelled,retriable-status-codes,5xx
-    route:
-    - destination:
-        host: auction-clusterip.backend.svc.cluster.local
-        port:
-          number: 80
----
-apiVersion: networking.istio.io/v1beta1
+apiVersion: networking.istio.io/v1
 kind: DestinationRule
 metadata:
-  name: auction-dr
+  name: auction-svc-dr
   namespace: backend
 spec:
   host: auction-clusterip.backend.svc.cluster.local
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL
-    loadBalancer:
-      simple: ROUND_ROBIN
-    connectionPool:
-      tcp:
-        connectTimeout: 60s   
-        maxConnections: 1000  
-      http:
-        http1MaxPendingRequests: 1024  
-        http2MaxRequests: 1024  
-        maxRequestsPerConnection: 100  
-        idleTimeout: 3600s  
-        h2UpgradePolicy: UPGRADE
-    outlierDetection:
-      consecutive5xxErrors: 5
-      interval: 30s
-      baseEjectionTime: 30s
