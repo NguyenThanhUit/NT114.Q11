@@ -67,7 +67,8 @@ app.Lifetime.ApplicationStarted.Register(async () =>
     Console.WriteLine("Checking if Istio sidecar is ready...");
     await WaitForIstioSidecar();
     Console.WriteLine("✓ Istio sidecar is ready!");
-    
+    await Task.Delay(TimeSpan.FromSeconds(15));
+    Console.WriteLine("✓ Waited 15s for services!");
     // Retry với số lần giới hạn
     Console.WriteLine("Starting database initialization with retry policy...");
     var result = await Policy.Handle<TimeoutException>()
