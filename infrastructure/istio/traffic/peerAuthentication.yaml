@@ -5,7 +5,7 @@ metadata:
   namespace: backend
 spec:
   mtls:
-    mode: PERMISSIVE
+    mode: STRICT
 ---
 apiVersion: security.istio.io/v1
 kind: PeerAuthentication
@@ -14,4 +14,4 @@ metadata:
   namespace: frontend
 spec:
   mtls:
-    mode: PERMISSIVE
+    mode: STRICT
