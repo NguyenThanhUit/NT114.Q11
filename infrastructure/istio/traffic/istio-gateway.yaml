@@ -26,3 +26,5 @@ spec:
     - app.nguyenth4nh.id.vn
     - api.nguyenth4nh.id.vn
     - id.nguyenth4nh.id.vn
+    tls:
+      httpsRedirect: true

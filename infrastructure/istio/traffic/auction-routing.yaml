@@ -6,5 +6,18 @@ metadata:
 spec:
   host: auction-clusterip.backend.svc.cluster.local
   trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN
+
+    connectionPool:
+      tcp:
+        # Envoy sẽ đóng TCP trước app → tránh reuse socket chết
+        idleTimeout: 2m
+      http:
+        # Align với HttpClient / Kestrel
+        idleTimeout: 2m
+        maxRequestsPerConnection: 100
+
+    # Mesh = PERMISSIVE → ưu tiên mTLS khi có sidecar
     tls:
       mode: ISTIO_MUTUAL

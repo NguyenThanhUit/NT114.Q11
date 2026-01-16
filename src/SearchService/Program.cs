@@ -6,35 +6,60 @@ using System.Net;
 using SearchService;
 using SearchService.Consumers;
 using Contracts;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using System.Net.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Fix Envoy reuse connection nhưng app đóng socket quá sớm
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);     // ⬅ FIX RST 5s
+    options.Limits.RequestHeadersTimeout = TimeSpan.FromSeconds(30);
+});
+
+
+// Add services
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 
-// Thêm mapper
+// AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-// Thêm HTTP client với timeout (đã có logging mặc định)
+
+// Order Service HTTP Client
 builder.Services.AddHttpClient<OrderSvcHttpClient>(client =>
 {
     client.Timeout = TimeSpan.FromSeconds(30);
 })
+.ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
+{
+    PooledConnectionIdleTimeout = TimeSpan.FromMinutes(2), // ⬅ match Kestrel
+    KeepAlivePingDelay = TimeSpan.FromSeconds(30),
+    KeepAlivePingTimeout = TimeSpan.FromSeconds(10),
+    KeepAlivePingPolicy = HttpKeepAlivePingPolicy.Always
+})
 .AddPolicyHandler(GetPolicy());
-// ❌ XÓA .AddLogger()
 
+// Auction Service HTTP Client
 builder.Services.AddHttpClient<AuctionSvcHTTPClient>(client =>
 {
     client.Timeout = TimeSpan.FromSeconds(30);
 })
+.ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
+{
+    PooledConnectionIdleTimeout = TimeSpan.FromMinutes(2),
+    KeepAlivePingDelay = TimeSpan.FromSeconds(30),
+    KeepAlivePingTimeout = TimeSpan.FromSeconds(10),
+    KeepAlivePingPolicy = HttpKeepAlivePingPolicy.Always
+})
 .AddPolicyHandler(GetPolicy());
-// ❌ XÓA .AddLogger()
+
+
 
 builder.Services.AddMassTransit(x =>
 {
-    // Them consumer
     x.AddConsumersFromNamespaceContaining<OrderCreatedConsumer>();
     x.AddConsumersFromNamespaceContaining<OrderUpdatedConsumer>();
     x.AddActivitiesFromNamespaceContaining<BuyingPlacedConsumer>();
@@ -54,112 +79,111 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
+
+
 var app = builder.Build();
+
 app.UseAuthorization();
 app.MapControllers();
 
+#region 🚀 APPLICATION STARTUP LOGIC
+
 app.Lifetime.ApplicationStarted.Register(async () =>
 {
-    Console.WriteLine("=== Application Started Event Triggered ===");
-    Console.WriteLine($"Current Time: {DateTime.UtcNow:yyyy-MM-dd HH:mm:ss.fff} UTC");
-    
-    // Đợi Istio sidecar ready
-    Console.WriteLine("Checking if Istio sidecar is ready...");
+    Console.WriteLine("=== Application Started ===");
+    Console.WriteLine($"UTC Time: {DateTime.UtcNow:yyyy-MM-dd HH:mm:ss.fff}");
+
+    Console.WriteLine("Waiting for Istio sidecar...");
     await WaitForIstioSidecar();
-    Console.WriteLine("✓ Istio sidecar is ready!");
+    Console.WriteLine("✓ Istio sidecar ready");
+
     await Task.Delay(TimeSpan.FromSeconds(15));
-    Console.WriteLine("✓ Waited 15s for services!");
-    // Retry với số lần giới hạn
-    Console.WriteLine("Starting database initialization with retry policy...");
-    var result = await Policy.Handle<TimeoutException>()
+    Console.WriteLine("✓ Waited 15s for dependencies");
+
+    Console.WriteLine("Starting DB initialization...");
+
+    var result = await Policy
+        .Handle<TimeoutException>()
         .Or<HttpRequestException>()
         .Or<TaskCanceledException>()
         .WaitAndRetryAsync(
             retryCount: 5,
-            sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(5),
-            onRetry: (exception, timeSpan, retryCount, context) =>
+            sleepDurationProvider: retry => TimeSpan.FromSeconds(5),
+            onRetry: (ex, ts, retry, _) =>
             {
-                Console.WriteLine($"❌ [DbInitializer] Retry #{retryCount} after {timeSpan.TotalSeconds}s");
-                Console.WriteLine($"   Exception: {exception.GetType().Name} - {exception.Message}");
-            }
-        )
-        .ExecuteAndCaptureAsync(async () => 
+                Console.WriteLine($"❌ Retry #{retry} after {ts.TotalSeconds}s");
+                Console.WriteLine($"   {ex.GetType().Name}: {ex.Message}");
+            })
+        .ExecuteAndCaptureAsync(async () =>
         {
-            Console.WriteLine("→ Calling DbInitializers.InitDb...");
+            Console.WriteLine("→ DbInitializers.InitDb()");
             await DbInitializers.InitDb(app);
-            Console.WriteLine("✓ DbInitializers.InitDb completed successfully!");
         });
-    
+
     if (result.Outcome == OutcomeType.Failure)
     {
-        Console.WriteLine($"❌ Database initialization FAILED after all retries!");
-        Console.WriteLine($"   Final Exception: {result.FinalException?.GetType().Name} - {result.FinalException?.Message}");
+        Console.WriteLine("❌ DB INIT FAILED");
+        Console.WriteLine(result.FinalException?.Message);
     }
     else
     {
-        Console.WriteLine("✓ Database initialization completed successfully!");
+        Console.WriteLine("✓ DB INIT SUCCESS");
     }
-    
-    Console.WriteLine("=== Application Startup Completed ===");
+
+    Console.WriteLine("=== Startup completed ===");
 });
+
+
 
 app.Run();
 
-// Retry policy với logging
+
+
 static IAsyncPolicy<HttpResponseMessage> GetPolicy()
     => HttpPolicyExtensions
         .HandleTransientHttpError()
         .OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
         .WaitAndRetryAsync(
             retryCount: 3,
-            sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)), // Exponential backoff: 2s, 4s, 8s
-            onRetry: (outcome, timespan, retryCount, context) =>
+            sleepDurationProvider: retry => TimeSpan.FromSeconds(Math.Pow(2, retry)),
+            onRetry: (outcome, ts, retry, _) =>
             {
-                var message = outcome.Exception?.Message ?? outcome.Result?.StatusCode.ToString();
+                var reason = outcome.Exception?.Message ?? outcome.Result?.StatusCode.ToString();
                 var url = outcome.Result?.RequestMessage?.RequestUri?.ToString() ?? "unknown";
-                Console.WriteLine($"⚠ [HttpClient Retry] #{retryCount} for {url}");
-                Console.WriteLine($"   Reason: {message}");
-                Console.WriteLine($"   Waiting {timespan.TotalSeconds}s before retry...");
-            }
-        );
+                Console.WriteLine($"⚠ HTTP Retry #{retry} → {url}");
+                Console.WriteLine($"   Reason: {reason}");
+                Console.WriteLine($"   Wait: {ts.TotalSeconds}s");
+            });
 
-// Hàm đợi Istio sidecar ready với logging
+
 static async Task WaitForIstioSidecar()
 {
-    var maxRetries = 30;
+    const int maxRetries = 30;
     var delay = TimeSpan.FromSeconds(1);
-    
-    Console.WriteLine($"Waiting for Istio sidecar (max {maxRetries} attempts)...");
-    
-    for (int i = 0; i < maxRetries; i++)
+
+    for (int i = 1; i <= maxRetries; i++)
     {
         try
         {
-            using var httpClient = new HttpClient();
-            httpClient.Timeout = TimeSpan.FromSeconds(2);
-            
-            // Check Istio sidecar health endpoint
-            var response = await httpClient.GetAsync("http://localhost:15021/healthz/ready");
-            
-            if (response.IsSuccessStatusCode)
+            using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(2) };
+            var res = await client.GetAsync("http://localhost:15021/healthz/ready");
+
+            if (res.IsSuccessStatusCode)
             {
-                Console.WriteLine($"✓ Istio sidecar ready after {i + 1} attempt(s) ({(i + 1) * delay.TotalSeconds}s)");
+                Console.WriteLine($"✓ Sidecar ready after {i}s");
                 return;
             }
-            
-            Console.WriteLine($"  Attempt {i + 1}/{maxRetries}: Sidecar not ready yet (Status: {response.StatusCode})");
         }
         catch (Exception ex)
         {
-            if (i == 0 || (i + 1) % 5 == 0) // Log mỗi 5 lần
-            {
-                Console.WriteLine($"  Attempt {i + 1}/{maxRetries}: {ex.GetType().Name} - {ex.Message}");
-            }
+            if (i == 1 || i % 5 == 0)
+                Console.WriteLine($"Attempt {i}: {ex.Message}");
         }
-        
+
         await Task.Delay(delay);
     }
-    
-    Console.WriteLine($"⚠ WARNING: Istio sidecar health check timed out after {maxRetries} attempts!");
-    Console.WriteLine("  Proceeding anyway, but connectivity issues may occur...");
+
+    Console.WriteLine("⚠ Istio sidecar NOT ready, continuing anyway");
 }
+
+

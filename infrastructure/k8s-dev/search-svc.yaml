@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         app: search-svc
+      sidecar.istio.io/statsInclusionPrefixes: cluster.outbound,listener,cluster,cluster_manager,listener_manager,http_mixer_filter,tcp_mixer_filter,server,cluster.xds-grpc
     spec:
       containers:
         - name: search-svc
