@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc580-9837-72bd-892e-7ddad7a04bf7",
-  "CreatedAt": "2026-01-16T06:31:37.78318142Z",
+  "ReportID": "019bc62f-4b5f-70fe-bed4-b2f56e198781",
+  "CreatedAt": "2026-01-16T09:42:26.911066396Z",
   "ArtifactID": "sha256:1ef905e5b44eefaadc2c4a0761d85314549f3b8e8a4e749cc2b00921530091ae",
   "ArtifactName": "nguyenthanh91ndu/auction-svc:latest",
   "ArtifactType": "container_image",
@@ -8262,6 +8262,7 @@
           "VendorSeverity": {
             "azure": 3,
             "nvd": 3,
+            "oracle-oval": 3,
             "redhat": 3,
             "ubuntu": 3
           },
@@ -8287,6 +8288,8 @@
             "https://github.com/gpg/gnupg/commit/4ecc5122f20e10c17172ed72f4fa46c784b5fb48 (gnupg-2.4.9)",
             "https://github.com/gpg/gnupg/compare/gnupg-2.2.50...gnupg-2.2.51",
             "https://gpg.fail/memcpy",
+            "https://linux.oracle.com/cve/CVE-2025-68973.html",
+            "https://linux.oracle.com/errata/ELSA-2026-0697.html",
             "https://lists.debian.org/debian-lts-announce/2026/01/msg00008.html",
             "https://media.ccc.de/v/39c3-to-sign-or-not-to-sign-practical-vulnerabilities-i",
             "https://news.ycombinator.com/item?id=46403200",
@@ -8374,11 +8377,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8540,11 +8541,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8706,11 +8705,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8872,11 +8869,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8975,14 +8970,14 @@
           "Name": "AuctionService",
           "Identifier": {
             "PURL": "pkg:nuget/AuctionService@1.0.0",
-            "UID": "598154336341d3a1"
+            "UID": "b83bf40f7f1feb47"
           },
           "Version": "1.0.0",
           "Relationship": "root",
           "DependsOn": [
-            "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1",
             "MassTransit.EntityFrameworkCore/8.3.7-develop.2225",
             "MassTransit.RabbitMQ/8.3.7-develop.2222",
+            "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1",
             "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
             "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.4",
             "Polly/8.6.3"
@@ -9027,14 +9022,14 @@
           "Name": "MassTransit.EntityFrameworkCore",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.EntityFrameworkCore@8.3.7-develop.2225",
-            "UID": "e8e051b544f03cd9"
+            "UID": "b6b81edcaa51d812"
           },
           "Version": "8.3.7-develop.2225",
           "Relationship": "direct",
           "DependsOn": [
-            "MassTransit/8.3.7-develop.2225",
             "Microsoft.EntityFrameworkCore.Relational/9.0.2",
-            "Microsoft.Extensions.Caching.Memory/9.0.2"
+            "Microsoft.Extensions.Caching.Memory/9.0.2",
+            "MassTransit/8.3.7-develop.2225"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9052,13 +9047,13 @@
           "Name": "MassTransit.RabbitMQ",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7-develop.2222",
-            "UID": "c1bc79907e5df102"
+            "UID": "a9621feffa6ca67e"
           },
           "Version": "8.3.7-develop.2222",
           "Relationship": "direct",
           "DependsOn": [
-            "RabbitMQ.Client/7.1.0",
-            "MassTransit/8.3.7-develop.2225"
+            "MassTransit/8.3.7-develop.2225",
+            "RabbitMQ.Client/7.1.0"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9099,14 +9094,14 @@
           "Name": "Npgsql.EntityFrameworkCore.PostgreSQL",
           "Identifier": {
             "PURL": "pkg:nuget/Npgsql.EntityFrameworkCore.PostgreSQL@9.0.4",
-            "UID": "4bcdcb8e1a0cf844"
+            "UID": "5e6cd7373884c8d8"
           },
           "Version": "9.0.4",
           "Relationship": "direct",
           "DependsOn": [
+            "Microsoft.EntityFrameworkCore/9.0.2",
             "Microsoft.EntityFrameworkCore.Relational/9.0.2",
-            "Npgsql/9.0.3",
-            "Microsoft.EntityFrameworkCore/9.0.2"
+            "Npgsql/9.0.3"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9332,16 +9327,16 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.3.7-develop.2225",
-            "UID": "b205d81bff876a4d"
+            "UID": "5fb6daf3e94d38f3"
           },
           "Version": "8.3.7-develop.2225",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "MassTransit.Abstractions/8.3.7-develop.2225",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2",
+            "MassTransit.Abstractions/8.3.7-develop.2225",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9427,16 +9422,16 @@
           "Name": "Microsoft.EntityFrameworkCore.Relational",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Relational@9.0.2",
-            "UID": "b37402579866c153"
+            "UID": "20e36c6c76fe51a9"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Logging/9.0.2",
             "Microsoft.EntityFrameworkCore/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9478,17 +9473,17 @@
           "Name": "Microsoft.Extensions.Caching.Memory",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Caching.Memory@9.0.2",
-            "UID": "ff8e5c6df16c217a"
+            "UID": "da38ac56a14636b"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
             "Microsoft.Extensions.Caching.Abstractions/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
+            "Microsoft.Extensions.Options/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9601,14 +9596,14 @@
           "Name": "Microsoft.Extensions.Logging.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Logging.Abstractions@9.0.2",
-            "UID": "4545d5c7641c433b"
+            "UID": "693662fc3d655012"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "System.Diagnostics.DiagnosticSource/9.0.2"
+            "System.Diagnostics.DiagnosticSource/9.0.2",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9626,14 +9621,14 @@
           "Name": "Microsoft.Extensions.Options",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Options@9.0.2",
-            "UID": "a1ee634520bf81d1"
+            "UID": "158c2d5d40e52415"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Primitives/9.0.2"
+            "Microsoft.Extensions.Primitives/9.0.2",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9741,14 +9736,14 @@
           "Name": "Microsoft.IdentityModel.Protocols",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols@7.1.2",
-            "UID": "c0e7d99ee9350a2c"
+            "UID": "8ca5691284077412"
           },
           "Version": "7.1.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.IdentityModel.Logging/7.1.2",
-            "Microsoft.IdentityModel.Tokens/7.1.2"
+            "Microsoft.IdentityModel.Tokens/7.1.2",
+            "Microsoft.IdentityModel.Logging/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9926,14 +9921,14 @@
           "Name": "System.IdentityModel.Tokens.Jwt",
           "Identifier": {
             "PURL": "pkg:nuget/System.IdentityModel.Tokens.Jwt@7.1.2",
-            "UID": "b5882d742b45955b"
+            "UID": "15b08933cbff45a0"
           },
           "Version": "7.1.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.IdentityModel.JsonWebTokens/7.1.2",
-            "Microsoft.IdentityModel.Tokens/7.1.2"
+            "Microsoft.IdentityModel.Tokens/7.1.2",
+            "Microsoft.IdentityModel.JsonWebTokens/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",

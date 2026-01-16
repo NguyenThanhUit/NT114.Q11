@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc580-8f18-7953-a75f-ecd351b21682",
-  "CreatedAt": "2026-01-16T06:31:35.448612457Z",
+  "ReportID": "019bc62f-523a-748c-b728-98d2bae310f9",
+  "CreatedAt": "2026-01-16T09:42:28.666298963Z",
   "ArtifactID": "sha256:c0cb753afca79cfe954f785f9257835b76be228898752c9972db7052601825b2",
   "ArtifactName": "nguyenthanh91ndu/order-svc:latest",
   "ArtifactType": "container_image",
@@ -8262,6 +8262,7 @@
           "VendorSeverity": {
             "azure": 3,
             "nvd": 3,
+            "oracle-oval": 3,
             "redhat": 3,
             "ubuntu": 3
           },
@@ -8287,6 +8288,8 @@
             "https://github.com/gpg/gnupg/commit/4ecc5122f20e10c17172ed72f4fa46c784b5fb48 (gnupg-2.4.9)",
             "https://github.com/gpg/gnupg/compare/gnupg-2.2.50...gnupg-2.2.51",
             "https://gpg.fail/memcpy",
+            "https://linux.oracle.com/cve/CVE-2025-68973.html",
+            "https://linux.oracle.com/errata/ELSA-2026-0697.html",
             "https://lists.debian.org/debian-lts-announce/2026/01/msg00008.html",
             "https://media.ccc.de/v/39c3-to-sign-or-not-to-sign-practical-vulnerabilities-i",
             "https://news.ycombinator.com/item?id=46403200",
@@ -8374,11 +8377,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8540,11 +8541,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8706,11 +8705,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8872,11 +8869,9 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
             "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://errata.rockylinux.org/RLSA-2025:9526",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -9056,14 +9051,14 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.4.0-develop.2236",
-            "UID": "12243f4df42a6124"
+            "UID": "889a9823bd001c2c"
           },
           "Version": "8.4.0-develop.2236",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
-            "MassTransit.Abstractions/8.4.0-develop.2236"
+            "MassTransit.Abstractions/8.4.0-develop.2236",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9229,14 +9224,14 @@
           "Name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.CSharp.Workspaces@4.8.0",
-            "UID": "6a721887f3df7fb7"
+            "UID": "3632806abca8aea5"
           },
           "Version": "4.8.0",
           "DependsOn": [
-            "Humanizer.Core/2.14.1",
-            "Microsoft.CodeAnalysis.CSharp/4.8.0",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0"
+            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0",
+            "Humanizer.Core/2.14.1",
+            "Microsoft.CodeAnalysis.CSharp/4.8.0"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9273,14 +9268,14 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.Common",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.Common@4.8.0",
-            "UID": "1af277cd58e378fe"
+            "UID": "ab8f849fcfe0db49"
           },
           "Version": "4.8.0",
           "DependsOn": [
-            "Humanizer.Core/2.14.1",
             "Microsoft.Bcl.AsyncInterfaces/7.0.0",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "System.IO.Pipelines/9.0.2"
+            "System.IO.Pipelines/9.0.2",
+            "Humanizer.Core/2.14.1"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9365,20 +9360,20 @@
           "Name": "Microsoft.EntityFrameworkCore.Design",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@9.0.2",
-            "UID": "dc5ae65018bf44b2"
+            "UID": "24df4a7aa7ba553a"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
-            "Microsoft.Extensions.DependencyModel/9.0.2",
-            "Mono.TextTemplating/3.0.0",
             "System.Text.Json/9.0.2",
-            "Humanizer.Core/2.14.1",
             "Microsoft.Build.Locator/1.7.8",
             "Microsoft.CodeAnalysis.CSharp/4.8.0",
-            "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
+            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
             "Microsoft.EntityFrameworkCore.Relational/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
+            "Microsoft.Extensions.DependencyModel/9.0.2",
+            "Mono.TextTemplating/3.0.0",
+            "Humanizer.Core/2.14.1",
+            "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
             "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
             "Microsoft.Extensions.Logging/9.0.2"
           ],
@@ -9445,15 +9440,15 @@
           "Name": "Microsoft.Extensions.Caching.Memory",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Caching.Memory@9.0.2",
-            "UID": "c702b33021e095e8"
+            "UID": "9fe7c393cf4a21d5"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
-            "Microsoft.Extensions.Caching.Abstractions/9.0.2"
+            "Microsoft.Extensions.Caching.Abstractions/9.0.2",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9821,13 +9816,13 @@
           "Name": "Npgsql.EntityFrameworkCore.PostgreSQL",
           "Identifier": {
             "PURL": "pkg:nuget/Npgsql.EntityFrameworkCore.PostgreSQL@9.0.4",
-            "UID": "797c2d1d6cdf388f"
+            "UID": "130c751791fb4a9c"
           },
           "Version": "9.0.4",
           "DependsOn": [
+            "Microsoft.EntityFrameworkCore/9.0.2",
             "Microsoft.EntityFrameworkCore.Relational/9.0.2",
-            "Npgsql/9.0.3",
-            "Microsoft.EntityFrameworkCore/9.0.2"
+            "Npgsql/9.0.3"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -10113,12 +10108,12 @@
           "Name": "System.Text.Json",
           "Identifier": {
             "PURL": "pkg:nuget/System.Text.Json@9.0.2",
-            "UID": "2fb99ba8ab2250ed"
+            "UID": "6263b3428fabdef9"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "System.Text.Encodings.Web/9.0.2",
-            "System.IO.Pipelines/9.0.2"
+            "System.IO.Pipelines/9.0.2",
+            "System.Text.Encodings.Web/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
