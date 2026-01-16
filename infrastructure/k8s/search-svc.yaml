@@ -16,7 +16,7 @@ spec:
       labels:
         app: search-svc
       annotations:
-        roxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
         - name: search-svc
