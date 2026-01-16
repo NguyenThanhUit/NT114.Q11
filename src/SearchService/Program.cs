@@ -17,20 +17,20 @@ builder.Services.AddControllers();
 // Thêm mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-// Thêm HTTP client với timeout và logging
+// Thêm HTTP client với timeout (đã có logging mặc định)
 builder.Services.AddHttpClient<OrderSvcHttpClient>(client =>
 {
     client.Timeout = TimeSpan.FromSeconds(30);
 })
-.AddPolicyHandler(GetPolicy())
-.AddLogger(); // Thêm logging
+.AddPolicyHandler(GetPolicy());
+// ❌ XÓA .AddLogger()
 
 builder.Services.AddHttpClient<AuctionSvcHTTPClient>(client =>
 {
     client.Timeout = TimeSpan.FromSeconds(30);
 })
-.AddPolicyHandler(GetPolicy())
-.AddLogger(); // Thêm logging
+.AddPolicyHandler(GetPolicy());
+// ❌ XÓA .AddLogger()
 
 builder.Services.AddMassTransit(x =>
 {
