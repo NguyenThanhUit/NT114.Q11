@@ -15,5 +15,22 @@ spec:
       http:
         idleTimeout: 2m
         maxRequestsPerConnection: 100
+
     tls:
-      mode: ISTIO_MUTUAL
+      mode: DISABLE
+---
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: order-vs
+spec:
+  hosts:
+  - order-clusterip.backend.svc.cluster.local
+  http:
+  - route: 
+    - destination:
+        host: order-clusterip.backend.svc.cluster.local
+    retries:
+      attempts: 3
+      perTryTimeout: 2s
+      retryOn: gateway-error,connect-failure,refused-stream

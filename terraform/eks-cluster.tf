@@ -16,6 +16,23 @@ module "eks" {
   }
 
   node_security_group_additional_rules = {
+    ingress_self_all = {
+      description                   = "Allow all node to node traffic (required for pod cross-node)"
+      protocol                      = "-1"
+      from_port                     = 0
+      to_port                       = 0
+      type                          = "ingress"
+      source_node_security_group    = true
+    }
+
+    egress_all = {
+      description = "Allow all outbound"
+      protocol    = "-1"
+      from_port   = 0
+      to_port     = 0
+      type        = "egress"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
     ingress_15017 = {
       description                   = "Cluster API - Istio Webhook namespace.sidecar-injector.istio.io"
       protocol                      = "TCP"
