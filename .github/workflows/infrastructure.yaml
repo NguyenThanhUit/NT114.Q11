@@ -1,0 +1,108 @@
+name: Infrastructure Deployment
+
+on:
+  push:
+    branches: ["main"]
+    # Chỉ chạy khi có thay đổi trong các thư mục liên quan đến hạ tầng
+    paths:
+      - 'terraform/**'
+      - 'infrastructure/**'
+  workflow_dispatch: # Cho phép kích hoạt thủ công từ giao diện GitHub
+
+env:
+  AWS_REGION: ap-southeast-1
+  EKS_CLUSTER: specialProject
+  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE }}
+
+permissions:
+  contents: write
+  security-events: write
+
+jobs:
+  # ----------------------------------------------------------------
+  # JOB 1: TERRAFORM (Provisioning tài nguyên AWS)
+  # ----------------------------------------------------------------
+  SetUp_Terraform:
+    runs-on: ubuntu-latest
+    name: "Apply Terraform Cloud Changes"
+    defaults:
+      run:
+        working-directory: ./terraform
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.6.3"
+
+      - name: Terraform Init
+        run: terraform init -backend-config="bucket=${{ env.BUCKET_TF_STATE }}"
+
+      - name: Terraform Format & Validate
+        run: |
+          terraform fmt -check
+          terraform validate
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -input=false -out planfile
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve -input=false planfile
+
+  # ----------------------------------------------------------------
+  # JOB 2: K8S PLATFORM (Cài đặt Istio, Cert-Manager, Add-ons)
+  # ----------------------------------------------------------------
+  Deploy_Infrastructure:
+    needs: SetUp_Terraform
+    runs-on: ubuntu-latest
+    name: "Deploy Kubernetes Platform Add-ons"
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Update kubeconfig for EKS
+        run: |
+          aws eks update-kubeconfig \
+            --region ${{ env.AWS_REGION }} \
+            --name ${{ env.EKS_CLUSTER }}
+
+      # Cài đặt Istio Service Mesh
+      - name: Install Istio
+        run: |
+          curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.28.0 sh -
+          sudo mv istio-1.28.0/bin/istioctl /usr/local/bin/
+          istioctl install --set profile=demo -y
+
+      # Thiết lập Namespaces và Istio Injection
+      - name: Setup Namespaces
+        run: |
+          kubectl create namespace backend --dry-run=client -o yaml | kubectl apply -f -
+          kubectl create namespace frontend --dry-run=client -o yaml | kubectl apply -f -
+          kubectl label namespace backend istio-injection=enabled --overwrite
+          kubectl label namespace frontend istio-injection=enabled --overwrite
+
+      # Cài đặt Driver lưu trữ và Quản lý chứng chỉ
+      - name: Install Storage & Cert Manager
+        run: |
+          # EBS CSI Driver
+          kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-1.21"
+          # Gateway API & Cert-Manager
+          kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
+          kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
+
+      - name: Apply K8S Secrets
+        run: |
+          mkdir -p infrastructure/secret
+          echo "${{ secrets.K8S_SECRET_FILE }}" > infrastructure/secret/devsecrets.yaml
+          kubectl apply -f infrastructure/secret/devsecrets.yaml

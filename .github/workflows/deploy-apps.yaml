@@ -1,0 +1,83 @@
+name: Application Deployment
+
+on:
+  # Tự động chạy sau khi workflow CI thành công
+  workflow_run:
+    workflows: ["CI & Security Scan"]
+    types: [completed]
+    branches: ["main"]
+  # Cho phép chạy thủ công (ví dụ: khi muốn cập nhật cấu hình K8s)
+  workflow_dispatch:
+
+env:
+  AWS_REGION: ap-southeast-1
+  EKS_CLUSTER: specialProject
+
+jobs:
+  Deploy_Applications:
+    # Chỉ chạy nếu workflow CI thành công HOẶC nếu được kích hoạt thủ công
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    name: "Deploy Microservices to EKS"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Update kubeconfig for EKS
+        run: |
+          aws eks update-kubeconfig \
+            --region ${{ env.AWS_REGION }} \
+            --name ${{ env.EKS_CLUSTER }}
+
+      # ---------- STORAGE & CONFIG ----------
+      - name: Apply PVC and Config
+        run: |
+          kubectl apply -f infrastructure/k8s/eks-pvc.yaml
+          kubectl apply -f infrastructure/k8s/config-svc.yaml
+
+      # ---------- DATABASES & BROKER ----------
+      - name: Apply Databases
+        run: |
+          kubectl apply -f infrastructure/k8s/postgres-svc.yaml
+          kubectl apply -f infrastructure/k8s/mongo-svc.yaml
+          kubectl apply -f infrastructure/k8s/rabbitmq-svc.yaml
+
+      # ---------- NETWORKING (ISTIO) ----------
+      - name: Apply Istio Traffic Policies
+        run: kubectl apply -f infrastructure/istio/traffic
+
+      # ---------- BACKEND SERVICES ----------
+      - name: Apply Backend Services
+        run: |
+          kubectl apply -f infrastructure/k8s/identity-svc.yaml
+          kubectl apply -f infrastructure/k8s/user-svc.yaml
+          kubectl apply -f infrastructure/k8s/order-svc.yaml
+          kubectl apply -f infrastructure/k8s/buying-svc.yaml
+          kubectl apply -f infrastructure/k8s/bid-svc.yaml
+          kubectl apply -f infrastructure/k8s/auction-svc.yaml
+          kubectl apply -f infrastructure/k8s/notify-svc.yaml
+
+      - name: Wait for core services
+        run: sleep 15
+
+      # ---------- SPECIAL SERVICES & FRONTEND ----------
+      - name: Apply Search and Frontend
+        run: |
+          kubectl apply -f infrastructure/k8s/search-svc.yaml
+          kubectl apply -f infrastructure/k8s/gateway-svc.yaml
+          kubectl apply -f infrastructure/k8s/webapp-svc.yaml
+
+      # ---------- TRAFFIC MANAGEMENT V2 ----------
+      - name: Apply Webapp v2 (Canary/Istio)
+        run: kubectl apply -f infrastructure/istio/webapp-svc-v2.yaml
+
+      - name: Verify Deployment
+        run: kubectl get pods -n backend
