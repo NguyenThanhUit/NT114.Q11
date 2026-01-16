@@ -86,7 +86,7 @@ var app = builder.Build();
 app.UseAuthorization();
 app.MapControllers();
 
-#region 🚀 APPLICATION STARTUP LOGIC
+
 
 app.Lifetime.ApplicationStarted.Register(async () =>
 {
