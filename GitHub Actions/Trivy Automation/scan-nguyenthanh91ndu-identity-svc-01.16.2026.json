@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc62f-5515-7155-9b00-a0dc6af823fb",
-  "CreatedAt": "2026-01-16T09:42:29.397088456Z",
+  "ReportID": "019bc673-e668-77e7-9a29-161a14e1479b",
+  "CreatedAt": "2026-01-16T10:57:23.048519181Z",
   "ArtifactID": "sha256:386891f9153294b22e121ee7b4f70a2d51a9ff94cfbf221300d708a3833cb053",
   "ArtifactName": "nguyenthanh91ndu/identity-svc:latest",
   "ArtifactType": "container_image",
@@ -8970,22 +8970,22 @@
           "Name": "IdentityService",
           "Identifier": {
             "PURL": "pkg:nuget/IdentityService@1.0.0",
-            "UID": "242e21897c34fa45"
+            "UID": "e8aa4a1b6ff0933f"
           },
           "Version": "1.0.0",
           "Relationship": "root",
           "DependsOn": [
-            "Twilio/7.11.1",
-            "Duende.IdentityServer.AspNetIdentity/7.0.4",
-            "Infobip.Api.SDK/1.0.3",
-            "Microsoft.AspNetCore.Authentication.Google/8.0.3",
-            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/8.0.3",
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.3",
-            "Npgsql.EntityFrameworkCore.PostgreSQL/8.0.4",
+            "Polly/8.6.3",
             "Serilog.AspNetCore/8.0.0",
             "DotNetEnv/3.1.1",
+            "Duende.IdentityServer.AspNetIdentity/7.0.4",
             "Microsoft.AspNetCore.Identity.UI/8.0.3",
-            "Polly/8.6.3"
+            "Npgsql.EntityFrameworkCore.PostgreSQL/8.0.4",
+            "Twilio/7.11.1",
+            "Infobip.Api.SDK/1.0.3",
+            "Microsoft.AspNetCore.Authentication.Google/8.0.3",
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/8.0.3"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9116,13 +9116,13 @@
           "Name": "Microsoft.AspNetCore.Identity.EntityFrameworkCore",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.AspNetCore.Identity.EntityFrameworkCore@8.0.3",
-            "UID": "8e232737d0525163"
+            "UID": "555b84480f90eed4"
           },
           "Version": "8.0.3",
           "Relationship": "direct",
           "DependsOn": [
-            "Microsoft.Extensions.Identity.Stores/8.0.3",
-            "Microsoft.EntityFrameworkCore.Relational/8.0.4"
+            "Microsoft.EntityFrameworkCore.Relational/8.0.4",
+            "Microsoft.Extensions.Identity.Stores/8.0.3"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9140,13 +9140,13 @@
           "Name": "Microsoft.AspNetCore.Identity.UI",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.AspNetCore.Identity.UI@8.0.3",
-            "UID": "6542194f5da1cad5"
+            "UID": "cf432274b5eae85d"
           },
           "Version": "8.0.3",
           "Relationship": "direct",
           "DependsOn": [
-            "Microsoft.Extensions.Identity.Stores/8.0.3",
-            "Microsoft.Extensions.FileProviders.Embedded/8.0.3"
+            "Microsoft.Extensions.FileProviders.Embedded/8.0.3",
+            "Microsoft.Extensions.Identity.Stores/8.0.3"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9164,15 +9164,15 @@
           "Name": "Npgsql.EntityFrameworkCore.PostgreSQL",
           "Identifier": {
             "PURL": "pkg:nuget/Npgsql.EntityFrameworkCore.PostgreSQL@8.0.4",
-            "UID": "1140c78f474906d2"
+            "UID": "ff31e5fedf7e99"
           },
           "Version": "8.0.4",
           "Relationship": "direct",
           "DependsOn": [
-            "Microsoft.EntityFrameworkCore.Relational/8.0.4",
-            "Npgsql/8.0.3",
             "Microsoft.EntityFrameworkCore/8.0.4",
-            "Microsoft.EntityFrameworkCore.Abstractions/8.0.4"
+            "Microsoft.EntityFrameworkCore.Abstractions/8.0.4",
+            "Microsoft.EntityFrameworkCore.Relational/8.0.4",
+            "Npgsql/8.0.3"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9213,19 +9213,19 @@
           "Name": "Serilog.AspNetCore",
           "Identifier": {
             "PURL": "pkg:nuget/Serilog.AspNetCore@8.0.0",
-            "UID": "34e05319fcdda19d"
+            "UID": "14b7d1e536f62be9"
           },
           "Version": "8.0.0",
           "Relationship": "direct",
           "DependsOn": [
-            "Serilog/3.1.1",
-            "Serilog.Extensions.Hosting/8.0.0",
-            "Serilog.Formatting.Compact/2.0.0",
             "Serilog.Sinks.Console/5.0.0",
             "Serilog.Sinks.Debug/2.0.0",
+            "Serilog.Sinks.File/5.0.0",
+            "Serilog/3.1.1",
+            "Serilog.Extensions.Hosting/8.0.0",
             "Serilog.Extensions.Logging/8.0.0",
-            "Serilog.Settings.Configuration/8.0.0",
-            "Serilog.Sinks.File/5.0.0"
+            "Serilog.Formatting.Compact/2.0.0",
+            "Serilog.Settings.Configuration/8.0.0"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9565,16 +9565,16 @@
           "Name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.CSharp.Workspaces@4.5.0",
-            "UID": "b865917432487e33"
+            "UID": "ef7dbb0c737fedb4"
           },
           "Version": "4.5.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.CodeAnalysis.Common/4.5.0",
-            "Microsoft.CodeAnalysis.Workspaces.Common/4.5.0",
             "Humanizer.Core/2.14.1",
-            "Microsoft.CodeAnalysis.CSharp/4.5.0"
+            "Microsoft.CodeAnalysis.CSharp/4.5.0",
+            "Microsoft.CodeAnalysis.Common/4.5.0",
+            "Microsoft.CodeAnalysis.Workspaces.Common/4.5.0"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9613,15 +9613,15 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.Common",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.Common@4.5.0",
-            "UID": "c7c104ad01fab639"
+            "UID": "e587f4b0e3cc7f3"
           },
           "Version": "4.5.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.CodeAnalysis.Common/4.5.0",
             "Humanizer.Core/2.14.1",
-            "Microsoft.Bcl.AsyncInterfaces/6.0.0",
-            "Microsoft.CodeAnalysis.Common/4.5.0"
+            "Microsoft.Bcl.AsyncInterfaces/6.0.0"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9684,17 +9684,17 @@
           "Name": "Microsoft.EntityFrameworkCore.Design",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@8.0.3",
-            "UID": "df8ba2c10f5d393b"
+            "UID": "acb7cbfc33488093"
           },
           "Version": "8.0.3",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Humanizer.Core/2.14.1",
-            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.5.0",
             "Microsoft.EntityFrameworkCore.Relational/8.0.4",
             "Microsoft.Extensions.DependencyModel/8.0.0",
-            "Mono.TextTemplating/2.2.1"
+            "Mono.TextTemplating/2.2.1",
+            "Humanizer.Core/2.14.1",
+            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.5.0"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -9824,15 +9824,15 @@
           "Name": "Microsoft.Extensions.Hosting.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Hosting.Abstractions@8.0.1",
-            "UID": "eb891572abf74948"
+            "UID": "9eb32ad1307c80de"
           },
           "Version": "8.0.1",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2",
             "Microsoft.Extensions.Diagnostics.Abstractions/8.0.1",
-            "Microsoft.Extensions.Logging.Abstractions/8.0.2"
+            "Microsoft.Extensions.Logging.Abstractions/8.0.2",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
@@ -10273,17 +10273,17 @@
           "Name": "Serilog.Extensions.Hosting",
           "Identifier": {
             "PURL": "pkg:nuget/Serilog.Extensions.Hosting@8.0.0",
-            "UID": "a875840fa3753447"
+            "UID": "fc1136d184884c63"
           },
           "Version": "8.0.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2",
+            "Microsoft.Extensions.Hosting.Abstractions/8.0.1",
             "Microsoft.Extensions.Logging.Abstractions/8.0.2",
             "Serilog/3.1.1",
-            "Serilog.Extensions.Logging/8.0.0",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2",
-            "Microsoft.Extensions.Hosting.Abstractions/8.0.1"
+            "Serilog.Extensions.Logging/8.0.0"
           ],
           "Layer": {
             "Digest": "sha256:0e172bd278064a7c290ab2314f79cfb49782a58a9353fcf1c128cddcfc9b42b3",
