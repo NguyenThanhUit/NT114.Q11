@@ -73,6 +73,7 @@ app.Lifetime.ApplicationStarted.Register(async () =>
     Console.WriteLine("Starting database initialization with retry policy...");
     var result = await Policy.Handle<TimeoutException>()
         .Or<HttpRequestException>()
+        .Or<TaskCanceledException>()
         .WaitAndRetryAsync(
             retryCount: 5,
             sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(5),
