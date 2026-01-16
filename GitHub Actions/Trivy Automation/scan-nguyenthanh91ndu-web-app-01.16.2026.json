@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc716-439b-7773-a948-2bd03c4737f2",
-  "CreatedAt": "2026-01-16T13:54:43.739489855Z",
+  "ReportID": "019bc71c-dc24-7f16-9983-468bb26a21b3",
+  "CreatedAt": "2026-01-16T14:01:56.004989936Z",
   "ArtifactID": "sha256:b866f1c6201a993a05d32529e68fa998b7102e1a361a1fb94f5ade9eba869199",
   "ArtifactName": "nguyenthanh91ndu/web-app:latest",
   "ArtifactType": "container_image",

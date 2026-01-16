@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc716-4f08-7b01-8a77-55ae26732b91",
-  "CreatedAt": "2026-01-16T13:54:46.664722486Z",
+  "ReportID": "019bc71c-da66-7616-8ce7-b055f5756911",
+  "CreatedAt": "2026-01-16T14:01:55.558400222Z",
   "ArtifactID": "sha256:551d0f18efbe950d0d5ee27a6399dd7916300109815e476378bfa93042d5220c",
   "ArtifactName": "nguyenthanh91ndu/gateway-svc:latest",
   "ArtifactType": "container_image",
