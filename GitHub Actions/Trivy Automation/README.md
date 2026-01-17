@@ -1,6 +1,6 @@
 # 🔒 Trivy Security Scan Report
 
-**Scan Date:** 01.16.2026
+**Scan Date:** 01.17.2026
 
 ---
 
