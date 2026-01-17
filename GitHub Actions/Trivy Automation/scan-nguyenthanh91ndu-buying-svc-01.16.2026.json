@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc62f-4e07-7ac9-aaef-6f051ea085d7",
-  "CreatedAt": "2026-01-16T09:42:27.591708062Z",
+  "ReportID": "019bc71c-e247-7398-8f26-55bcaf500ad5",
+  "CreatedAt": "2026-01-16T14:01:57.57523641Z",
   "ArtifactID": "sha256:57303f2b46889db1622e8d6da6c3834a1fbbf51ceb160b172117661d4e2f1464",
   "ArtifactName": "nguyenthanh91ndu/buying-svc:latest",
   "ArtifactType": "container_image",
@@ -8289,7 +8289,7 @@
             "https://github.com/gpg/gnupg/compare/gnupg-2.2.50...gnupg-2.2.51",
             "https://gpg.fail/memcpy",
             "https://linux.oracle.com/cve/CVE-2025-68973.html",
-            "https://linux.oracle.com/errata/ELSA-2026-0697.html",
+            "https://linux.oracle.com/errata/ELSA-2026-0719.html",
             "https://lists.debian.org/debian-lts-announce/2026/01/msg00008.html",
             "https://media.ccc.de/v/39c3-to-sign-or-not-to-sign-practical-vulnerabilities-i",
             "https://news.ycombinator.com/item?id=46403200",
@@ -8377,9 +8377,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8444,12 +8446,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8541,9 +8543,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8608,12 +8612,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8705,9 +8709,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8772,12 +8778,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8869,9 +8875,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8936,12 +8944,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8970,18 +8978,18 @@
           "Name": "BuyingService",
           "Identifier": {
             "PURL": "pkg:nuget/BuyingService@1.0.0",
-            "UID": "7f529111205d7349"
+            "UID": "199ccbfa83ffd03a"
           },
           "Version": "1.0.0",
           "Relationship": "root",
           "DependsOn": [
-            "MongoDB.Entities/24.1.1",
-            "Polly/8.6.3",
-            "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1",
             "MassTransit.EntityFrameworkCore/8.3.7",
             "MassTransit.RabbitMQ/8.4.0-develop.2236",
             "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
-            "Microsoft.EntityFrameworkCore.Design/9.0.2"
+            "Microsoft.EntityFrameworkCore.Design/9.0.2",
+            "MongoDB.Entities/24.1.1",
+            "Polly/8.6.3",
+            "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -8999,13 +9007,13 @@
           "Name": "AutoMapper.Extensions.Microsoft.DependencyInjection",
           "Identifier": {
             "PURL": "pkg:nuget/AutoMapper.Extensions.Microsoft.DependencyInjection@12.0.1",
-            "UID": "a45e3d223a3abb84"
+            "UID": "c3cb6af47ad2340e"
           },
           "Version": "12.0.1",
           "Relationship": "direct",
           "DependsOn": [
-            "AutoMapper/12.0.1",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2",
+            "AutoMapper/12.0.1"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9048,13 +9056,13 @@
           "Name": "MassTransit.RabbitMQ",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.4.0-develop.2236",
-            "UID": "1c9093e39e18ec35"
+            "UID": "3559d027e43f569c"
           },
           "Version": "8.4.0-develop.2236",
           "Relationship": "direct",
           "DependsOn": [
-            "RabbitMQ.Client/7.1.1",
-            "MassTransit/8.4.0-develop.2236"
+            "MassTransit/8.4.0-develop.2236",
+            "RabbitMQ.Client/7.1.1"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9095,23 +9103,23 @@
           "Name": "Microsoft.EntityFrameworkCore.Design",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@9.0.2",
-            "UID": "6bb30bc11a137e91"
+            "UID": "975e44d380093303"
           },
           "Version": "9.0.2",
           "Relationship": "direct",
           "DependsOn": [
+            "Mono.TextTemplating/3.0.0",
             "System.Text.Json/9.0.2",
             "Humanizer.Core/2.14.1",
-            "Microsoft.Build.Locator/1.7.8",
             "Microsoft.CodeAnalysis.CSharp/4.8.0",
             "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
-            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
             "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
             "Microsoft.Extensions.DependencyModel/9.0.2",
+            "Microsoft.Build.Locator/1.7.8",
             "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
-            "Microsoft.Extensions.Logging/9.0.2",
-            "Mono.TextTemplating/3.0.0"
+            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9352,16 +9360,16 @@
           "Name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.CSharp.Workspaces@4.8.0",
-            "UID": "85f574760eb9cc30"
+            "UID": "154bc85e61980139"
           },
           "Version": "4.8.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Humanizer.Core/2.14.1",
             "Microsoft.CodeAnalysis.CSharp/4.8.0",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0"
+            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0",
+            "Humanizer.Core/2.14.1"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9400,16 +9408,16 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.Common",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.Common@4.8.0",
-            "UID": "637810c9868162fa"
+            "UID": "1fb0014690f5b4dd"
           },
           "Version": "4.8.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Humanizer.Core/2.14.1",
             "Microsoft.Bcl.AsyncInterfaces/7.0.0",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "System.IO.Pipelines/9.0.2"
+            "System.IO.Pipelines/9.0.2",
+            "Humanizer.Core/2.14.1"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9500,16 +9508,16 @@
           "Name": "Microsoft.EntityFrameworkCore.Relational",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Relational@9.0.2",
-            "UID": "8d07eec0f34fbc4"
+            "UID": "bd28005b1af3e31d"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Logging/9.0.2",
-            "Microsoft.EntityFrameworkCore/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2",
+            "Microsoft.EntityFrameworkCore/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9934,18 +9942,18 @@
           "Name": "MongoDB.Driver",
           "Identifier": {
             "PURL": "pkg:nuget/MongoDB.Driver@3.2.0",
-            "UID": "2b18380e393dd940"
+            "UID": "f5622238bf9821c9"
           },
           "Version": "3.2.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "DnsClient/1.6.1",
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "MongoDB.Bson/3.2.0",
             "SharpCompress/0.30.1",
             "Snappier/1.0.0",
-            "ZstdSharp.Port/0.7.3",
-            "DnsClient/1.6.1",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
+            "ZstdSharp.Port/0.7.3"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -10299,14 +10307,14 @@
           "Name": "System.Text.Json",
           "Identifier": {
             "PURL": "pkg:nuget/System.Text.Json@9.0.2",
-            "UID": "5660c1938f4f9a3b"
+            "UID": "bcc8018ed0f7f96c"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "System.IO.Pipelines/9.0.2",
-            "System.Text.Encodings.Web/9.0.2"
+            "System.Text.Encodings.Web/9.0.2",
+            "System.IO.Pipelines/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",

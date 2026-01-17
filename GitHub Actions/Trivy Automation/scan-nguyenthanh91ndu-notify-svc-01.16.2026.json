@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc62f-4a8a-7a9f-9d42-9e78f747bf5d",
-  "CreatedAt": "2026-01-16T09:42:26.698697169Z",
+  "ReportID": "019bc71c-d5df-712c-947c-c47d1306291b",
+  "CreatedAt": "2026-01-16T14:01:54.399078068Z",
   "ArtifactID": "sha256:4af8d9653d82ec148844e68247543cd501c3c347f547d0f3c7ceec5542d9c80f",
   "ArtifactName": "nguyenthanh91ndu/notify-svc:latest",
   "ArtifactType": "container_image",
@@ -8289,7 +8289,7 @@
             "https://github.com/gpg/gnupg/compare/gnupg-2.2.50...gnupg-2.2.51",
             "https://gpg.fail/memcpy",
             "https://linux.oracle.com/cve/CVE-2025-68973.html",
-            "https://linux.oracle.com/errata/ELSA-2026-0697.html",
+            "https://linux.oracle.com/errata/ELSA-2026-0719.html",
             "https://lists.debian.org/debian-lts-announce/2026/01/msg00008.html",
             "https://media.ccc.de/v/39c3-to-sign-or-not-to-sign-practical-vulnerabilities-i",
             "https://news.ycombinator.com/item?id=46403200",
@@ -8377,9 +8377,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8444,12 +8446,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8541,9 +8543,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8608,12 +8612,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8705,9 +8709,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8772,12 +8778,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8869,9 +8875,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8936,12 +8944,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8966,49 +8974,22 @@
       "Type": "dotnet-core",
       "Packages": [
         {
-          "ID": "NotificationService/1.0.0",
-          "Name": "NotificationService",
+          "ID": "Contracts/1.0.0",
+          "Name": "Contracts",
           "Identifier": {
-            "PURL": "pkg:nuget/NotificationService@1.0.0",
-            "UID": "4203692ade085bbb"
+            "PURL": "pkg:nuget/Contracts@1.0.0",
+            "UID": "4c01807aac7c606b"
           },
           "Version": "1.0.0",
           "Relationship": "root",
-          "DependsOn": [
-            "MassTransit.RabbitMQ/8.3.7"
-          ],
           "Layer": {
             "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
             "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"
           },
           "Locations": [
             {
-              "StartLine": 128,
-              "EndLine": 132
-            }
-          ]
-        },
-        {
-          "ID": "MassTransit.RabbitMQ/8.3.7",
-          "Name": "MassTransit.RabbitMQ",
-          "Identifier": {
-            "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7",
-            "UID": "310cfa76394a325b"
-          },
-          "Version": "8.3.7",
-          "Relationship": "direct",
-          "DependsOn": [
-            "MassTransit/8.3.7",
-            "RabbitMQ.Client/7.1.1"
-          ],
-          "Layer": {
-            "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
-            "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"
-          },
-          "Locations": [
-            {
-              "StartLine": 147,
-              "EndLine": 153
+              "StartLine": 252,
+              "EndLine": 256
             }
           ]
         },
@@ -9017,11 +8998,9 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.3.7",
-            "UID": "27bc242781c3eba0"
+            "UID": "13e0a95e46a16631"
           },
           "Version": "8.3.7",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "MassTransit.Abstractions/8.3.7"
           ],
@@ -9041,11 +9020,9 @@
           "Name": "MassTransit.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.Abstractions@8.3.7",
-            "UID": "bef5884424466dee"
+            "UID": "d706da99efef0516"
           },
           "Version": "8.3.7",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
             "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"
@@ -9058,15 +9035,36 @@
           ]
         },
         {
+          "ID": "MassTransit.RabbitMQ/8.3.7",
+          "Name": "MassTransit.RabbitMQ",
+          "Identifier": {
+            "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7",
+            "UID": "9728588b330739d7"
+          },
+          "Version": "8.3.7",
+          "DependsOn": [
+            "MassTransit/8.3.7",
+            "RabbitMQ.Client/7.1.1"
+          ],
+          "Layer": {
+            "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
+            "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"
+          },
+          "Locations": [
+            {
+              "StartLine": 147,
+              "EndLine": 153
+            }
+          ]
+        },
+        {
           "ID": "RabbitMQ.Client/7.1.1",
           "Name": "RabbitMQ.Client",
           "Identifier": {
             "PURL": "pkg:nuget/RabbitMQ.Client@7.1.1",
-            "UID": "38e1a3565bfe536c"
+            "UID": "b91c23eaf7e70b0"
           },
           "Version": "7.1.1",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",
             "DiffID": "sha256:fdd09a3095d6945f6afe6dd916906fee1a38cbbd86c45abf88958e4fb74723be"

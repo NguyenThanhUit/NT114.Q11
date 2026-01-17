@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc62f-5333-7b7d-8a20-c92837e88c5b",
-  "CreatedAt": "2026-01-16T09:42:28.915754639Z",
+  "ReportID": "019bc71c-eefd-7aa8-8f65-f729da15785b",
+  "CreatedAt": "2026-01-16T14:02:00.82969944Z",
   "ArtifactID": "sha256:c23bcdc48aeba4335da665a1268d0993b57981ec36587d2074b5526b22bb5518",
   "ArtifactName": "nguyenthanh91ndu/search-svc:latest",
   "ArtifactType": "container_image",
@@ -8321,14 +8321,14 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.3.7-develop.2222",
-            "UID": "53dca9b4b50e0662"
+            "UID": "bdbdb4d04596c67c"
           },
           "Version": "8.3.7-develop.2222",
           "DependsOn": [
-            "MassTransit.Abstractions/8.3.7-develop.2222",
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2",
+            "MassTransit.Abstractions/8.3.7-develop.2222"
           ],
           "Layer": {
             "Digest": "sha256:273895b7ac0b344085671819940c4f18dad676e817053b9f9e591921a156137c",
@@ -8365,12 +8365,12 @@
           "Name": "MassTransit.RabbitMQ",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7-develop.2222",
-            "UID": "d64dd4fed51b42b7"
+            "UID": "6d9cf5e55b3c8f87"
           },
           "Version": "8.3.7-develop.2222",
           "DependsOn": [
-            "RabbitMQ.Client/7.1.0",
-            "MassTransit/8.3.7-develop.2222"
+            "MassTransit/8.3.7-develop.2222",
+            "RabbitMQ.Client/7.1.0"
           ],
           "Layer": {
             "Digest": "sha256:273895b7ac0b344085671819940c4f18dad676e817053b9f9e591921a156137c",
@@ -8518,13 +8518,13 @@
           "Name": "Microsoft.Extensions.Diagnostics",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Diagnostics@9.0.2",
-            "UID": "97adc8ff2c6e053e"
+            "UID": "85461b8742f98981"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.Extensions.Configuration/9.0.2",
             "Microsoft.Extensions.Diagnostics.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.2"
+            "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.2",
+            "Microsoft.Extensions.Configuration/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:273895b7ac0b344085671819940c4f18dad676e817053b9f9e591921a156137c",
@@ -8542,13 +8542,13 @@
           "Name": "Microsoft.Extensions.Diagnostics.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Diagnostics.Abstractions@9.0.2",
-            "UID": "5e3840f824390c24"
+            "UID": "dbcf90fda69e7da4"
           },
           "Version": "9.0.2",
           "DependsOn": [
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
-            "System.Diagnostics.DiagnosticSource/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
+            "System.Diagnostics.DiagnosticSource/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:273895b7ac0b344085671819940c4f18dad676e817053b9f9e591921a156137c",
@@ -8566,16 +8566,16 @@
           "Name": "Microsoft.Extensions.Http",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Http@9.0.2",
-            "UID": "abed44f0a6a7db47"
+            "UID": "573fbaa3d6b938b6"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Diagnostics/9.0.2",
             "Microsoft.Extensions.Logging/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2",
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:273895b7ac0b344085671819940c4f18dad676e817053b9f9e591921a156137c",
@@ -8687,15 +8687,15 @@
           "Name": "Microsoft.Extensions.Options.ConfigurationExtensions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Options.ConfigurationExtensions@9.0.2",
-            "UID": "4dfbcb9ec8fc2bfd"
+            "UID": "536c7c881d10b4e6"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.Extensions.Configuration.Binder/9.0.2",
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.Configuration.Binder/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:273895b7ac0b344085671819940c4f18dad676e817053b9f9e591921a156137c",
@@ -8770,16 +8770,16 @@
           "Name": "MongoDB.Driver",
           "Identifier": {
             "PURL": "pkg:nuget/MongoDB.Driver@3.2.0",
-            "UID": "6e55359315d54592"
+            "UID": "ab4f3c8f3e461d3b"
           },
           "Version": "3.2.0",
           "DependsOn": [
-            "DnsClient/1.6.1",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "MongoDB.Bson/3.2.0",
             "SharpCompress/0.30.1",
             "Snappier/1.0.0",
-            "ZstdSharp.Port/0.7.3"
+            "ZstdSharp.Port/0.7.3",
+            "DnsClient/1.6.1",
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:273895b7ac0b344085671819940c4f18dad676e817053b9f9e591921a156137c",

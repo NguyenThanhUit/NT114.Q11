@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bc62f-493f-707d-8252-26fd3756709b",
-  "CreatedAt": "2026-01-16T09:42:26.367032926Z",
+  "ReportID": "019bc71c-dcc5-72f3-b2b1-77269b011cac",
+  "CreatedAt": "2026-01-16T14:01:56.165194747Z",
   "ArtifactID": "sha256:2304bee41c72be65989e3c622f7df100e785eeb84a4b3f32d812185c9d455581",
   "ArtifactName": "nguyenthanh91ndu/deposits-svc:latest",
   "ArtifactType": "container_image",
@@ -8289,7 +8289,7 @@
             "https://github.com/gpg/gnupg/compare/gnupg-2.2.50...gnupg-2.2.51",
             "https://gpg.fail/memcpy",
             "https://linux.oracle.com/cve/CVE-2025-68973.html",
-            "https://linux.oracle.com/errata/ELSA-2026-0697.html",
+            "https://linux.oracle.com/errata/ELSA-2026-0719.html",
             "https://lists.debian.org/debian-lts-announce/2026/01/msg00008.html",
             "https://media.ccc.de/v/39c3-to-sign-or-not-to-sign-practical-vulnerabilities-i",
             "https://news.ycombinator.com/item?id=46403200",
@@ -8377,9 +8377,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8444,12 +8446,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8541,9 +8543,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8608,12 +8612,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8705,9 +8709,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8772,12 +8778,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8869,9 +8875,11 @@
             "https://access.redhat.com/security/cve/CVE-2025-6020",
             "https://bugzilla.redhat.com/2372512",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
-            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
-            "https://errata.rockylinux.org/RLSA-2025:9526",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/8/ALSA-2025-14557.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
             "https://linux.oracle.com/cve/CVE-2025-6020.html",
             "https://linux.oracle.com/errata/ELSA-2025-9526.html",
             "https://lists.debian.org/debian-lts-announce/2025/09/msg00021.html",
@@ -8936,12 +8944,12 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2024/01/18/3",
-            "https://access.redhat.com/errata/RHSA-2024:2438",
+            "https://access.redhat.com/errata/RHSA-2024:3163",
             "https://access.redhat.com/security/cve/CVE-2024-22365",
             "https://bugzilla.redhat.com/2257722",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2257722",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22365",
-            "https://errata.almalinux.org/9/ALSA-2024-2438.html",
+            "https://errata.almalinux.org/8/ALSA-2024-3163.html",
             "https://errata.rockylinux.org/RLSA-2024:3163",
             "https://github.com/linux-pam/linux-pam",
             "https://github.com/linux-pam/linux-pam/commit/031bb5a5d0d950253b68138b498dc93be69a64cb",
@@ -8966,33 +8974,41 @@
       "Type": "dotnet-core",
       "Packages": [
         {
-          "ID": "WalletService/1.0.0",
-          "Name": "WalletService",
+          "ID": "Contracts/1.0.0",
+          "Name": "Contracts",
           "Identifier": {
-            "PURL": "pkg:nuget/WalletService@1.0.0",
-            "UID": "9a7df349802936a5"
+            "PURL": "pkg:nuget/Contracts@1.0.0",
+            "UID": "36e4b0d823669dca"
           },
           "Version": "1.0.0",
           "Relationship": "root",
-          "DependsOn": [
-            "MassTransit.RabbitMQ/8.3.7-develop.2222",
-            "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
-            "MongoDB.Entities/24.1.1",
-            "QRCoder/1.6.0",
-            "Microsoft.EntityFrameworkCore.Design/9.0.2",
-            "Microsoft.Extensions.Http.Polly/9.0.2",
-            "Polly/8.6.3",
-            "VNPAY.NET/8.5.0",
-            "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1"
-          ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
           },
           "Locations": [
             {
-              "StartLine": 1073,
-              "EndLine": 1077
+              "StartLine": 1694,
+              "EndLine": 1698
+            }
+          ]
+        },
+        {
+          "ID": "AutoMapper/12.0.1",
+          "Name": "AutoMapper",
+          "Identifier": {
+            "PURL": "pkg:nuget/AutoMapper@12.0.1",
+            "UID": "ac49522af4f65f07"
+          },
+          "Version": "12.0.1",
+          "Layer": {
+            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
+            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
+          },
+          "Locations": [
+            {
+              "StartLine": 1078,
+              "EndLine": 1084
             }
           ]
         },
@@ -9001,10 +9017,9 @@
           "Name": "AutoMapper.Extensions.Microsoft.DependencyInjection",
           "Identifier": {
             "PURL": "pkg:nuget/AutoMapper.Extensions.Microsoft.DependencyInjection@12.0.1",
-            "UID": "897412f47c98dbe2"
+            "UID": "f9a87199bb8c4081"
           },
           "Version": "12.0.1",
-          "Relationship": "direct",
           "DependsOn": [
             "AutoMapper/12.0.1",
             "Microsoft.Extensions.Options/9.0.2"
@@ -9021,228 +9036,13 @@
           ]
         },
         {
-          "ID": "MassTransit.RabbitMQ/8.3.7-develop.2222",
-          "Name": "MassTransit.RabbitMQ",
-          "Identifier": {
-            "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7-develop.2222",
-            "UID": "2b8441967967e684"
-          },
-          "Version": "8.3.7-develop.2222",
-          "Relationship": "direct",
-          "DependsOn": [
-            "MassTransit/8.3.7-develop.2222",
-            "RabbitMQ.Client/7.1.0"
-          ],
-          "Layer": {
-            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
-            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
-          },
-          "Locations": [
-            {
-              "StartLine": 1120,
-              "EndLine": 1126
-            }
-          ]
-        },
-        {
-          "ID": "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
-          "Name": "Microsoft.AspNetCore.Authentication.JwtBearer",
-          "Identifier": {
-            "PURL": "pkg:nuget/Microsoft.AspNetCore.Authentication.JwtBearer@8.0.13",
-            "UID": "8e6a15f23a037eb8"
-          },
-          "Version": "8.0.13",
-          "Relationship": "direct",
-          "DependsOn": [
-            "Microsoft.IdentityModel.Protocols.OpenIdConnect/7.1.2"
-          ],
-          "Layer": {
-            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
-            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
-          },
-          "Locations": [
-            {
-              "StartLine": 1127,
-              "EndLine": 1133
-            }
-          ]
-        },
-        {
-          "ID": "Microsoft.EntityFrameworkCore.Design/9.0.2",
-          "Name": "Microsoft.EntityFrameworkCore.Design",
-          "Identifier": {
-            "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@9.0.2",
-            "UID": "11c95dc446aa94a5"
-          },
-          "Version": "9.0.2",
-          "Relationship": "direct",
-          "DependsOn": [
-            "Mono.TextTemplating/3.0.0",
-            "Microsoft.CodeAnalysis.CSharp/4.8.0",
-            "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
-            "Microsoft.Extensions.DependencyModel/9.0.2",
-            "System.Text.Json/9.0.2",
-            "Humanizer.Core/2.14.1",
-            "Microsoft.Build.Locator/1.7.8",
-            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
-            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
-            "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Logging/9.0.2"
-          ],
-          "Layer": {
-            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
-            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
-          },
-          "Locations": [
-            {
-              "StartLine": 1239,
-              "EndLine": 1245
-            }
-          ]
-        },
-        {
-          "ID": "Microsoft.Extensions.Http.Polly/9.0.2",
-          "Name": "Microsoft.Extensions.Http.Polly",
-          "Identifier": {
-            "PURL": "pkg:nuget/Microsoft.Extensions.Http.Polly@9.0.2",
-            "UID": "c8dd269eedb53bfa"
-          },
-          "Version": "9.0.2",
-          "Relationship": "direct",
-          "DependsOn": [
-            "Microsoft.Extensions.Http/9.0.2",
-            "Polly/8.6.3",
-            "Polly.Extensions.Http/3.0.0"
-          ],
-          "Layer": {
-            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
-            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
-          },
-          "Locations": [
-            {
-              "StartLine": 1358,
-              "EndLine": 1364
-            }
-          ]
-        },
-        {
-          "ID": "MongoDB.Entities/24.1.1",
-          "Name": "MongoDB.Entities",
-          "Identifier": {
-            "PURL": "pkg:nuget/MongoDB.Entities@24.1.1",
-            "UID": "503cb245a0ee427e"
-          },
-          "Version": "24.1.1",
-          "Relationship": "direct",
-          "DependsOn": [
-            "MongoDB.Driver/3.2.0"
-          ],
-          "Layer": {
-            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
-            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
-          },
-          "Locations": [
-            {
-              "StartLine": 1470,
-              "EndLine": 1476
-            }
-          ]
-        },
-        {
-          "ID": "Polly/8.6.3",
-          "Name": "Polly",
-          "Identifier": {
-            "PURL": "pkg:nuget/Polly@8.6.3",
-            "UID": "fbb1c96b6038a656"
-          },
-          "Version": "8.6.3",
-          "Relationship": "direct",
-          "DependsOn": [
-            "Polly.Core/8.6.3"
-          ],
-          "Layer": {
-            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
-            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
-          },
-          "Locations": [
-            {
-              "StartLine": 1484,
-              "EndLine": 1490
-            }
-          ]
-        },
-        {
-          "ID": "QRCoder/1.6.0",
-          "Name": "QRCoder",
-          "Identifier": {
-            "PURL": "pkg:nuget/QRCoder@1.6.0",
-            "UID": "d238cf8c8dd5b53c"
-          },
-          "Version": "1.6.0",
-          "Relationship": "direct",
-          "Layer": {
-            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
-            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
-          },
-          "Locations": [
-            {
-              "StartLine": 1505,
-              "EndLine": 1511
-            }
-          ]
-        },
-        {
-          "ID": "VNPAY.NET/8.5.0",
-          "Name": "VNPAY.NET",
-          "Identifier": {
-            "PURL": "pkg:nuget/VNPAY.NET@8.5.0",
-            "UID": "c724b4080dc1624d"
-          },
-          "Version": "8.5.0",
-          "Relationship": "direct",
-          "Layer": {
-            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
-            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
-          },
-          "Locations": [
-            {
-              "StartLine": 1680,
-              "EndLine": 1686
-            }
-          ]
-        },
-        {
-          "ID": "AutoMapper/12.0.1",
-          "Name": "AutoMapper",
-          "Identifier": {
-            "PURL": "pkg:nuget/AutoMapper@12.0.1",
-            "UID": "6a4451c28581ba1d"
-          },
-          "Version": "12.0.1",
-          "Indirect": true,
-          "Relationship": "indirect",
-          "Layer": {
-            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
-            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
-          },
-          "Locations": [
-            {
-              "StartLine": 1078,
-              "EndLine": 1084
-            }
-          ]
-        },
-        {
           "ID": "DnsClient/1.6.1",
           "Name": "DnsClient",
           "Identifier": {
             "PURL": "pkg:nuget/DnsClient@1.6.1",
-            "UID": "b20e44918f710f26"
+            "UID": "a083dca84799ca44"
           },
           "Version": "1.6.1",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9259,11 +9059,9 @@
           "Name": "Humanizer.Core",
           "Identifier": {
             "PURL": "pkg:nuget/Humanizer.Core@2.14.1",
-            "UID": "3a2eb7da2924f52a"
+            "UID": "b4ffc7fc6dc44003"
           },
           "Version": "2.14.1",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9280,11 +9078,9 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.3.7-develop.2222",
-            "UID": "cf06420ad486407a"
+            "UID": "879391b84ebe571f"
           },
           "Version": "8.3.7-develop.2222",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
@@ -9307,11 +9103,9 @@
           "Name": "MassTransit.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.Abstractions@8.3.7-develop.2222",
-            "UID": "2b23747cd772ba5a"
+            "UID": "f5b70c4cffc2eb57"
           },
           "Version": "8.3.7-develop.2222",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9324,15 +9118,58 @@
           ]
         },
         {
+          "ID": "MassTransit.RabbitMQ/8.3.7-develop.2222",
+          "Name": "MassTransit.RabbitMQ",
+          "Identifier": {
+            "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7-develop.2222",
+            "UID": "1335a90918297f6f"
+          },
+          "Version": "8.3.7-develop.2222",
+          "DependsOn": [
+            "MassTransit/8.3.7-develop.2222",
+            "RabbitMQ.Client/7.1.0"
+          ],
+          "Layer": {
+            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
+            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
+          },
+          "Locations": [
+            {
+              "StartLine": 1120,
+              "EndLine": 1126
+            }
+          ]
+        },
+        {
+          "ID": "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
+          "Name": "Microsoft.AspNetCore.Authentication.JwtBearer",
+          "Identifier": {
+            "PURL": "pkg:nuget/Microsoft.AspNetCore.Authentication.JwtBearer@8.0.13",
+            "UID": "469a4c3efd9841bd"
+          },
+          "Version": "8.0.13",
+          "DependsOn": [
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect/7.1.2"
+          ],
+          "Layer": {
+            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
+            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
+          },
+          "Locations": [
+            {
+              "StartLine": 1127,
+              "EndLine": 1133
+            }
+          ]
+        },
+        {
           "ID": "Microsoft.Bcl.AsyncInterfaces/7.0.0",
           "Name": "Microsoft.Bcl.AsyncInterfaces",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Bcl.AsyncInterfaces@7.0.0",
-            "UID": "64ff9fb30547e950"
+            "UID": "ed393e8cbd295da4"
           },
           "Version": "7.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9349,11 +9186,9 @@
           "Name": "Microsoft.Build.Locator",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Build.Locator@1.7.8",
-            "UID": "a9899717d07372a1"
+            "UID": "6a419ff9325ea91e"
           },
           "Version": "1.7.8",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9370,11 +9205,9 @@
           "Name": "Microsoft.CodeAnalysis.CSharp",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.CSharp@4.8.0",
-            "UID": "2629f69a5d31f426"
+            "UID": "35313654868f3ca2"
           },
           "Version": "4.8.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.CodeAnalysis.Common/4.8.0"
           ],
@@ -9394,16 +9227,14 @@
           "Name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.CSharp.Workspaces@4.8.0",
-            "UID": "e7d24945da71d7fc"
+            "UID": "b30190a4ec903af3"
           },
           "Version": "4.8.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
-            "Humanizer.Core/2.14.1",
             "Microsoft.CodeAnalysis.CSharp/4.8.0",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0"
+            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0",
+            "Humanizer.Core/2.14.1"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9421,11 +9252,9 @@
           "Name": "Microsoft.CodeAnalysis.Common",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Common@4.8.0",
-            "UID": "6c812e8926b26682"
+            "UID": "1bf6f78fca6c098e"
           },
           "Version": "4.8.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9442,11 +9271,9 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.Common",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.Common@4.8.0",
-            "UID": "fb854c782e22067f"
+            "UID": "7b15d4d134464729"
           },
           "Version": "4.8.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Bcl.AsyncInterfaces/7.0.0",
             "Microsoft.CodeAnalysis.Common/4.8.0",
@@ -9469,15 +9296,13 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.MSBuild@4.8.0",
-            "UID": "dd65b2408f8bcb70"
+            "UID": "aa22e952c51be606"
           },
           "Version": "4.8.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.CodeAnalysis.Common/4.8.0",
             "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0",
-            "System.Text.Json/9.0.2",
-            "Microsoft.CodeAnalysis.Common/4.8.0"
+            "System.Text.Json/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9495,11 +9320,9 @@
           "Name": "Microsoft.EntityFrameworkCore",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore@9.0.2",
-            "UID": "9d123687d278d861"
+            "UID": "2397d6eaa65d959f"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.EntityFrameworkCore.Abstractions/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
@@ -9521,11 +9344,9 @@
           "Name": "Microsoft.EntityFrameworkCore.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Abstractions@9.0.2",
-            "UID": "ff85bc8c1d851bb6"
+            "UID": "8ca453d9f1a8b9f4"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9538,15 +9359,46 @@
           ]
         },
         {
+          "ID": "Microsoft.EntityFrameworkCore.Design/9.0.2",
+          "Name": "Microsoft.EntityFrameworkCore.Design",
+          "Identifier": {
+            "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@9.0.2",
+            "UID": "b468c6c8d7a842c9"
+          },
+          "Version": "9.0.2",
+          "DependsOn": [
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.DependencyModel/9.0.2",
+            "Humanizer.Core/2.14.1",
+            "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
+            "Microsoft.Extensions.Logging/9.0.2",
+            "Mono.TextTemplating/3.0.0",
+            "System.Text.Json/9.0.2",
+            "Microsoft.Build.Locator/1.7.8",
+            "Microsoft.CodeAnalysis.CSharp/4.8.0",
+            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
+            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
+            "Microsoft.Extensions.Caching.Memory/9.0.2"
+          ],
+          "Layer": {
+            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
+            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
+          },
+          "Locations": [
+            {
+              "StartLine": 1239,
+              "EndLine": 1245
+            }
+          ]
+        },
+        {
           "ID": "Microsoft.EntityFrameworkCore.Relational/9.0.2",
           "Name": "Microsoft.EntityFrameworkCore.Relational",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Relational@9.0.2",
-            "UID": "68af5bf0d88c07fd"
+            "UID": "37535e19b2b13d5a"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.EntityFrameworkCore/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
@@ -9569,11 +9421,9 @@
           "Name": "Microsoft.Extensions.Caching.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Caching.Abstractions@9.0.2",
-            "UID": "5dc411b088c89b64"
+            "UID": "55c68c648ac4019d"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Extensions.Primitives/9.0.2"
           ],
@@ -9593,17 +9443,15 @@
           "Name": "Microsoft.Extensions.Caching.Memory",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Caching.Memory@9.0.2",
-            "UID": "77d4763d1a0a5ded"
+            "UID": "13452cb23fd00c3a"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
-            "Microsoft.Extensions.Caching.Abstractions/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
+            "Microsoft.Extensions.Caching.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9621,11 +9469,9 @@
           "Name": "Microsoft.Extensions.Configuration",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Configuration@9.0.2",
-            "UID": "1b34e353eefe5104"
+            "UID": "b2523677c49356a5"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2"
@@ -9646,11 +9492,9 @@
           "Name": "Microsoft.Extensions.Configuration.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Configuration.Abstractions@9.0.2",
-            "UID": "fc7be771465ddcf8"
+            "UID": "51319040a8ea23ce"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Extensions.Primitives/9.0.2"
           ],
@@ -9670,11 +9514,9 @@
           "Name": "Microsoft.Extensions.Configuration.Binder",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Configuration.Binder@9.0.2",
-            "UID": "b5fbf1d655e14753"
+            "UID": "f8e0313ece3394b7"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
           ],
@@ -9694,11 +9536,9 @@
           "Name": "Microsoft.Extensions.DependencyInjection",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.DependencyInjection@9.0.2",
-            "UID": "b2de1efde4c5fa6a"
+            "UID": "76b044121497f844"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
@@ -9718,11 +9558,9 @@
           "Name": "Microsoft.Extensions.DependencyInjection.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.DependencyInjection.Abstractions@9.0.2",
-            "UID": "3ffc92366b653fc5"
+            "UID": "98c1f5510e47f241"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9739,11 +9577,9 @@
           "Name": "Microsoft.Extensions.DependencyModel",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.DependencyModel@9.0.2",
-            "UID": "56573f33764967bd"
+            "UID": "cb760107ac5d6ae3"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "System.Text.Encodings.Web/9.0.2",
             "System.Text.Json/9.0.2"
@@ -9764,15 +9600,13 @@
           "Name": "Microsoft.Extensions.Diagnostics",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Diagnostics@9.0.2",
-            "UID": "398fd9506ea1ee9"
+            "UID": "18b69f6d0f861dee"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Configuration/9.0.2",
             "Microsoft.Extensions.Diagnostics.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.2"
+            "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.2",
+            "Microsoft.Extensions.Configuration/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9790,11 +9624,9 @@
           "Name": "Microsoft.Extensions.Diagnostics.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Diagnostics.Abstractions@9.0.2",
-            "UID": "aab645c96c175469"
+            "UID": "9756da8a5de7af75"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
@@ -9816,18 +9648,16 @@
           "Name": "Microsoft.Extensions.Http",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Http@9.0.2",
-            "UID": "3eafa84324c75c2d"
+            "UID": "200088c06d0a1978"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "Microsoft.Extensions.Diagnostics/9.0.2",
             "Microsoft.Extensions.Logging/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Diagnostics/9.0.2"
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9841,19 +9671,41 @@
           ]
         },
         {
+          "ID": "Microsoft.Extensions.Http.Polly/9.0.2",
+          "Name": "Microsoft.Extensions.Http.Polly",
+          "Identifier": {
+            "PURL": "pkg:nuget/Microsoft.Extensions.Http.Polly@9.0.2",
+            "UID": "350e8648ae4b9412"
+          },
+          "Version": "9.0.2",
+          "DependsOn": [
+            "Microsoft.Extensions.Http/9.0.2",
+            "Polly/8.6.3",
+            "Polly.Extensions.Http/3.0.0"
+          ],
+          "Layer": {
+            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
+            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
+          },
+          "Locations": [
+            {
+              "StartLine": 1358,
+              "EndLine": 1364
+            }
+          ]
+        },
+        {
           "ID": "Microsoft.Extensions.Logging/9.0.2",
           "Name": "Microsoft.Extensions.Logging",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Logging@9.0.2",
-            "UID": "2f0adcf3147c26fa"
+            "UID": "78ca673b6f9d436d"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.DependencyInjection/9.0.2",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9871,11 +9723,9 @@
           "Name": "Microsoft.Extensions.Logging.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Logging.Abstractions@9.0.2",
-            "UID": "1fbd8b9c57f8cfb3"
+            "UID": "883b96451f7c31d0"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "System.Diagnostics.DiagnosticSource/9.0.2"
@@ -9896,11 +9746,9 @@
           "Name": "Microsoft.Extensions.Options",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Options@9.0.2",
-            "UID": "5e3270b55b66199e"
+            "UID": "f65c4f789968974b"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2"
@@ -9921,17 +9769,15 @@
           "Name": "Microsoft.Extensions.Options.ConfigurationExtensions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Options.ConfigurationExtensions@9.0.2",
-            "UID": "97d7a424849296db"
+            "UID": "f2275c7b8a5193b"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
             "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
-            "Microsoft.Extensions.Configuration.Binder/9.0.2"
+            "Microsoft.Extensions.Configuration.Binder/9.0.2",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "Microsoft.Extensions.Options/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9949,11 +9795,9 @@
           "Name": "Microsoft.Extensions.Primitives",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Primitives@9.0.2",
-            "UID": "38d7bff5d3cfedbe"
+            "UID": "284aacdea17e51ec"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9970,11 +9814,9 @@
           "Name": "Microsoft.IdentityModel.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Abstractions@7.1.2",
-            "UID": "78c3226b9c0f6c14"
+            "UID": "2b65ece8798b33b3"
           },
           "Version": "7.1.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -9991,11 +9833,9 @@
           "Name": "Microsoft.IdentityModel.JsonWebTokens",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.JsonWebTokens@7.1.2",
-            "UID": "4a092fb8a266cfe1"
+            "UID": "4e3cbe78ff379a5"
           },
           "Version": "7.1.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.IdentityModel.Tokens/7.1.2"
           ],
@@ -10015,11 +9855,9 @@
           "Name": "Microsoft.IdentityModel.Logging",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Logging@7.1.2",
-            "UID": "90b4fc05d9e2721f"
+            "UID": "da1e03af38029b73"
           },
           "Version": "7.1.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.IdentityModel.Abstractions/7.1.2"
           ],
@@ -10039,11 +9877,9 @@
           "Name": "Microsoft.IdentityModel.Protocols",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols@7.1.2",
-            "UID": "baf23c81bd4397cd"
+            "UID": "670da209aea8d60d"
           },
           "Version": "7.1.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.IdentityModel.Logging/7.1.2",
             "Microsoft.IdentityModel.Tokens/7.1.2"
@@ -10064,11 +9900,9 @@
           "Name": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
-            "UID": "ce61948c69125775"
+            "UID": "dfc3194b16d7218d"
           },
           "Version": "7.1.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.IdentityModel.Protocols/7.1.2",
             "System.IdentityModel.Tokens.Jwt/7.1.2"
@@ -10089,11 +9923,9 @@
           "Name": "Microsoft.IdentityModel.Tokens",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Tokens@7.1.2",
-            "UID": "dcd887a754f96176"
+            "UID": "a797272b9e4c85ce"
           },
           "Version": "7.1.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Microsoft.IdentityModel.Logging/7.1.2"
           ],
@@ -10113,11 +9945,9 @@
           "Name": "MongoDB.Bson",
           "Identifier": {
             "PURL": "pkg:nuget/MongoDB.Bson@3.2.0",
-            "UID": "81468be2a1e3cdc0"
+            "UID": "86fbadd6fa170640"
           },
           "Version": "3.2.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10134,18 +9964,16 @@
           "Name": "MongoDB.Driver",
           "Identifier": {
             "PURL": "pkg:nuget/MongoDB.Driver@3.2.0",
-            "UID": "a340e17ffb719209"
+            "UID": "9cc2a6b5c62e51a"
           },
           "Version": "3.2.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
+            "ZstdSharp.Port/0.7.3",
             "DnsClient/1.6.1",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "MongoDB.Bson/3.2.0",
             "SharpCompress/0.30.1",
-            "Snappier/1.0.0",
-            "ZstdSharp.Port/0.7.3"
+            "Snappier/1.0.0"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -10159,15 +9987,35 @@
           ]
         },
         {
+          "ID": "MongoDB.Entities/24.1.1",
+          "Name": "MongoDB.Entities",
+          "Identifier": {
+            "PURL": "pkg:nuget/MongoDB.Entities@24.1.1",
+            "UID": "a9d69e572adb904a"
+          },
+          "Version": "24.1.1",
+          "DependsOn": [
+            "MongoDB.Driver/3.2.0"
+          ],
+          "Layer": {
+            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
+            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
+          },
+          "Locations": [
+            {
+              "StartLine": 1470,
+              "EndLine": 1476
+            }
+          ]
+        },
+        {
           "ID": "Mono.TextTemplating/3.0.0",
           "Name": "Mono.TextTemplating",
           "Identifier": {
             "PURL": "pkg:nuget/Mono.TextTemplating@3.0.0",
-            "UID": "ee6eb602c807fa5e"
+            "UID": "e19a22fc8b2ac13b"
           },
           "Version": "3.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "System.CodeDom/6.0.0"
           ],
@@ -10183,15 +10031,35 @@
           ]
         },
         {
+          "ID": "Polly/8.6.3",
+          "Name": "Polly",
+          "Identifier": {
+            "PURL": "pkg:nuget/Polly@8.6.3",
+            "UID": "d33bb7ee99ed55a1"
+          },
+          "Version": "8.6.3",
+          "DependsOn": [
+            "Polly.Core/8.6.3"
+          ],
+          "Layer": {
+            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
+            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
+          },
+          "Locations": [
+            {
+              "StartLine": 1484,
+              "EndLine": 1490
+            }
+          ]
+        },
+        {
           "ID": "Polly.Core/8.6.3",
           "Name": "Polly.Core",
           "Identifier": {
             "PURL": "pkg:nuget/Polly.Core@8.6.3",
-            "UID": "b841edb4dfd239e6"
+            "UID": "50cd925ae05c5e5c"
           },
           "Version": "8.6.3",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10208,11 +10076,9 @@
           "Name": "Polly.Extensions.Http",
           "Identifier": {
             "PURL": "pkg:nuget/Polly.Extensions.Http@3.0.0",
-            "UID": "c2e8aabae1db8c02"
+            "UID": "3117a8fbae612300"
           },
           "Version": "3.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "Polly/8.6.3"
           ],
@@ -10228,15 +10094,32 @@
           ]
         },
         {
+          "ID": "QRCoder/1.6.0",
+          "Name": "QRCoder",
+          "Identifier": {
+            "PURL": "pkg:nuget/QRCoder@1.6.0",
+            "UID": "ad51d83c0e225aa2"
+          },
+          "Version": "1.6.0",
+          "Layer": {
+            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
+            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
+          },
+          "Locations": [
+            {
+              "StartLine": 1505,
+              "EndLine": 1511
+            }
+          ]
+        },
+        {
           "ID": "RabbitMQ.Client/7.1.0",
           "Name": "RabbitMQ.Client",
           "Identifier": {
             "PURL": "pkg:nuget/RabbitMQ.Client@7.1.0",
-            "UID": "85e0541b504cb91c"
+            "UID": "6138c15d11c494d4"
           },
           "Version": "7.1.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "System.IO.Pipelines/9.0.2"
           ],
@@ -10256,11 +10139,9 @@
           "Name": "SharpCompress",
           "Identifier": {
             "PURL": "pkg:nuget/SharpCompress@0.30.1",
-            "UID": "bd21c6cc4643a571"
+            "UID": "b6beffded2e2ba03"
           },
           "Version": "0.30.1",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10277,11 +10158,9 @@
           "Name": "Snappier",
           "Identifier": {
             "PURL": "pkg:nuget/Snappier@1.0.0",
-            "UID": "5945b033d405cca"
+            "UID": "5d29c738635b3049"
           },
           "Version": "1.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10298,11 +10177,9 @@
           "Name": "System.CodeDom",
           "Identifier": {
             "PURL": "pkg:nuget/System.CodeDom@6.0.0",
-            "UID": "588b5b738d8d959a"
+            "UID": "d00683d4fd15a2c4"
           },
           "Version": "6.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10319,11 +10196,9 @@
           "Name": "System.Composition.AttributedModel",
           "Identifier": {
             "PURL": "pkg:nuget/System.Composition.AttributedModel@7.0.0",
-            "UID": "1c20ebef4954f0dd"
+            "UID": "3045c1fb90250a5"
           },
           "Version": "7.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10340,11 +10215,9 @@
           "Name": "System.Composition.Convention",
           "Identifier": {
             "PURL": "pkg:nuget/System.Composition.Convention@7.0.0",
-            "UID": "c954cde5f9f0a46e"
+            "UID": "1942db26acdd227f"
           },
           "Version": "7.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "System.Composition.AttributedModel/7.0.0"
           ],
@@ -10364,11 +10237,9 @@
           "Name": "System.Composition.Hosting",
           "Identifier": {
             "PURL": "pkg:nuget/System.Composition.Hosting@7.0.0",
-            "UID": "df2ea9bccf05fea5"
+            "UID": "1ef4c5ab0efe8941"
           },
           "Version": "7.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "System.Composition.Runtime/7.0.0"
           ],
@@ -10388,11 +10259,9 @@
           "Name": "System.Composition.Runtime",
           "Identifier": {
             "PURL": "pkg:nuget/System.Composition.Runtime@7.0.0",
-            "UID": "b891ebf0ecf79104"
+            "UID": "6af96aab6ce628d7"
           },
           "Version": "7.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10409,11 +10278,9 @@
           "Name": "System.Composition.TypedParts",
           "Identifier": {
             "PURL": "pkg:nuget/System.Composition.TypedParts@7.0.0",
-            "UID": "29f5ff7730faa700"
+            "UID": "87088ba13ffec760"
           },
           "Version": "7.0.0",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "System.Composition.AttributedModel/7.0.0",
             "System.Composition.Hosting/7.0.0",
@@ -10435,11 +10302,9 @@
           "Name": "System.Diagnostics.DiagnosticSource",
           "Identifier": {
             "PURL": "pkg:nuget/System.Diagnostics.DiagnosticSource@9.0.2",
-            "UID": "fb29fbe5fbdd11a0"
+            "UID": "d8346f628494965a"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10456,11 +10321,9 @@
           "Name": "System.IO.Pipelines",
           "Identifier": {
             "PURL": "pkg:nuget/System.IO.Pipelines@9.0.2",
-            "UID": "f795c14181374473"
+            "UID": "eec36d94baa9e647"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10477,14 +10340,12 @@
           "Name": "System.IdentityModel.Tokens.Jwt",
           "Identifier": {
             "PURL": "pkg:nuget/System.IdentityModel.Tokens.Jwt@7.1.2",
-            "UID": "565525638c41024c"
+            "UID": "4a98c6094d818cd0"
           },
           "Version": "7.1.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.IdentityModel.Tokens/7.1.2",
-            "Microsoft.IdentityModel.JsonWebTokens/7.1.2"
+            "Microsoft.IdentityModel.JsonWebTokens/7.1.2",
+            "Microsoft.IdentityModel.Tokens/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -10502,11 +10363,9 @@
           "Name": "System.Text.Encodings.Web",
           "Identifier": {
             "PURL": "pkg:nuget/System.Text.Encodings.Web@9.0.2",
-            "UID": "40420256b2fe3e3d"
+            "UID": "be1ce4e456df838b"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
@@ -10523,11 +10382,9 @@
           "Name": "System.Text.Json",
           "Identifier": {
             "PURL": "pkg:nuget/System.Text.Json@9.0.2",
-            "UID": "b3ec21ff9b2014cc"
+            "UID": "22b773980f913b52"
           },
           "Version": "9.0.2",
-          "Indirect": true,
-          "Relationship": "indirect",
           "DependsOn": [
             "System.IO.Pipelines/9.0.2",
             "System.Text.Encodings.Web/9.0.2"
@@ -10544,15 +10401,32 @@
           ]
         },
         {
+          "ID": "VNPAY.NET/8.5.0",
+          "Name": "VNPAY.NET",
+          "Identifier": {
+            "PURL": "pkg:nuget/VNPAY.NET@8.5.0",
+            "UID": "a5a8ee0a8a9ecf4d"
+          },
+          "Version": "8.5.0",
+          "Layer": {
+            "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
+            "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
+          },
+          "Locations": [
+            {
+              "StartLine": 1680,
+              "EndLine": 1686
+            }
+          ]
+        },
+        {
           "ID": "ZstdSharp.Port/0.7.3",
           "Name": "ZstdSharp.Port",
           "Identifier": {
             "PURL": "pkg:nuget/ZstdSharp.Port@0.7.3",
-            "UID": "41775fb201034277"
+            "UID": "79a5a0a074e535f"
           },
           "Version": "0.7.3",
-          "Indirect": true,
-          "Relationship": "indirect",
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
             "DiffID": "sha256:d216ca2e048329a9cbd8263c683d7f971ac85178254dfeddcdf5b77083c251f5"
