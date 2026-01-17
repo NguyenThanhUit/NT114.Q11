@@ -32,4 +32,4 @@ spec:
         idleTimeout: 2m
         maxRequestsPerConnection: 100
     tls:
-      mode: DISABLE
+      mode: ISTIO_MUTUAL

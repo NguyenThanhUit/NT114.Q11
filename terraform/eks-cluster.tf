@@ -16,15 +16,6 @@ module "eks" {
   }
 
   node_security_group_additional_rules = {
-    ingress_self_all = {
-      description                = "Allow all node to node traffic (required for pod cross-node)"
-      protocol                   = "-1"
-      from_port                  = 0
-      to_port                    = 0
-      type                       = "ingress"
-      source_node_security_group = true
-    }
-
     egress_all = {
       description = "Allow all outbound"
       protocol    = "-1"
@@ -106,4 +97,15 @@ resource "aws_eks_addon" "ebs_csi_driver" {
     module.eks,
     module.ebs_csi_driver_irsa
   ]
+}
+resource "aws_security_group_rule" "node_to_node_all" {
+  type              = "ingress"
+  security_group_id = module.eks.node_security_group_id
+
+  protocol  = "-1"
+  from_port = 0
+  to_port   = 0
+
+  source_security_group_id = module.eks.node_security_group_id
+  description              = "Allow all node-to-node traffic (pod cross-node)"
 }

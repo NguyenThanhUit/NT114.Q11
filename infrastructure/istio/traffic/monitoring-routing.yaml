@@ -1,0 +1,50 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: kiali-vs
+  namespace: istio-system
+spec:
+  hosts:
+  - kiali.nguyenth4nh.id.vn
+  gateways:
+  - main-gateway
+  http:
+  - route:
+    - destination:
+        host: kiali
+        port:
+          number: 20001
+---
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: prometheus-vs
+  namespace: istio-system
+spec:
+  hosts:
+  - prometheus.nguyenth4nh.id.vn
+  gateways:
+  - main-gateway
+  http:
+  - route:
+    - destination:
+        host: prometheus
+        port:
+          number: 9090
+---
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: grafana-vs
+  namespace: istio-system
+spec:
+  hosts:
+  - grafana.nguyenth4nh.id.vn
+  gateways:
+  - main-gateway
+  http:
+  - route:
+    - destination:
+        host: grafana
+        port:
+          number: 3000

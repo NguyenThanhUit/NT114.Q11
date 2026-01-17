@@ -15,6 +15,10 @@ spec:
     - app.nguyenth4nh.id.vn
     - api.nguyenth4nh.id.vn
     - id.nguyenth4nh.id.vn
+    - kiali.nguyenth4nh.id.vn
+    - prometheus.nguyenth4nh.id.vn
+    - grafana.nguyenth4nh.id.vn
+    - argocd.nguyenth4nh.id.vn
     tls:
       mode: SIMPLE
       credentialName: multi-domain-tls 
@@ -26,5 +30,9 @@ spec:
     - app.nguyenth4nh.id.vn
     - api.nguyenth4nh.id.vn
     - id.nguyenth4nh.id.vn
+    - kiali.nguyenth4nh.id.vn
+    - prometheus.nguyenth4nh.id.vn
+    - grafana.nguyenth4nh.id.vn
+    - argocd.nguyenth4nh.id.vn
     tls:
       httpsRedirect: true

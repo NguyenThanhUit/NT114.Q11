@@ -499,6 +499,18 @@ jobs:
 
       - name: Install Istio (demo profile)
         run: istioctl install --set profile=demo -y
+      
+      - name: Install Istio addons (Prometheus, Grafana, Kiali)
+        run: |
+          kubectl apply -f istio-1.28.0/samples/addons/prometheus.yaml
+          kubectl apply -f istio-1.28.0/samples/addons/grafana.yaml
+          kubectl apply -f istio-1.28.0/samples/addons/kiali.yaml
+      
+      - name: Wait for Istio addons
+        run: |
+          kubectl wait --for=condition=Available deployment/prometheus -n istio-system --timeout=60s
+          kubectl wait --for=condition=Available deployment/grafana -n istio-system --timeout=60s
+          kubectl wait --for=condition=Available deployment/kiali -n istio-system --timeout=60s
 
       # ---------- NAMESPACE ----------
       - name: Create namespaces
@@ -510,12 +522,6 @@ jobs:
         run: |
           kubectl label namespace backend istio-injection=enabled --overwrite
           kubectl label namespace frontend istio-injection=enabled --overwrite
-
-      # ---------- STORAGE ----------
-      - name: Install EBS CSI Driver
-        run: |
-          kubectl apply -k \
-            "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-1.21"
 
       # ---------- CERT MANAGER ----------
       - name: Install gateway-api
@@ -534,7 +540,7 @@ jobs:
           kubectl wait --for=condition=Available deployment/cert-manager-cainjector \
             -n cert-manager --timeout=120s
       
-      # ---------- TLS ----------
+      # # ---------- TLS ----------
       # - name: Apply ClusterIssuer
       #   run: kubectl apply -f infrastructure/istio/lets_encrypt/clusterIssuer.yaml
 
@@ -583,25 +589,27 @@ jobs:
 
       - name: Apply Databases
         run: |
-          kubectl apply -f infrastructure/k8s/postgres-svc.yaml
-          kubectl apply -f infrastructure/k8s/mongo-svc.yaml
-          kubectl apply -f infrastructure/k8s/rabbitmq-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/postgres-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/mongo-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/rabbitmq-svc.yaml
 
+      - name: Wait 10s for database & message queue
+        run: sleep 10
 
-      - name: Apply Istio Traffic (early)
+      - name: Apply Istio Traffic
         run: |
           kubectl apply -f infrastructure/istio/traffic
 
 
-      - name: Apply Backend services (except search)
+      - name: Apply Backend services
         run: |
-          kubectl apply -f infrastructure/k8s/identity-svc.yaml
-          kubectl apply -f infrastructure/k8s/user-svc.yaml
-          kubectl apply -f infrastructure/k8s/order-svc.yaml
-          kubectl apply -f infrastructure/k8s/buying-svc.yaml
-          kubectl apply -f infrastructure/k8s/bid-svc.yaml
-          kubectl apply -f infrastructure/k8s/auction-svc.yaml
-          kubectl apply -f infrastructure/k8s/notify-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/identity-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/user-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/order-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/buying-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/bid-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/auction-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/notify-svc.yaml
 
 
       - name: Wait 10s for auction & order
@@ -618,14 +626,33 @@ jobs:
           kubectl apply -f infrastructure/k8s/gateway-svc.yaml
           kubectl apply -f infrastructure/k8s/webapp-svc.yaml
 
-  
-      - name: Apply Webapp v2
+      - name: Apply Webapp
         run: |
-          kubectl apply -f infrastructure/istio/webapp-svc-v2.yaml
+          kubectl apply -f infrastructure/k8s/frontend
 
+      - name: Install Argo CD
+        run: |
+          kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f -
+          kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
+      - name: Wait for Argo CD
+        run: |
+          kubectl wait --for=condition=Available deployment/argocd-server -n argocd --timeout=120s
+      - name: Configure Argo CD for Istio
+        run: |
+          # Disable internal TLS vì Istio đã handle TLS
+          kubectl patch configmap argocd-cmd-params-cm -n argocd --type merge -p '{"data":{"server.insecure":"true"}}'
+          kubectl rollout restart deployment argocd-server -n argocd
+          kubectl wait --for=condition=Available deployment/argocd-server -n argocd --timeout=60s
 
+      - name: Apply Argo CD Application
+        run: |
+          kubectl apply -f infrastructure/argocd/special-projects-app.yaml
 
-
+      - name: Get Argo CD admin password
+        run: |
+          echo "Argo CD Admin Password:"
+          kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+          echo ""
 
 

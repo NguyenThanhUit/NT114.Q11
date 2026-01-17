@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: special-projects-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/NguyenThanhUit/NT114.Q11.git
+    targetRevision: HEAD
+    path: infrastructure/k8s/backend  # Thư mục chứa file svc.yaml 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: backend
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend-app
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://github.com/NguyenThanhUit/NT114.Q11.git
+    targetRevision: HEAD
+    path: infrastructure/k8s/frontend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: frontend
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
