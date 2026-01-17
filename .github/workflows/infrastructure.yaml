@@ -106,3 +106,12 @@ jobs:
           mkdir -p infrastructure/secret
           echo "${{ secrets.K8S_SECRET_FILE }}" > infrastructure/secret/devsecrets.yaml
           kubectl apply -f infrastructure/secret/devsecrets.yaml
+# ---------- ARGO CD ----------
+      - name: Install Argo CD
+        run: |
+          kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f -
+          kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+      - name: Wait for Argo CD
+        run: |
+          kubectl wait --for=condition=Available deployment/argocd-server -n argocd --timeout=300s
