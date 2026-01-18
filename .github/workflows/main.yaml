@@ -367,7 +367,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-
       - name: Download Trivy artifacts
         uses: actions/download-artifact@v4
         with:
@@ -375,18 +374,20 @@ jobs:
           path: trivy-reports-all
           merge-multiple: true
 
- 
-      - name: Organize reports
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Organize reports & generate README
         run: |
-          mkdir -p "GitHub Actions/Trivy Automation"
-
-          # Copy JSON files
-          find trivy-reports-all -type f -name "*.json" -exec cp {} "GitHub Actions/Trivy Automation/" \;
-
-          # Create README
           REPORT_DIR="GitHub Actions/Trivy Automation"
           README="$REPORT_DIR/README.md"
 
+          mkdir -p "$REPORT_DIR"
+
+          # Copy JSON reports
+          find trivy-reports-all -type f -name "*.json" -exec cp {} "$REPORT_DIR/" \;
+
+          # README header
           echo "# 🔒 Trivy Security Scan Report" > "$README"
           echo "" >> "$README"
           echo "**Scan Date:** $(date +%m.%d.%Y)" >> "$README"
@@ -394,8 +395,22 @@ jobs:
           echo "---" >> "$README"
           echo "" >> "$README"
 
-          # Merge summaries
-          find trivy-reports-all -name "service-summary.md" -exec cat {} >> "$README" \;
+          # Summary table
+          echo "## 📦 Vulnerability Summary by Service" >> "$README"
+          echo "" >> "$README"
+          echo "| Service | 🔴 Critical | 🟠 High | 🟡 Medium | 🟢 Low |" >> "$README"
+          echo "|--------|-------------|----------|------------|--------|" >> "$README"
+
+          for file in "$REPORT_DIR"/scan-*.json; do
+            SERVICE=$(basename "$file" | sed -E 's/^scan-([^0-9]+).*/\1/')
+
+            CRITICAL=$(jq '[.Results[].Vulnerabilities[]? | select(.Severity=="CRITICAL")] | length' "$file")
+            HIGH=$(jq '[.Results[].Vulnerabilities[]? | select(.Severity=="HIGH")] | length' "$file")
+            MEDIUM=$(jq '[.Results[].Vulnerabilities[]? | select(.Severity=="MEDIUM")] | length' "$file")
+            LOW=$(jq '[.Results[].Vulnerabilities[]? | select(.Severity=="LOW")] | length' "$file")
+
+            echo "| $SERVICE | $CRITICAL | $HIGH | $MEDIUM | $LOW |" >> "$README"
+          done
 
           echo "" >> "$README"
           echo "---" >> "$README"
@@ -409,7 +424,8 @@ jobs:
           echo "  - 🟡 MEDIUM: Plan to fix" >> "$README"
           echo "  - 🟢 LOW: Fix when convenient" >> "$README"
 
-          ls -lh "$REPORT_DIR"
+          echo "✅ README generated:"
+          cat "$README"
 
       - name: Commit scan results to repository
         run: |
@@ -417,10 +433,11 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           git add "GitHub Actions/Trivy Automation/"
-          git diff --quiet && git diff --staged --quiet || (
-            git commit -m "📊 Add Trivy scan results ($(date +%m.%d.%Y))"
+          git diff --cached --quiet || (
+            git commit -m "📊 Add Trivy scan summary ($(date +%m.%d.%Y))"
             git push
           )
+
 
   SetUp_Terraform:
     needs: Commit-Trivy-Reports
