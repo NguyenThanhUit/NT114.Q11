@@ -4,18 +4,18 @@ metadata:
   name: webapp-svc-latest
   namespace: frontend
   labels:
-    app: webapp
+    app: webapp-svc
     version: latest
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webapp
+      app: webapp-svc
       version: latest
   template:
     metadata:
       labels:
-        app: webapp
+        app: webapp-svc
         version: latest
     spec:
       containers:
