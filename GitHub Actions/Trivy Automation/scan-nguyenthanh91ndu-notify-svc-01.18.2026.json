@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bd095-022f-7027-9994-2ad646c363e6",
-  "CreatedAt": "2026-01-18T10:09:45.007011684Z",
+  "ReportID": "019bd0d7-51c6-7975-8d25-e72f256c00ed",
+  "CreatedAt": "2026-01-18T11:22:10.758620928Z",
   "ArtifactID": "sha256:4af8d9653d82ec148844e68247543cd501c3c347f547d0f3c7ceec5542d9c80f",
   "ArtifactName": "nguyenthanh91ndu/notify-svc:latest",
   "ArtifactType": "container_image",
@@ -9035,12 +9035,12 @@
           "Name": "MassTransit.RabbitMQ",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7",
-            "UID": "9728588b330739d7"
+            "UID": "ac2e883b1e67d7f2"
           },
           "Version": "8.3.7",
           "DependsOn": [
-            "MassTransit/8.3.7",
-            "RabbitMQ.Client/7.1.1"
+            "RabbitMQ.Client/7.1.1",
+            "MassTransit/8.3.7"
           ],
           "Layer": {
             "Digest": "sha256:a0e236edb2f00958d547b1d62f0241f3a329822baf379aa85edf5e0bbc73e08e",

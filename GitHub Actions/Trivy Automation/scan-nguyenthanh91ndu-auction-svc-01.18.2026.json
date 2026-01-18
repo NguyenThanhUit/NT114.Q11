@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bd095-0b71-7f0d-94bb-90138be9f9a8",
-  "CreatedAt": "2026-01-18T10:09:47.377987638Z",
+  "ReportID": "019bd0d7-607b-71fd-b0b7-04eea1c26da7",
+  "CreatedAt": "2026-01-18T11:22:14.52313147Z",
   "ArtifactID": "sha256:1ef905e5b44eefaadc2c4a0761d85314549f3b8e8a4e749cc2b00921530091ae",
   "ArtifactName": "nguyenthanh91ndu/auction-svc:latest",
   "ArtifactType": "container_image",
@@ -8974,17 +8974,17 @@
           "Name": "AuctionService",
           "Identifier": {
             "PURL": "pkg:nuget/AuctionService@1.0.0",
-            "UID": "b6101a1652a03b52"
+            "UID": "f6893f62a204049f"
           },
           "Version": "1.0.0",
           "Relationship": "root",
           "DependsOn": [
             "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.4",
             "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1",
-            "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
-            "Polly/8.6.3",
             "MassTransit.EntityFrameworkCore/8.3.7-develop.2225",
-            "MassTransit.RabbitMQ/8.3.7-develop.2222"
+            "MassTransit.RabbitMQ/8.3.7-develop.2222",
+            "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
+            "Polly/8.6.3"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9026,14 +9026,14 @@
           "Name": "MassTransit.EntityFrameworkCore",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.EntityFrameworkCore@8.3.7-develop.2225",
-            "UID": "e8e051b544f03cd9"
+            "UID": "b6b81edcaa51d812"
           },
           "Version": "8.3.7-develop.2225",
           "Relationship": "direct",
           "DependsOn": [
-            "MassTransit/8.3.7-develop.2225",
             "Microsoft.EntityFrameworkCore.Relational/9.0.2",
-            "Microsoft.Extensions.Caching.Memory/9.0.2"
+            "Microsoft.Extensions.Caching.Memory/9.0.2",
+            "MassTransit/8.3.7-develop.2225"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9098,14 +9098,14 @@
           "Name": "Npgsql.EntityFrameworkCore.PostgreSQL",
           "Identifier": {
             "PURL": "pkg:nuget/Npgsql.EntityFrameworkCore.PostgreSQL@9.0.4",
-            "UID": "5e6cd7373884c8d8"
+            "UID": "48891049e81c3490"
           },
           "Version": "9.0.4",
           "Relationship": "direct",
           "DependsOn": [
+            "Npgsql/9.0.3",
             "Microsoft.EntityFrameworkCore/9.0.2",
-            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
-            "Npgsql/9.0.3"
+            "Microsoft.EntityFrameworkCore.Relational/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9212,14 +9212,14 @@
           "Name": "Grpc.AspNetCore.Server.ClientFactory",
           "Identifier": {
             "PURL": "pkg:nuget/Grpc.AspNetCore.Server.ClientFactory@2.70.0",
-            "UID": "1a0ed392047f37b7"
+            "UID": "d54e0e242132c85e"
           },
           "Version": "2.70.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Grpc.AspNetCore.Server/2.70.0",
-            "Grpc.Net.ClientFactory/2.70.0"
+            "Grpc.Net.ClientFactory/2.70.0",
+            "Grpc.AspNetCore.Server/2.70.0"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9477,17 +9477,17 @@
           "Name": "Microsoft.Extensions.Caching.Memory",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Caching.Memory@9.0.2",
-            "UID": "ff8e5c6df16c217a"
+            "UID": "708000b7dd88599a"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
-            "Microsoft.Extensions.Caching.Abstractions/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
+            "Microsoft.Extensions.Caching.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9574,15 +9574,15 @@
           "Name": "Microsoft.Extensions.Logging",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Logging@9.0.2",
-            "UID": "9693a213b9073e81"
+            "UID": "af24c15b1d71079f"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.DependencyInjection/9.0.2",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
+            "Microsoft.Extensions.Options/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9600,14 +9600,14 @@
           "Name": "Microsoft.Extensions.Logging.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Logging.Abstractions@9.0.2",
-            "UID": "693662fc3d655012"
+            "UID": "4545d5c7641c433b"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "System.Diagnostics.DiagnosticSource/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "System.Diagnostics.DiagnosticSource/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9740,14 +9740,14 @@
           "Name": "Microsoft.IdentityModel.Protocols",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols@7.1.2",
-            "UID": "c0e7d99ee9350a2c"
+            "UID": "8ca5691284077412"
           },
           "Version": "7.1.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.IdentityModel.Logging/7.1.2",
-            "Microsoft.IdentityModel.Tokens/7.1.2"
+            "Microsoft.IdentityModel.Tokens/7.1.2",
+            "Microsoft.IdentityModel.Logging/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
