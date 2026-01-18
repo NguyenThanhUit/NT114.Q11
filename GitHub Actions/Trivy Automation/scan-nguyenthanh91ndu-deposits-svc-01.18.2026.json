@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bd087-98bd-76fa-a474-4bce1266def9",
-  "CreatedAt": "2026-01-18T09:55:06.045459392Z",
+  "ReportID": "019bd095-19a3-7c5f-a975-e502a1ac602f",
+  "CreatedAt": "2026-01-18T10:09:51.01181269Z",
   "ArtifactID": "sha256:2304bee41c72be65989e3c622f7df100e785eeb84a4b3f32d812185c9d455581",
   "ArtifactName": "nguyenthanh91ndu/deposits-svc:latest",
   "ArtifactType": "container_image",
@@ -9013,12 +9013,12 @@
           "Name": "AutoMapper.Extensions.Microsoft.DependencyInjection",
           "Identifier": {
             "PURL": "pkg:nuget/AutoMapper.Extensions.Microsoft.DependencyInjection@12.0.1",
-            "UID": "4c3c1bb16d977c49"
+            "UID": "f9a87199bb8c4081"
           },
           "Version": "12.0.1",
           "DependsOn": [
-            "Microsoft.Extensions.Options/9.0.2",
-            "AutoMapper/12.0.1"
+            "AutoMapper/12.0.1",
+            "Microsoft.Extensions.Options/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9118,12 +9118,12 @@
           "Name": "MassTransit.RabbitMQ",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.RabbitMQ@8.3.7-develop.2222",
-            "UID": "1335a90918297f6f"
+            "UID": "cecc46d41a8dbf85"
           },
           "Version": "8.3.7-develop.2222",
           "DependsOn": [
-            "MassTransit/8.3.7-develop.2222",
-            "RabbitMQ.Client/7.1.0"
+            "RabbitMQ.Client/7.1.0",
+            "MassTransit/8.3.7-develop.2222"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9292,13 +9292,13 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.MSBuild@4.8.0",
-            "UID": "59495084daa6e948"
+            "UID": "aa22e952c51be606"
           },
           "Version": "4.8.0",
           "DependsOn": [
-            "System.Text.Json/9.0.2",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0"
+            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0",
+            "System.Text.Json/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9316,13 +9316,13 @@
           "Name": "Microsoft.EntityFrameworkCore",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore@9.0.2",
-            "UID": "2397d6eaa65d959f"
+            "UID": "91021a214705e6a"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "Microsoft.EntityFrameworkCore.Abstractions/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Logging/9.0.2"
+            "Microsoft.Extensions.Logging/9.0.2",
+            "Microsoft.EntityFrameworkCore.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9359,22 +9359,22 @@
           "Name": "Microsoft.EntityFrameworkCore.Design",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@9.0.2",
-            "UID": "53e61b4def4f4368"
+            "UID": "383171711a011568"
           },
           "Version": "9.0.2",
           "DependsOn": [
+            "Humanizer.Core/2.14.1",
             "Microsoft.Build.Locator/1.7.8",
+            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
             "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
             "Microsoft.EntityFrameworkCore.Relational/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
-            "Mono.TextTemplating/3.0.0",
-            "System.Text.Json/9.0.2",
-            "Humanizer.Core/2.14.1",
-            "Microsoft.CodeAnalysis.CSharp/4.8.0",
-            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
             "Microsoft.Extensions.DependencyModel/9.0.2",
-            "Microsoft.Extensions.Logging/9.0.2"
+            "System.Text.Json/9.0.2",
+            "Microsoft.CodeAnalysis.CSharp/4.8.0",
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2",
+            "Mono.TextTemplating/3.0.0"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9573,12 +9573,12 @@
           "Name": "Microsoft.Extensions.DependencyModel",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.DependencyModel@9.0.2",
-            "UID": "cb760107ac5d6ae3"
+            "UID": "f5152e8989494ab"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "System.Text.Encodings.Web/9.0.2",
-            "System.Text.Json/9.0.2"
+            "System.Text.Json/9.0.2",
+            "System.Text.Encodings.Web/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9596,13 +9596,13 @@
           "Name": "Microsoft.Extensions.Diagnostics",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Diagnostics@9.0.2",
-            "UID": "18b69f6d0f861dee"
+            "UID": "8fbc29d1c88fafc2"
           },
           "Version": "9.0.2",
           "DependsOn": [
+            "Microsoft.Extensions.Configuration/9.0.2",
             "Microsoft.Extensions.Diagnostics.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.2",
-            "Microsoft.Extensions.Configuration/9.0.2"
+            "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9671,13 +9671,13 @@
           "Name": "Microsoft.Extensions.Http.Polly",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Http.Polly@9.0.2",
-            "UID": "b4bb03c573f7c8a0"
+            "UID": "350e8648ae4b9412"
           },
           "Version": "9.0.2",
           "DependsOn": [
+            "Microsoft.Extensions.Http/9.0.2",
             "Polly/8.6.3",
-            "Polly.Extensions.Http/3.0.0",
-            "Microsoft.Extensions.Http/9.0.2"
+            "Polly.Extensions.Http/3.0.0"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9873,12 +9873,12 @@
           "Name": "Microsoft.IdentityModel.Protocols",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols@7.1.2",
-            "UID": "670da209aea8d60d"
+            "UID": "de3d2da5cdc7a25a"
           },
           "Version": "7.1.2",
           "DependsOn": [
-            "Microsoft.IdentityModel.Logging/7.1.2",
-            "Microsoft.IdentityModel.Tokens/7.1.2"
+            "Microsoft.IdentityModel.Tokens/7.1.2",
+            "Microsoft.IdentityModel.Logging/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9896,12 +9896,12 @@
           "Name": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
-            "UID": "dfc3194b16d7218d"
+            "UID": "a7932196a330e7e3"
           },
           "Version": "7.1.2",
           "DependsOn": [
-            "Microsoft.IdentityModel.Protocols/7.1.2",
-            "System.IdentityModel.Tokens.Jwt/7.1.2"
+            "System.IdentityModel.Tokens.Jwt/7.1.2",
+            "Microsoft.IdentityModel.Protocols/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",
@@ -9960,16 +9960,16 @@
           "Name": "MongoDB.Driver",
           "Identifier": {
             "PURL": "pkg:nuget/MongoDB.Driver@3.2.0",
-            "UID": "63da7706384dda9e"
+            "UID": "9cc2a6b5c62e51a"
           },
           "Version": "3.2.0",
           "DependsOn": [
+            "ZstdSharp.Port/0.7.3",
+            "DnsClient/1.6.1",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "MongoDB.Bson/3.2.0",
             "SharpCompress/0.30.1",
-            "Snappier/1.0.0",
-            "ZstdSharp.Port/0.7.3",
-            "DnsClient/1.6.1"
+            "Snappier/1.0.0"
           ],
           "Layer": {
             "Digest": "sha256:583bc38c006618c23b35f72bae17edc68c49ad76f5efc32c33b128b2bb553169",

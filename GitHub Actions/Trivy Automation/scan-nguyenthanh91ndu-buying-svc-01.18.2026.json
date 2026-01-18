@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bd087-9605-785f-8038-70f47e20c52b",
-  "CreatedAt": "2026-01-18T09:55:05.34954997Z",
+  "ReportID": "019bd095-140a-762d-b9f7-aa3bd200cc98",
+  "CreatedAt": "2026-01-18T10:09:49.578406763Z",
   "ArtifactID": "sha256:57303f2b46889db1622e8d6da6c3834a1fbbf51ceb160b172117661d4e2f1464",
   "ArtifactName": "nguyenthanh91ndu/buying-svc:latest",
   "ArtifactType": "container_image",
@@ -8974,18 +8974,18 @@
           "Name": "BuyingService",
           "Identifier": {
             "PURL": "pkg:nuget/BuyingService@1.0.0",
-            "UID": "f59f6b6d66c6a54b"
+            "UID": "a08327963309a5a9"
           },
           "Version": "1.0.0",
           "Relationship": "root",
           "DependsOn": [
+            "MassTransit.RabbitMQ/8.4.0-develop.2236",
+            "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
             "Microsoft.EntityFrameworkCore.Design/9.0.2",
             "MongoDB.Entities/24.1.1",
             "Polly/8.6.3",
             "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1",
-            "MassTransit.EntityFrameworkCore/8.3.7",
-            "MassTransit.RabbitMQ/8.4.0-develop.2236",
-            "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13"
+            "MassTransit.EntityFrameworkCore/8.3.7"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9099,23 +9099,23 @@
           "Name": "Microsoft.EntityFrameworkCore.Design",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@9.0.2",
-            "UID": "cd72527a15ea3a87"
+            "UID": "a7ae02240937b687"
           },
           "Version": "9.0.2",
           "Relationship": "direct",
           "DependsOn": [
-            "Mono.TextTemplating/3.0.0",
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
             "System.Text.Json/9.0.2",
+            "Humanizer.Core/2.14.1",
+            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
+            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
+            "Microsoft.Extensions.DependencyModel/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2",
+            "Mono.TextTemplating/3.0.0",
             "Microsoft.Build.Locator/1.7.8",
             "Microsoft.CodeAnalysis.CSharp/4.8.0",
             "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
-            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
-            "Microsoft.Extensions.DependencyModel/9.0.2",
-            "Humanizer.Core/2.14.1",
-            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
-            "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
-            "Microsoft.Extensions.Logging/9.0.2"
+            "Microsoft.Extensions.Caching.Memory/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9242,16 +9242,16 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.4.0-develop.2236",
-            "UID": "a8a15a3ce849b680"
+            "UID": "f0acf1af5cf30e4d"
           },
           "Version": "8.4.0-develop.2236",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "MassTransit.Abstractions/8.4.0-develop.2236",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2",
+            "MassTransit.Abstractions/8.4.0-develop.2236",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9404,16 +9404,16 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.Common",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.Common@4.8.0",
-            "UID": "637810c9868162fa"
+            "UID": "6b525ed9f6858663"
           },
           "Version": "4.8.0",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Humanizer.Core/2.14.1",
-            "Microsoft.Bcl.AsyncInterfaces/7.0.0",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "System.IO.Pipelines/9.0.2"
+            "System.IO.Pipelines/9.0.2",
+            "Humanizer.Core/2.14.1",
+            "Microsoft.Bcl.AsyncInterfaces/7.0.0"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9677,15 +9677,15 @@
           "Name": "Microsoft.Extensions.Logging",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Logging@9.0.2",
-            "UID": "c7e7e64dc6dcc492"
+            "UID": "1693fa336faaca55"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyInjection/9.0.2",
             "Microsoft.Extensions.Logging.Abstractions/9.0.2",
-            "Microsoft.Extensions.Options/9.0.2"
+            "Microsoft.Extensions.Options/9.0.2",
+            "Microsoft.Extensions.DependencyInjection/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -9728,14 +9728,14 @@
           "Name": "Microsoft.Extensions.Options",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Options@9.0.2",
-            "UID": "38cb5bba823c2747"
+            "UID": "c1e13e4db2fbdba5"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Primitives/9.0.2"
+            "Microsoft.Extensions.Primitives/9.0.2",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",
@@ -10303,14 +10303,14 @@
           "Name": "System.Text.Json",
           "Identifier": {
             "PURL": "pkg:nuget/System.Text.Json@9.0.2",
-            "UID": "bcc8018ed0f7f96c"
+            "UID": "5660c1938f4f9a3b"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "System.Text.Encodings.Web/9.0.2",
-            "System.IO.Pipelines/9.0.2"
+            "System.IO.Pipelines/9.0.2",
+            "System.Text.Encodings.Web/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:524eeafc45672cf9a27748cee209ea6fede6309f7d7d11e3163928566b91ded5",

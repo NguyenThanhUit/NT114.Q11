@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bd087-83a6-70bd-9ced-b61fdaa0b54f",
-  "CreatedAt": "2026-01-18T09:55:00.646049633Z",
+  "ReportID": "019bd095-0bbf-753a-bc4e-023f9a720237",
+  "CreatedAt": "2026-01-18T10:09:47.45534378Z",
   "ArtifactID": "sha256:c0cb753afca79cfe954f785f9257835b76be228898752c9972db7052601825b2",
   "ArtifactName": "nguyenthanh91ndu/order-svc:latest",
   "ArtifactType": "container_image",
@@ -9013,12 +9013,12 @@
           "Name": "AutoMapper.Extensions.Microsoft.DependencyInjection",
           "Identifier": {
             "PURL": "pkg:nuget/AutoMapper.Extensions.Microsoft.DependencyInjection@12.0.1",
-            "UID": "737d414189df2b99"
+            "UID": "b8a3603c4f05fde"
           },
           "Version": "12.0.1",
           "DependsOn": [
-            "Microsoft.Extensions.Options/9.0.2",
-            "AutoMapper/12.0.1"
+            "AutoMapper/12.0.1",
+            "Microsoft.Extensions.Options/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9272,14 +9272,14 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.Common",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.Common@4.8.0",
-            "UID": "ab8f849fcfe0db49"
+            "UID": "1af277cd58e378fe"
           },
           "Version": "4.8.0",
           "DependsOn": [
+            "Humanizer.Core/2.14.1",
             "Microsoft.Bcl.AsyncInterfaces/7.0.0",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "System.IO.Pipelines/9.0.2",
-            "Humanizer.Core/2.14.1"
+            "System.IO.Pipelines/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9297,13 +9297,13 @@
           "Name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.CodeAnalysis.Workspaces.MSBuild@4.8.0",
-            "UID": "93d9439d543a45df"
+            "UID": "4a01622c3b9feaf9"
           },
           "Version": "4.8.0",
           "DependsOn": [
+            "System.Text.Json/9.0.2",
             "Microsoft.CodeAnalysis.Common/4.8.0",
-            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0",
-            "System.Text.Json/9.0.2"
+            "Microsoft.CodeAnalysis.Workspaces.Common/4.8.0"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9321,13 +9321,13 @@
           "Name": "Microsoft.EntityFrameworkCore",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore@9.0.2",
-            "UID": "2827dd8783829474"
+            "UID": "cce0c359db436af5"
           },
           "Version": "9.0.2",
           "DependsOn": [
+            "Microsoft.EntityFrameworkCore.Abstractions/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Logging/9.0.2",
-            "Microsoft.EntityFrameworkCore.Abstractions/9.0.2"
+            "Microsoft.Extensions.Logging/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9364,22 +9364,22 @@
           "Name": "Microsoft.EntityFrameworkCore.Design",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Design@9.0.2",
-            "UID": "ea5e1364c8680121"
+            "UID": "f7a0f8925f51d8a7"
           },
           "Version": "9.0.2",
           "DependsOn": [
             "Microsoft.Extensions.Logging/9.0.2",
-            "System.Text.Json/9.0.2",
             "Humanizer.Core/2.14.1",
-            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
-            "Microsoft.Extensions.DependencyModel/9.0.2",
-            "Mono.TextTemplating/3.0.0",
-            "Microsoft.Build.Locator/1.7.8",
             "Microsoft.CodeAnalysis.CSharp/4.8.0",
             "Microsoft.CodeAnalysis.Workspaces.MSBuild/4.8.0",
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Mono.TextTemplating/3.0.0",
+            "System.Text.Json/9.0.2",
+            "Microsoft.Build.Locator/1.7.8",
+            "Microsoft.CodeAnalysis.CSharp.Workspaces/4.8.0",
             "Microsoft.EntityFrameworkCore.Relational/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
+            "Microsoft.Extensions.DependencyModel/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9580,12 +9580,12 @@
           "Name": "Microsoft.Extensions.Logging.Abstractions",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Logging.Abstractions@9.0.2",
-            "UID": "2aea79ab50a28b2a"
+            "UID": "fbd7173f50c1228a"
           },
           "Version": "9.0.2",
           "DependsOn": [
-            "System.Diagnostics.DiagnosticSource/9.0.2",
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2"
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "System.Diagnostics.DiagnosticSource/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
@@ -9731,12 +9731,12 @@
           "Name": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
-            "UID": "fd4c733d92d522b7"
+            "UID": "61be4b796d9a4f34"
           },
           "Version": "7.1.2",
           "DependsOn": [
-            "System.IdentityModel.Tokens.Jwt/7.1.2",
-            "Microsoft.IdentityModel.Protocols/7.1.2"
+            "Microsoft.IdentityModel.Protocols/7.1.2",
+            "System.IdentityModel.Tokens.Jwt/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:aa7ee1d168f3d320a9d26bd1ffd60738a2e7e281986f8679151a120a4f9456b0",
