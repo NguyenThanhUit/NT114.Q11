@@ -7,7 +7,7 @@ using Polly;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
 
 builder.Services.AddControllers();

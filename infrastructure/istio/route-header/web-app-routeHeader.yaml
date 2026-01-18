@@ -21,11 +21,24 @@ spec:
             subset: green
       timeout: 60s
     
- 
+    # Edge users -> blue (v56) - CHECK TRƯỚC CHROME
     - match:
         - headers:
-            cookie:
-              regex: ".*version=green.*"
+            user-agent:
+              regex: ".*Edg/.*"
+      route:
+        - destination:
+            host: webapp-clusterip.frontend.svc.cluster.local
+            port:
+              number: 3000
+            subset: blue
+      timeout: 60s
+    
+    # Chrome users (not Edge) -> green (latest)
+    - match:
+        - headers:
+            user-agent:
+              regex: ".*Chrome.*"
       route:
         - destination:
             host: webapp-clusterip.frontend.svc.cluster.local
@@ -34,10 +47,24 @@ spec:
             subset: green
       timeout: 60s
     
+    # Firefox users -> green (latest)
     - match:
         - headers:
-            cookie:
-              regex: ".*version=blue.*"
+            user-agent:
+              regex: ".*Firefox.*"
+      route:
+        - destination:
+            host: webapp-clusterip.frontend.svc.cluster.local
+            port:
+              number: 3000
+            subset: green
+      timeout: 60s
+    
+    # Safari users -> blue (v56) - Safari không có Chrome trong UA
+    - match:
+        - headers:
+            user-agent:
+              regex: ".*Safari.*"
       route:
         - destination:
             host: webapp-clusterip.frontend.svc.cluster.local
@@ -45,28 +72,27 @@ spec:
               number: 3000
             subset: blue
       timeout: 60s
-  
+    
+    # Mobile browsers -> blue (v56)
+    - match:
+        - headers:
+            user-agent:
+              regex: ".*(Mobile|Android|iPhone|iPad).*"
+      route:
+        - destination:
+            host: webapp-clusterip.frontend.svc.cluster.local
+            port:
+              number: 3000
+            subset: blue
+      timeout: 60s
+    
+    # Default fallback -> blue (v56)
     - route:
         - destination:
             host: webapp-clusterip.frontend.svc.cluster.local
             port:
               number: 3000
             subset: blue
-          weight: 50
-          headers:
-            response:
-              set:
-                Set-Cookie: "version=blue; Path=/; Max-Age=86400; HttpOnly; Secure; SameSite=Strict"
-        - destination:
-            host: webapp-clusterip.frontend.svc.cluster.local
-            port:
-              number: 3000
-            subset: green
-          weight: 50
-          headers:
-            response:
-              set:
-                Set-Cookie: "version=green; Path=/; Max-Age=86400; HttpOnly; Secure; SameSite=Strict"
       timeout: 60s
 ---
 apiVersion: networking.istio.io/v1beta1

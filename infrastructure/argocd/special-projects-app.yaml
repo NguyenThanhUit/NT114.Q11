@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/NguyenThanhUit/NT114.Q11.git
     targetRevision: HEAD
-    path: infrastructure/k8s/backend  # Thư mục chứa file svc.yaml 
+    path: infrastructure/k8s/backend
   destination:
     server: https://kubernetes.default.svc
     namespace: backend
@@ -23,6 +23,7 @@ metadata:
   name: frontend-app
   namespace: argocd
 spec:
+  project: default
   source:
     repoURL: https://github.com/NguyenThanhUit/NT114.Q11.git
     targetRevision: HEAD

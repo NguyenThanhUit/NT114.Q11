@@ -26,7 +26,7 @@ spec:
       containers:
         - name: bid-svc
           image: nguyenthanh91ndu/bidding-svc
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: ConnectionStrings__BidDbConnection
               valueFrom:

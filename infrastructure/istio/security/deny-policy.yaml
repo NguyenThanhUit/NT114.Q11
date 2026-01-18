@@ -12,12 +12,14 @@ spec:
   - to:
     - operation:
         hosts: ["api.nguyenth4nh.id.vn"]
-        ports: ["443"]
+        methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
     when:
     - key: request.headers[user-agent]
       values: 
-      - "Mozilla/*"
-      - "Chrome/*"
-      - "Safari/*"
-      - "Edge/*"
+      - "*Mozilla*"
+      - "*Chrome*"
+      - "*Safari*"
+      - "*Edge*"
+      - "*Firefox*"
       - "curl/*"
+      - "*curl*"

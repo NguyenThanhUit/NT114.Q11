@@ -27,7 +27,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "special-project-bucket-2"
+    bucket = "special-project-bucket-3"
     key    = "terraform.tfstate"
     region = "ap-southeast-1"
   }

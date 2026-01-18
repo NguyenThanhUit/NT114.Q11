@@ -10,7 +10,7 @@ spec:
   tls:
     - hosts:
         - app.nguyenth4nh.id.vn
-      secretName: all-tls
+      secretName: multi-domain-tls
   rules:
     - host: app.nguyenth4nh.id.vn
       http:

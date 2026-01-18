@@ -9,10 +9,22 @@ public interface IEmailSender
 
 public class EmailSender : IEmailSender
 {
-    private readonly string _smtpHost = "smtp.gmail.com";
-    private readonly int _smtpPort = 587;
-    private readonly string _smtpUser = "null";
-    private readonly string _smtpPass = "null";
+    private readonly string _smtpHost;
+    private readonly int _smtpPort;
+    private readonly string _smtpUser;
+    private readonly string _smtpPass;
+
+    public EmailSender(IConfiguration configuration)
+    {
+        _smtpHost = configuration["Email:SmtpHost"] 
+            ?? throw new ArgumentNullException("Email:SmtpHost is required");
+        _smtpPort = int.Parse(configuration["Email:SmtpPort"] 
+            ?? throw new ArgumentNullException("Email:SmtpPort is required"));
+        _smtpUser = configuration["Email:SmtpUser"] 
+            ?? throw new ArgumentNullException("Email:SmtpUser is required");
+        _smtpPass = configuration["Email:SmtpPass"] 
+            ?? throw new ArgumentNullException("Email:SmtpPass is required");
+    }
 
     public async Task SendEmailAsync(string toEmail, string subject, string body)
     {

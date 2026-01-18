@@ -618,16 +618,12 @@ jobs:
    
       - name: Apply Search service
         run: |
-          kubectl apply -f infrastructure/k8s/search-svc.yaml
+          kubectl apply -f infrastructure/k8s/backend/search-svc.yaml
 
  
       - name: Apply Gateway & Frontend
         run: |
-          kubectl apply -f infrastructure/k8s/gateway-svc.yaml
-          kubectl apply -f infrastructure/k8s/webapp-svc.yaml
-
-      - name: Apply Webapp
-        run: |
+          kubectl apply -f infrastructure/k8s/backend/gateway-svc.yaml
           kubectl apply -f infrastructure/k8s/frontend
 
       - name: Install Argo CD

@@ -26,7 +26,7 @@ spec:
       containers:
         - name: buyings-svc
           image: nguyenthanh91ndu/buying-svc
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env: 
             - name: ConnectionStrings__BuyingDbConnection
               valueFrom:
@@ -43,6 +43,26 @@ spec:
                 secretKeyRef:
                   name: rabbit-secret
                   key: password
+            - name: Email__SmtpHost
+              valueFrom:
+                secretKeyRef:
+                  name: email-buyings
+                  key: SMTP_HOST
+            - name: Email__SmtpPort
+              valueFrom:
+                secretKeyRef:
+                  name: email-buyings
+                  key: SMTP_PORT
+            - name: Email__SmtpUser
+              valueFrom:
+                secretKeyRef:
+                  name: email-buyings
+                  key: SMTP_USER
+            - name: Email__SmtpPass
+              valueFrom:
+                secretKeyRef:
+                  name: email-buyings
+                  key: SMTP_PASS
           envFrom:
             - configMapRef:
                 name: buyings-svc-config
