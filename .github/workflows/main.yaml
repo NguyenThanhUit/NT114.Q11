@@ -627,7 +627,7 @@ jobs:
       - name: Apply secrets
         run: |
           mkdir -p infrastructure/secret
-          echo "${{ secrets.K8S_SECRET_FILE }}" > infrastructure/secret/devsecrets.yaml
+          echo "${{ secrets.K8S_SECRET_FILE }}" | base64 -d > infrastructure/secret/devsecrets.yaml
           kubectl apply -f infrastructure/secret/devsecrets.yaml
 
   Deploy_Applications:

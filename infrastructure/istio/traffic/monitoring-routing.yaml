@@ -48,3 +48,20 @@ spec:
         host: grafana
         port:
           number: 3000
+---
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: argocd-vs
+  namespace: istio-system
+spec:
+  hosts:
+  - argocd.nguyenth4nh.id.vn
+  gateways:
+  - main-gateway
+  http:
+  - route:
+    - destination:
+        host: argocd-server.argocd.svc.cluster.local
+        port:
+          number: 80

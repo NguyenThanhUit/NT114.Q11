@@ -34,5 +34,3 @@ spec:
     - prometheus.nguyenth4nh.id.vn
     - grafana.nguyenth4nh.id.vn
     - argocd.nguyenth4nh.id.vn
-    tls:
-      httpsRedirect: true
