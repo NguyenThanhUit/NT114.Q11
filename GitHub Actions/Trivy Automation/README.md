@@ -1,9 +1,24 @@
 # 🔒 Trivy Security Scan Report
 
-**Scan Date:** 01.17.2026
+**Scan Date:** 01.18.2026
 
 ---
 
+## 📦 Vulnerability Summary by Service
+
+| Service | 🔴 Critical | 🟠 High | 🟡 Medium | 🟢 Low |
+|--------|-------------|----------|------------|--------|
+| nguyenthanh | 0 | 5 | 4 | 0 |
+| nguyenthanh | 0 | 5 | 4 | 0 |
+| nguyenthanh | 0 | 5 | 4 | 0 |
+| nguyenthanh | 0 | 5 | 4 | 0 |
+| nguyenthanh | 0 | 5 | 4 | 0 |
+| nguyenthanh | 0 | 5 | 5 | 1 |
+| nguyenthanh | 0 | 5 | 4 | 0 |
+| nguyenthanh | 0 | 5 | 4 | 0 |
+| nguyenthanh | 0 | 0 | 0 | 0 |
+| nguyenthanh | 0 | 5 | 4 | 0 |
+| nguyenthanh | 1 | 5 | 4 | 2 |
 
 ---
 
