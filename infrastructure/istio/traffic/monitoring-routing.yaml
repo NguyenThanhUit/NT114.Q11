@@ -65,3 +65,20 @@ spec:
         host: argocd-server.argocd.svc.cluster.local
         port:
           number: 80
+---
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: jaeger-vs
+  namespace: istio-system
+spec:
+  hosts:
+  - jaeger.nguyenth4nh.id.vn
+  gateways:
+  - main-gateway
+  http:
+  - route:
+    - destination:
+        host: jaeger-query
+        port:
+          number: 16686

@@ -34,7 +34,7 @@ spec:
         context: GATEWAY
         routeConfiguration:
           vhost:
-            name: "api.nguyenth4nh.id.vn:443"
+            name: "app.nguyenth4nh.id.vn:443"
       patch:
         operation: MERGE
         value:
@@ -43,8 +43,8 @@ spec:
               "@type": type.googleapis.com/envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit
               stat_prefix: api_rate_limiter
               token_bucket:
-                max_tokens: 10000
-                tokens_per_fill: 10000
+                max_tokens: 10
+                tokens_per_fill: 10
                 fill_interval: 60s
               filter_enabled:
                 runtime_key: local_rate_limit_enabled

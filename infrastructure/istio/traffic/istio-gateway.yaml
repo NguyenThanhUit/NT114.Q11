@@ -19,6 +19,7 @@ spec:
     - prometheus.nguyenth4nh.id.vn
     - grafana.nguyenth4nh.id.vn
     - argocd.nguyenth4nh.id.vn
+    - jaeger.nguyenth4nh.id.vn
     tls:
       mode: SIMPLE
       credentialName: multi-domain-tls 
@@ -34,3 +35,4 @@ spec:
     - prometheus.nguyenth4nh.id.vn
     - grafana.nguyenth4nh.id.vn
     - argocd.nguyenth4nh.id.vn
+    - jaeger.nguyenth4nh.id.vn
