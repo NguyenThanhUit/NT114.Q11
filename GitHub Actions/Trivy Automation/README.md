@@ -1,6 +1,6 @@
 # 🔒 Trivy Security Scan Report
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Repository:** nguyenthanh91ndu/*
 
 ---
@@ -10,18 +10,29 @@
 | Service | 🔴 Critical | 🟠 High | 🟡 Medium | 🟢 Low | Total |
 |---------|-------------|----------|-----------|---------|-------|
 | **auction** | 0 | 5 | 4 | 0 | 9 |
+| **auction** | 0 | 5 | 4 | 0 | 9 |
+| **bidding** | 0 | 5 | 4 | 0 | 9 |
 | **bidding** | 0 | 5 | 4 | 0 | 9 |
 | **buying** | 0 | 5 | 4 | 0 | 9 |
+| **buying** | 0 | 5 | 4 | 0 | 9 |
+| **deposits** | 0 | 5 | 4 | 0 | 9 |
 | **deposits** | 0 | 5 | 4 | 0 | 9 |
 | **gateway** | 0 | 5 | 4 | 0 | 9 |
+| **gateway** | 0 | 5 | 4 | 0 | 9 |
+| **identity** | 0 | 5 | 5 | 1 | 11 |
 | **identity** | 0 | 5 | 5 | 1 | 11 |
 | **notify** | 0 | 5 | 4 | 0 | 9 |
+| **notify** | 0 | 5 | 4 | 0 | 9 |
+| **order** | 0 | 5 | 4 | 0 | 9 |
 | **order** | 0 | 5 | 4 | 0 | 9 |
 | **search** | 0 | 0 | 0 | 0 | 0 |
+| **search** | 0 | 0 | 0 | 0 | 0 |
+| **user** | 0 | 5 | 4 | 0 | 9 |
 | **user** | 0 | 5 | 4 | 0 | 9 |
 | **web** | 1 | 5 | 4 | 2 | 12 |
+| **web** | 1 | 5 | 4 | 2 | 12 |
 |---------|-------------|----------|-----------|---------|-------|
-| **TOTAL** | **1** | **50** | **41** | **3** | **95** |
+| **TOTAL** | **2** | **100** | **82** | **6** | **190** |
 
 ---
 
@@ -29,7 +40,7 @@
 
 ### 🔍 auction-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/auction-svc:latest
 
 **Summary:** 9 vulnerabilities found
@@ -86,7 +97,7 @@
 
 ### 🔍 bidding-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/bidding-svc:latest
 
 **Summary:** 9 vulnerabilities found
@@ -143,7 +154,7 @@
 
 ### 🔍 buying-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/buying-svc:latest
 
 **Summary:** 9 vulnerabilities found
@@ -200,7 +211,7 @@
 
 ### 🔍 deposits-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/deposits-svc:latest
 
 **Summary:** 9 vulnerabilities found
@@ -257,7 +268,7 @@
 
 ### 🔍 gateway-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/gateway-svc:latest
 
 **Summary:** 9 vulnerabilities found
@@ -314,7 +325,7 @@
 
 ### 🔍 identity-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/identity-svc:latest
 
 **Summary:** 11 vulnerabilities found
@@ -382,7 +393,7 @@
 
 ### 🔍 notify-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/notify-svc:latest
 
 **Summary:** 9 vulnerabilities found
@@ -439,7 +450,7 @@
 
 ### 🔍 order-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/order-svc:latest
 
 **Summary:** 9 vulnerabilities found
@@ -496,7 +507,7 @@
 
 ### 🔍 search-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/search-svc:latest
 
 **Summary:** 0 vulnerabilities found
@@ -507,7 +518,7 @@
 
 ### 🔍 user-svc
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/user-svc:latest
 
 **Summary:** 9 vulnerabilities found
@@ -564,7 +575,7 @@
 
 ### 🔍 web-app
 
-**Scan Date:** 01.18.2026
+**Scan Date:** 01.19.2026
 **Full Image:** nguyenthanh91ndu/web-app:latest
 
 **Summary:** 12 vulnerabilities found
