@@ -9,6 +9,7 @@ spec:
   gateways:
     - istio-system/main-gateway
   http:
+    # Canary header -> green
     - match:
         - headers:
             x-canary:
@@ -20,8 +21,8 @@ spec:
               number: 3000
             subset: green
       timeout: 60s
-    
-    # Edge users -> blue (v56) - CHECK TRƯỚC CHROME
+
+    # Edge (Chromium) -> blue
     - match:
         - headers:
             user-agent:
@@ -33,12 +34,15 @@ spec:
               number: 3000
             subset: blue
       timeout: 60s
-    
-    # Chrome users (not Edge) -> green (latest)
+
+    # Chrome (KHÔNG Edge) -> green
     - match:
         - headers:
             user-agent:
               regex: ".*Chrome.*"
+          withoutHeaders:
+            user-agent:
+              regex: ".*Edg/.*"
       route:
         - destination:
             host: webapp-clusterip.frontend.svc.cluster.local
@@ -46,8 +50,8 @@ spec:
               number: 3000
             subset: green
       timeout: 60s
-    
-    # Firefox users -> green (latest)
+
+    # Firefox -> green
     - match:
         - headers:
             user-agent:
@@ -59,12 +63,15 @@ spec:
               number: 3000
             subset: green
       timeout: 60s
-    
-    # Safari users -> blue (v56) - Safari không có Chrome trong UA
+
+    # Safari (KHÔNG Chrome, KHÔNG Edge) -> blue
     - match:
         - headers:
             user-agent:
               regex: ".*Safari.*"
+          withoutHeaders:
+            user-agent:
+              regex: ".*(Chrome|Edg/).*"
       route:
         - destination:
             host: webapp-clusterip.frontend.svc.cluster.local
@@ -72,8 +79,8 @@ spec:
               number: 3000
             subset: blue
       timeout: 60s
-    
-    # Mobile browsers -> blue (v56)
+
+    # Mobile browsers -> blue
     - match:
         - headers:
             user-agent:
@@ -85,8 +92,8 @@ spec:
               number: 3000
             subset: blue
       timeout: 60s
-    
-    # Default fallback -> blue (v56)
+
+    # Default fallback -> blue
     - route:
         - destination:
             host: webapp-clusterip.frontend.svc.cluster.local
@@ -102,14 +109,17 @@ metadata:
   namespace: frontend
 spec:
   host: webapp-clusterip.frontend.svc.cluster.local
+
   trafficPolicy:
     loadBalancer:
       consistentHash:
         httpCookie:
           name: webapp-sticky
           ttl: 3600s
+
     tls:
       mode: ISTIO_MUTUAL
+
     connectionPool:
       tcp:
         maxConnections: 100
@@ -117,6 +127,7 @@ spec:
         http1MaxPendingRequests: 50
         http2MaxRequests: 100
         maxRequestsPerConnection: 2
+
     outlierDetection:
       consecutive5xxErrors: 5
       interval: 30s

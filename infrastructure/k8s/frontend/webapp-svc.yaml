@@ -15,7 +15,7 @@ spec:
     metadata:
       labels:
         app: webapp-svc
-        version: v56
+        version: v57
       annotations:
         proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
