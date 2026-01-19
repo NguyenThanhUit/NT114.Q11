@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 2,
-  "ReportID": "019bd397-f5ae-71da-a333-274586d09539",
-  "CreatedAt": "2026-01-19T00:11:50.062122819Z",
+  "ReportID": "019bd3ca-25ba-7e45-8195-c76cb90df830",
+  "CreatedAt": "2026-01-19T01:06:39.162936552Z",
   "ArtifactID": "sha256:1ef905e5b44eefaadc2c4a0761d85314549f3b8e8a4e749cc2b00921530091ae",
   "ArtifactName": "nguyenthanh91ndu/auction-svc:latest",
   "ArtifactType": "container_image",
@@ -8974,15 +8974,15 @@
           "Name": "AuctionService",
           "Identifier": {
             "PURL": "pkg:nuget/AuctionService@1.0.0",
-            "UID": "969252fdf4deea8c"
+            "UID": "b164684fa57c2387"
           },
           "Version": "1.0.0",
           "Relationship": "root",
           "DependsOn": [
-            "MassTransit.EntityFrameworkCore/8.3.7-develop.2225",
+            "MassTransit.RabbitMQ/8.3.7-develop.2222",
             "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.13",
             "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1",
-            "MassTransit.RabbitMQ/8.3.7-develop.2222",
+            "MassTransit.EntityFrameworkCore/8.3.7-develop.2225",
             "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.4",
             "Polly/8.6.3"
           ],
@@ -9026,14 +9026,14 @@
           "Name": "MassTransit.EntityFrameworkCore",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit.EntityFrameworkCore@8.3.7-develop.2225",
-            "UID": "b275f3725f31ca06"
+            "UID": "e8e051b544f03cd9"
           },
           "Version": "8.3.7-develop.2225",
           "Relationship": "direct",
           "DependsOn": [
-            "Microsoft.Extensions.Caching.Memory/9.0.2",
             "MassTransit/8.3.7-develop.2225",
-            "Microsoft.EntityFrameworkCore.Relational/9.0.2"
+            "Microsoft.EntityFrameworkCore.Relational/9.0.2",
+            "Microsoft.Extensions.Caching.Memory/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9331,16 +9331,16 @@
           "Name": "MassTransit",
           "Identifier": {
             "PURL": "pkg:nuget/MassTransit@8.3.7-develop.2225",
-            "UID": "7eafb3c1b9e4389b"
+            "UID": "b205d81bff876a4d"
           },
           "Version": "8.3.7-develop.2225",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Options/9.0.2",
             "MassTransit.Abstractions/8.3.7-develop.2225",
             "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
+            "Microsoft.Extensions.Options/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9379,15 +9379,15 @@
           "Name": "Microsoft.EntityFrameworkCore",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore@9.0.2",
-            "UID": "b76142f9523124c5"
+            "UID": "e764cfd4d51cd2bc"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
+            "Microsoft.Extensions.Caching.Memory/9.0.2",
             "Microsoft.Extensions.Logging/9.0.2",
-            "Microsoft.EntityFrameworkCore.Abstractions/9.0.2",
-            "Microsoft.Extensions.Caching.Memory/9.0.2"
+            "Microsoft.EntityFrameworkCore.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9426,16 +9426,16 @@
           "Name": "Microsoft.EntityFrameworkCore.Relational",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.EntityFrameworkCore.Relational@9.0.2",
-            "UID": "b37402579866c153"
+            "UID": "20e36c6c76fe51a9"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.Logging/9.0.2",
             "Microsoft.EntityFrameworkCore/9.0.2",
             "Microsoft.Extensions.Caching.Memory/9.0.2",
-            "Microsoft.Extensions.Configuration.Abstractions/9.0.2"
+            "Microsoft.Extensions.Configuration.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9477,17 +9477,17 @@
           "Name": "Microsoft.Extensions.Caching.Memory",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.Extensions.Caching.Memory@9.0.2",
-            "UID": "708000b7dd88599a"
+            "UID": "78431272fb24f3f8"
           },
           "Version": "9.0.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
-            "Microsoft.Extensions.Logging.Abstractions/9.0.2",
             "Microsoft.Extensions.Options/9.0.2",
             "Microsoft.Extensions.Primitives/9.0.2",
-            "Microsoft.Extensions.Caching.Abstractions/9.0.2"
+            "Microsoft.Extensions.Caching.Abstractions/9.0.2",
+            "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.2",
+            "Microsoft.Extensions.Logging.Abstractions/9.0.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
@@ -9740,14 +9740,14 @@
           "Name": "Microsoft.IdentityModel.Protocols",
           "Identifier": {
             "PURL": "pkg:nuget/Microsoft.IdentityModel.Protocols@7.1.2",
-            "UID": "c0e7d99ee9350a2c"
+            "UID": "8ca5691284077412"
           },
           "Version": "7.1.2",
           "Indirect": true,
           "Relationship": "indirect",
           "DependsOn": [
-            "Microsoft.IdentityModel.Logging/7.1.2",
-            "Microsoft.IdentityModel.Tokens/7.1.2"
+            "Microsoft.IdentityModel.Tokens/7.1.2",
+            "Microsoft.IdentityModel.Logging/7.1.2"
           ],
           "Layer": {
             "Digest": "sha256:a13519a4faa8d153af862669e8125088f418b92b22c3879b63daf66e22f05fe4",
